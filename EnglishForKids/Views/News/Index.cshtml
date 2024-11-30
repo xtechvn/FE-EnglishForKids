@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "Tin tức";
+    int category_id = ViewBag.category_id;
+    int current_page = ViewBag.page;
+    int page_size = ViewBag.page_size;
+    int total_items = ViewBag.total_items;// Tổng toàn bộ bản ghi theo 1 cate
+}
+<input type="hidden" class="category_id" data-categoryid="@category_id" />
+<section class="section-news">
+    <div class="container">
+        <div class="wrap-news cat-menu">
+            @await Component.InvokeAsync("MenuNews")
+        </div>
+        <div class="wrap-news">
+            <div class="content">
+
+                @*Load nhóm tin*@
+                <div class="list-news-home"></div>                
+
+                @*Phân trang*@
+                @await Component.InvokeAsync("Pagination",new {page = current_page, total_items = total_items, page_size = page_size, view="~/Views/Shared/Components/Pagination/Default.cshtml" })
+
+            </div>
+            <div class="siderbar-news">
+                <div class="box-side box-side-ads">
+                    <img src="~/images/banner-news.png" alt="" />
+                </div>
+                <div class="box-side">
+                    <h3 class="title">
+                        XEM NHIỀU NHẤT
+                    </h3>
+                    <div class="list-news">
+                        <div class="item-news">
+                            <div class="box-news">
+                                <div class="thumb-art">
+                                    <div class="thumb thumb-news">
+                                        <a href=""><img src="~/images/banner.jpg" alt="" /> </a>
+                                    </div>
+                                </div>
+                                <div class="right-content">
+                                    <h2 class="title-news">
+                                        <a href="">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất</a>
+                                    </h2>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-news">
+                            <div class="box-news">
+                                <div class="thumb-art">
+                                    <div class="thumb thumb-news">
+                                        <a href=""><img src="~/images/banner.jpg" alt="" /> </a>
+                                    </div>
+                                </div>
+                                <div class="right-content">
+                                    <h2 class="title-news">
+                                        <a href="">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất</a>
+                                    </h2>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-news">
+                            <div class="box-news">
+                                <div class="thumb-art">
+                                    <div class="thumb thumb-news">
+                                        <a href=""><img src="~/images/banner.jpg" alt="" /> </a>
+                                    </div>
+                                </div>
+                                <div class="right-content">
+                                    <h2 class="title-news">
+                                        <a href="">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất</a>
+                                    </h2>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-side">
+                    <h3 class="title">
+                        SẢN PHẨM KHUYẾN MÃI
+                    </h3>
+                    <div class="list-product">
+                        <div class="item-product">
+                            <a href="">
+                                <div class="box-thumb">
+                                    <div class="thumb-product">
+                                        <img src="images/product.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="box-info">
+                                    <h3 class="name-product">Mũ bảo vệ đầu cho bé Hulo Toys 100% Cotton</h3>
+
+                                    <div class="flex-price">
+                                        <div class="price-sale">689,098đ</div>
+                                        <div class="percent">65%</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item-product">
+                            <a href="">
+                                <div class="box-thumb">
+                                    <div class="thumb-product">
+                                        <img src="images/product.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="box-info">
+                                    <h3 class="name-product">Mũ bảo vệ đầu cho bé Hulo Toys 100% Cotton</h3>
+
+                                    <div class="flex-price">
+                                        <div class="price-sale">689,098đ</div>
+                                        <div class="percent">65%</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@section Scripts {
+    <script src="~/js/news/main.js"></script>
+}

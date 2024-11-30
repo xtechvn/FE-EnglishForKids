@@ -1,0 +1,63 @@
+﻿@using EnglishForKids.Models.Products;
+@using EnglishForKids.Utilities;
+@model List<ProductMongoDbModel>
+@inject IConfiguration Configuration
+@{
+    string keyword = ViewBag.keyword;
+}
+<section class="section-category">
+    <div class="container">
+        <div class="list-product-category">
+
+            <div class="title-box">
+                <h3 class="name-tt">
+
+                    @Html.Raw(
+                    keyword.Length > 0 ?
+                    "Kết quả theo từ khóa: <span class='text-lowercase'>'" + keyword + "'</span>"
+                    :
+                    "Danh sách sản phẩm được tìm thấy"
+                    )
+                </h3>
+            </div>
+
+            @if (Model != null)
+            {
+                <div class="product-category">
+                    <div class="list-product">
+
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                string link = @Html.GetStaticUrlProduct(item.name, item._id);
+                                <div class="item-product">
+                                    <a href="@link">
+                                        <div class="thumb thumb-product">
+                                            <img src="@Html.GetStaticUrlImage( item.avatar,Configuration)" alt="@item.name" />
+                                        </div>
+                                        <div class="box-info">
+                                            <h3 class="name-product">@item.name</h3>
+                                            <div class="flex-price">
+                                                <div class="price-sale">@item.label_price</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <h3 class="name-tt" style="font-size: 12pt;text-align: center;">  @Html.Raw("Không tìm thấy kết quả nào thỏa mãn từ khóa " + keyword)</h3>
+            }
+
+        </div>
+    </div>
+</section>
+
+<section class="section-category product_history">@*wwwroot\js\header\main.js*@</section>
+
+

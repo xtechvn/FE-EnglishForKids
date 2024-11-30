@@ -1,0 +1,59 @@
+﻿@using EnglishForKids.Models.Products;
+@using EnglishForKids.Utilities;
+@model ProductListResponseModel
+@{
+    @inject IConfiguration Configuration
+}
+@{
+    if (Model != null)
+    {
+        int current_page =( Model.page_index/Model.page_size)+1;
+        int total_items = Model.count;// Tổng toàn bộ bản ghi theo 1 cate
+        int page_size = Model.page_size;
+        if (Model != null)
+        {
+            <div class="list-product">
+
+                @foreach (var item in Model.items)
+                {
+                    //string url_fixed = item.avatar;
+                    //if (!url_fixed.Contains(static_url)
+                    //&& !url_fixed.Contains("base64")
+                    //&& !url_fixed.Contains("data:image"))
+                    //{
+                    //    url_fixed = static_url + item.avatar;
+                    //    url_fixed = url_fixed.Replace(@"//",@"/");
+                    //}
+                    
+                    <div class="item-product">
+                        <a href="@Html.GetStaticUrlProduct(item.name, item._id)">
+                            <div class="thumb thumb-product">
+                                <img src="@Html.GetStaticUrlImage( item.avatar,Configuration)" alt="@item.name" />
+                            </div>
+                            <div class="box-info">
+                                <h3 class="name-product">@item.name </h3>
+                                <div class="flex-price">
+                                    <div class="price-sale">
+                                        @if(item.attributes != null)
+                                        {
+                                            @Html.Raw(item.amount_min.ToString("N0"))
+                                        }
+                                        else
+                                        {
+                                            @Html.Raw(item.amount.ToString("N0"))
+                                        }
+                                        
+                                    </div>
+                                    @*<div class="price-old">689,098đ</div>*@
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+
+            @*Phân trang*@
+            @await Component.InvokeAsync("Pagination",new {page = current_page, total_items = total_items, page_size = page_size, view="~/Views/Shared/Components/PaginationAjax/Default.cshtml" })
+        }
+    }
+}

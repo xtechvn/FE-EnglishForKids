@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/HuloToys-Front-End/bin
+/HuloToys-Front-End/obj
+/.vs
+/.vs
+/.vs
+/.vs
+/EnglishForKids/obj
+/.vs
+/EnglishForKids/bin
+/EnglishForKids/obj
+/EnglishForKids/Properties
+.vs/HuloToys-Front-End/v17/.suo
+.vs/HuloToys-Front-End/DesignTimeBuild/.dtbcache.v2

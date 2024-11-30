@@ -1,0 +1,171 @@
+﻿@using EnglishForKids.Models.Products;
+@using EnglishForKids.Utilities;
+@model ProductDetailResponseModel
+@{
+
+    string static_domain = "https://static-image.adavigo.com";
+
+    var specification_list = new List<ProductSpecificationTypeModel>()
+    {
+      new ProductSpecificationTypeModel() { _id= 1, name= "Thương hiệu", type= 3 },
+       new ProductSpecificationTypeModel(){ _id= 5, name= "Chất liệu", type= 3 },
+       new ProductSpecificationTypeModel(){ _id= 2, name= "Độ tuổi khuyến nghị", type= 3 },
+       new ProductSpecificationTypeModel(){ _id= 6, name= "Ngày sản xuất", type= 2 },
+       new ProductSpecificationTypeModel(){ _id= 3, name= "Tên tổ chức chịu trách nhiệm sản xuất", type= 3 },
+       new ProductSpecificationTypeModel(){ _id= 7, name= "Địa chỉ tổ chức chịu trách nghiệm sản xuất", type= 3 },
+       new ProductSpecificationTypeModel(){ _id= 4, name= "Sản phẩm đặt theo yêu cầu", type= 3 },
+    };
+}
+@if (Model != null && Model.product_main != null)
+{
+    @using System.Text.Json
+
+    <input type="hidden" id="product_json_detail"
+           value='@JsonSerializer.Serialize(new {
+           img_thumb = @Model.product_main.images[0],
+           amount_vnd = @Model.product_main.label_price,
+           product_code = @Model.product_main._id,
+           product_name = @Model.product_main.name.Replace("\"", "").Replace("'", ""),
+           link = Html.GetStaticUrlProduct(Model.product_main.name, Model.product_main._id)
+       })' />
+
+    <section class="section-details-product" data-code="@Model.product_main._id">
+        <div class="container">
+            <div class="wrap-details">
+                <div class="gallery-product">
+                    <div class="swiper thumb-big">
+                        <div class="swiper-wrapper">
+                            @if (Model.product_main.images != null && Model.product_main.images.Count > 0)
+                            {
+                                foreach (var img in Model.product_main.images)
+                                {
+                                    var img_src = img;
+                                    if (img_src == null || img_src.Trim() == "") img_src = "";
+                                    if (!img_src.Contains(static_domain)
+                                    && !img_src.Contains("data:image")
+                                    && !img_src.Contains("http")
+                                    && !img_src.Contains("base64,"))
+                                        img_src = static_domain + img;
+                                    <div class="swiper-slide">
+                                        <img src="@img_src" />
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="swiper thumb-small">
+                        <div class="swiper-wrapper">
+                            @if (Model.product_main.images != null && Model.product_main.images.Count > 0)
+                            {
+                                foreach (var img in Model.product_main.images)
+                                {
+                                    var img_src = img;
+                                    if (img_src == null || img_src.Trim() == "") img_src = "";
+                                    if (!img_src.Contains(static_domain)
+                                    && !img_src.Contains("data:image")
+                                    && !img_src.Contains("http")
+                                    && !img_src.Contains("base64,"))
+                                        img_src = static_domain + img;
+                                    <div class="swiper-slide">
+                                        <img src="@img_src" />
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+                <div class="info-product">
+                    <div class="box-name-product">
+                        <h1 class="name-product">@Model.product_main.name </h1>
+                    </div>
+
+                    <div class="box-price">
+                        @if (Model.product_sub == null || Model.product_sub.Count <= 0)
+                        {
+                            <span class="price">@Model.product_main.amount.ToString("N0")</span>
+                        }
+                        else
+                        {
+                            @if (Model.product_main.amount_min == null) Model.product_main.amount_min = 0;
+                            @if (Model.product_main.amount_max == null) Model.product_main.amount_max = 0;
+                            <span class="price">@(((double)Model.product_main.amount_min).ToString("N0")) đ - @(((double)Model.product_main.amount_max).ToString("N0")) đ</span>
+                        }
+                    </div>
+
+                    <div class="box-info-details">
+                        <table class="attribute-table">
+                            <tbody>
+                                @if (Model.product_main.attributes != null && Model.product_main.attributes.Count > 0)
+                                {
+                                    foreach (var attribute_info in Model.product_main.attributes)
+                                    {
+                                        @if (Model.product_main.attributes_detail != null && Model.product_main.attributes_detail.Count > 0)
+                                        {
+                                            var attribute_detail_by_id = Model.product_main.attributes_detail.Where(x => x.attribute_id == attribute_info._id);
+                                            if (attribute_detail_by_id != null && attribute_detail_by_id.Count() > 0)
+                                            {
+                                                <tr class="attributes" data-level="@attribute_info._id">
+                                                    <td>@attribute_info.name</td>
+                                                    <td>
+                                                        <ul class="box-tag">
+                                                            @foreach (var attr_detail in attribute_detail_by_id)
+                                                            {
+                                                                <li class="attribute-detail" data-id="@attr_detail.name"><img style="@(attr_detail.img!=null && attr_detail.img.Trim()!=""?"":" display:none;")" src="@attr_detail.img" />@attr_detail.name</li>
+                                                            }
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                        <h4 class="tt-info">Thông tin sản phẩm</h4>
+                        <table id="tb-info-table" class="tb-info">
+                            <tbody>
+                                @if (Model.product_main.specification != null && Model.product_main.specification.Count > 0)
+                                {
+                                    var specs = Model.product_main.specification.Where(x => x.value != null);
+                                    foreach (var spec in specs)
+                                    {
+                                        var spec_selected = specification_list.FirstOrDefault(x => x._id == spec.attribute_id);
+                                        if (spec_selected != null && spec_selected._id > 0 && spec.value != null && spec.value.Trim() != "" && spec.value.Trim() != "null")
+                                        {
+                                            <tr>
+                                                <td>@spec_selected.name</td>
+                                                <td>@spec.value</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            @{
+                if (Model.product_main.description != null)
+                {
+                    <div class="box-description">
+                        <h3 class="title">Chi tiết sản phẩm</h3>
+                        <div class="content">
+                            @Html.Raw(Model.product_main.description.Replace("\n", " <br />"));
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+    </section>
+}
+
+@section Scripts {
+    <script src="~/js/product/constants.js"></script>
+    <script src="~/js/product/global.js"></script>
+    <script src="~/js/product/product_detail.js"></script>
+
+}

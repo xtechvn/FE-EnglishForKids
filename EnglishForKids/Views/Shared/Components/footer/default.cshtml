@@ -1,0 +1,74 @@
+﻿@using EnglishForKids.Utilities;
+@inject IConfiguration Configuration
+<footer class="footer">
+    <div class="container">
+        <div class="topfooter">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <h4 class="title">hỗ trợ khách hàng</h4>
+                    <div class="hotline">Hotline CSKH: 012 345 6789</div>
+                    <p class="time">(từ 8h30-17h30 Thứ 2 đến Thứ 6)</p>
+                </div>
+
+                @await Component.InvokeAsync("ArticleList", new {_zone_info = Html.GetStaticBlogNews("footer_news_zone_1", Configuration) })
+                @await Component.InvokeAsync("ArticleList", new {_zone_info = Html.GetStaticBlogNews("footer_news_zone_2", Configuration) })
+                
+
+                <div class="col-md-3 col-sm-6">
+                    <h4 class="title">hình thức thanh toán</h4>
+
+                    <ul class="payment">
+                        <li><img src="~/images/mastercard.png" alt="" /></li>
+                        <li><img src="~/images/jcb.png" alt="" /></li>
+                        <li><img src="~/images/visa.png" alt="" /></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="midfooter">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="logo"><a href=""><img src="~/images/Logo_EnglishForKids.png" alt="" /></a></div>
+                    <p class="slogan">CÔNG TY TNHH Biolife</p>
+
+                    <ul class="info">
+                        <li><a href="tel:0365809316"><i class="icon icon-hotline"></i>036 5809 316</a></li>
+                        <li>
+                            <a href="mailto:biolife.vn@gmail.com">
+                                <i class="icon icon-map"></i>biolife.vn@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <i class="icon icon-mail"></i>D25-47, Khu D, Khu đô thị Geleximco, Lê Trọng Tấn, Dương
+                            Nội,
+                            Hà Đông, Hà Nội
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="social">
+                        <li><a href=""><img src="~/images/shoppe.png" alt="" /></a></li>
+                        <li><a href=""><img src="~/images/fb.png" alt="" /></a></li>
+                        <li><a href=""><img src="~/images/yt.png" alt="" /></a></li>
+                        <li><a href=""><img src="~/images/tiktok.png" alt="" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottomfooter">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p>
+                        Copyright © 2024 BioLife. All Rights Reserved. <br />
+                        Design by XTech.vn
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <img src="~/images/logoSaleNoti.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

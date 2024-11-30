@@ -1,0 +1,57 @@
+﻿@using EnglishForKids.Models.Products;
+@using EnglishForKids.Utilities;
+@model ProductListResponseModel
+@inject IConfiguration Configuration
+@if (Model != null)
+{
+    <div class="container">
+        <div class="wrap-bg">
+            <div class="title-box">
+                <h2 class="tt-img">Sản phẩm nổi bật</h2>
+                <div class="xemthem"><a href="san-pham/tim-kiem?p=" style="color:white">Xem thêm</a></div>
+            </div>
+            <div class="list-product-sale">
+                <div class="swiper product-slide">
+                    <div class="swiper-wrapper">
+
+                        @foreach (var item in Model.items)
+                        {
+                            string link = @Html.GetStaticUrlProduct(item.name, item._id);
+                            <div class="swiper-slide">
+                                <div class="item-product">
+                                    <a href="@link">
+                                        <div class="thumb thumb-product">
+                                            <div class="thumb-product">
+                                                <img src="@Html.GetStaticUrlImage( item.avatar,Configuration)" alt="@item.name" />
+                                            </div>
+                                        </div>
+
+                                        <div class="box-info">
+                                            <h3 class="name-product">@item.name</h3>
+                                            <div class="flex-price">
+                                                <div class="price-sale">
+                                                @if (item.attributes != null)
+                                                {
+                                                    @Html.Raw(item.amount_min.ToString("N0"))
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw(item.amount.ToString("N0"))
+                                                }
+                                                </div>
+
+                                                @* <div class="price-old">@item.price</div>*@
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>                    
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+}

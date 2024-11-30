@@ -1,0 +1,38 @@
+﻿@using EnglishForKids.Models.Products;
+@using EnglishForKids.Utilities;
+@model List<ProductHistoryModel>
+
+<section class="section-category">
+    <div class="container">
+        <div class="list-product-category">
+            <div class="title-box">
+                <h3 class="name-tt"><a href="">SẢN PHẨM BẠN ĐÃ XEM</a></h3>
+                <a href="" class="xemthem">Xem thêm</a>
+            </div>
+            <div class="product-category">
+                <div class="list-product scroll-product">
+                   @foreach (var item in Model)
+                    {
+                        string link = @Html.GetStaticUrlProduct(item.name, item._id);
+                        <div class="item-product">
+                            <a href="@link">
+                                <div class="thumb thumb-product">
+                                    <img src="@item.avatar" alt="@item.name" />
+                                </div>
+                                <div class="box-info">
+                                    <h3 class="name-product">@item.name</h3>
+                                    <div class="flex-price">
+                                        <div class="price-sale">@item.label_price</div>
+                                        @*<div class="price-old">689,098đ</div>*@
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

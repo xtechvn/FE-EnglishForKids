@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "EnglishForKids": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:4248;http://localhost:4249"
+    }
+  }
+}

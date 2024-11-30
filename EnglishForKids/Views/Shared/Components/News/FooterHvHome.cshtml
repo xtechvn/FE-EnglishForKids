@@ -1,0 +1,21 @@
+﻿@using EnglishForKids.ViewModels;
+@using EnglishForKids.Utilities;
+
+@model ArticleViewModel
+@{
+    if (Model != null)
+    {
+        string forder_name = Model.obj_article_list.First().list_category_name.Split(",").First();
+
+        <div class="col-md-3 col-sm-6">
+            <h4 class="title">@forder_name</h4>
+            <ul class="links">
+                @foreach (var item in Model.obj_article_list)
+                {
+                    string link = @Html.GetStaticUrlNews(item.title, item.id);
+                    <li><a href="@link">@Html.Raw(item.title)</a></li>
+                }
+            </ul>
+        </div>
+    }
+}

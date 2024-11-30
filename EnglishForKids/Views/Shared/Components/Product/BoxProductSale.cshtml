@@ -1,0 +1,33 @@
+﻿@using EnglishForKids.Models.Products;
+@using EnglishForKids.Utilities;
+@model ProductListResponseModel
+@inject IConfiguration Configuration
+@if (Model != null)
+{
+    <h3 class="title">
+        SẢN PHẨM KHUYẾN MÃI
+    </h3>
+    <div class="list-product">
+        @foreach (var item in Model.items)
+        {
+            string link = @Html.GetStaticUrlProduct(item.name, item._id);
+            <div class="item-product">
+                <a href="">
+                    <div class="box-thumb">
+                        <div class="thumb-product">
+                            <img src="@Html.GetStaticUrlImage( item.avatar,Configuration)" alt="@item.name" />
+                        </div>
+                    </div>
+                    <div class="box-info">
+                        <h3 class="name-product">@item.name</h3>
+
+                        <div class="flex-price">
+                            <div class="price-sale">@item.label_price</div>
+                            @*<div class="percent">65%</div>*@
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+}

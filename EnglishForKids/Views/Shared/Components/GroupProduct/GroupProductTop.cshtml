@@ -1,0 +1,24 @@
+﻿@using EnglishForKids.Models;
+@using EnglishForKids.Utilities;
+@model List<CategoryModel>
+@inject IConfiguration Configuration
+
+@if (Model != null)
+{
+    <div class="container">
+        <div class="swiper banner-cat">
+            <div class="swiper-wrapper">
+
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide">
+                        <a href="@(Html.GetStaticUrlGroupProduct(item.name,item.id))"><img src="@Html.GetStaticImageUrl(item.imagepath, Configuration)" alt="@item.name" /></a>
+                        <h4 class="title">@item.name</h4>
+
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+}

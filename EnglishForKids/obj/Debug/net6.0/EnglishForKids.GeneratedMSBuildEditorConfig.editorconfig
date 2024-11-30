@@ -1,0 +1,131 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EnglishForKids
+build_property.RootNamespace = EnglishForKids
+build_property.ProjectDir = D:\Thuc_Tap_VnXpress\Clone_giaoduc\HuloToys-Font-End\EnglishForKids\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Thuc_Tap_VnXpress\Clone_giaoduc\HuloToys-Font-End\EnglishForKids
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Home/Intro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnRyby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/News/ArticleDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xBcnRpY2xlRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/News/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Product/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Product/GroupProductList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxHcm91cFByb2R1Y3RMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Product/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/footer/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcZm9vdGVyXGRlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/GroupProduct/GroupProductLeft.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcR3JvdXBQcm9kdWN0XEdyb3VwUHJvZHVjdExlZnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/GroupProduct/GroupProductTop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcR3JvdXBQcm9kdWN0XEdyb3VwUHJvZHVjdFRvcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/header/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcaGVhZGVyXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/News/FooterHvHome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3c1xGb290ZXJIdkhvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/News/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3c1xIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/News/Menu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3c1xNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/News/TopLeft.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3c1xUb3BMZWZ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/PaginationAjax/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUGFnaW5hdGlvbkFqYXhcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/Pagination/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUGFnaW5hdGlvblxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/Product/BoxProductBottomRight.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdFxCb3hQcm9kdWN0Qm90dG9tUmlnaHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/Product/BoxProductSale.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdFxCb3hQcm9kdWN0U2FsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/Product/BoxProductTopList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdFxCb3hQcm9kdWN0VG9wTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/Product/ProductHistoryViewComponent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdFxQcm9kdWN0SGlzdG9yeVZpZXdDb21wb25lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Components/Product/ProductListViewComponent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdFxQcm9kdWN0TGlzdFZpZXdDb21wb25lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Thuc_Tap_VnXpress/Clone_giaoduc/HuloToys-Font-End/EnglishForKids/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-41qc50l8jz

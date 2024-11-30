@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Biolife";
+}
+
+<section class="section-banner">
+    <div class="swiper swiper-banner">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href=""><img src="~/images/banner.jpg" alt="" /></a>
+            </div>
+            <div class="swiper-slide">
+                <a href=""><img src="~/images/banner2.jpg" alt="" /></a>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</section>
+<section class="img-about">
+    <img src="~/images/hab_center.png" alt="" />
+</section>
+
+<section class="section-categories" id="group-product-top">@*Load nhóm sản phẩm*@</section>
+<section class="section-flashsale" id="product-top-list">@*Load sản phẩm nổi bật*@</section>
+
+<section class="section-client">
+    <div class="container">
+        <div class="swiper swiper-client">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href=""><img src="~/images/Logo_EnglishForKids.png" alt="" /></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="~/images/Logo_EnglishForKids.png" alt="" /></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="~/images/Logo_EnglishForKids.png" alt="" /></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="~/images/Logo_EnglishForKids.png" alt="" /></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="~/images/Logo_EnglishForKids.png" alt="" /></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="~/images/Logo_EnglishForKids.png" alt="" /></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="~/images/Logo_EnglishForKids.png" alt="" /></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="~/images/Logo_EnglishForKids.png" alt="" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="section-banner-ads">
+    <div class="container">
+        <div class="swiper swiper-banner-ads">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href=""><img src="~/images/banner3.jpg" alt="" /></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="~/images/banner3.jpg" alt="" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="section-product">
+    <div class="container">
+        <div class="wrap-list-product" id="productList">
+            
+            @*Ajax render viewcomponent load danh mục sản phẩm*@
+            <div class="left-sidebar">               
+                <div id="closeFilter" class="close"><i class="icon icon-close"></i></div>
+                <h3 class="tt-filter">Danh mục</h3>
+                <div id="group-product-left"></div>
+            </div>
+
+            <div class="product-category" id="group-product-bottom-left">
+               @*Load danh sách sản phẩm cho vị trí bottom*@
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    <script>
+        if ($(window).width() > 767) {
+
+            $('body').addClass('homepage');
+        }
+    </script>
+}

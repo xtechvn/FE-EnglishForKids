@@ -1,0 +1,48 @@
+﻿@using EnglishForKids.Models;
+@model List<CategoryModel>
+@{
+    string current_url = ViewBag.current_url;
+    current_url = current_url.Split("/").Last();
+}
+@if (Model != null)
+{
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="/">
+                    <div class="logo">
+                        <img src="~/images/Logo_EnglishForKids.png" alt="" />
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <i class="icofont-navigation-menu"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item @Html.Raw(current_url==""?"active":"")">
+                            <a class="nav-link" href="/">Trang chủ</a>
+                        </li>
+                        @foreach (var item in Model)
+                        {
+
+                            <li class="nav-item @Html.Raw((item.path.IndexOf(current_url) >=0 && current_url!="")  ?"active":"")">
+                                <a class="nav-link" href="@("/" + item.path.Replace("-"+ item.id,"" ) )">@item.name</a>
+                            </li>
+                        }
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" action="/san-pham/tim-kiem" method="get">
+                        <input class="form-control" type="search" name="p" placeholder="Tìm kiếm..." aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                            <i class="icofont-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <script src="~/js/common.js"></script>
+}

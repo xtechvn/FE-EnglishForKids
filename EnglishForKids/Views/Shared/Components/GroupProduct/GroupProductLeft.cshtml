@@ -1,0 +1,29 @@
+﻿@using EnglishForKids.Models;
+@using EnglishForKids.Utilities;
+@model List<CategoryModel>
+@inject IConfiguration Configuration
+
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <div class="box-filter">
+            <h3 class="tt-box">
+                <a style="cursor:pointer" class="menu_group_product" data-groupproduct="@item.id">
+                    @item.name
+                </a>
+            </h3>
+            <ul class="list-filter">
+                @foreach (var item_child in item.group_product_child)
+                {
+                    <li>
+                        <a style="cursor:pointer" class="menu_group_product" data-groupproduct="@item_child.id">
+                            @item_child.name
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+}

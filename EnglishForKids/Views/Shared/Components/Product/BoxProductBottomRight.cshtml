@@ -1,0 +1,24 @@
+﻿@using EnglishForKids.Models.Products;
+@using EnglishForKids.Utilities;
+@model ProductListResponseModel
+
+<button class="btn-filter">Bộ lọc</button>
+<div class="order-by">
+    <span class="title">Sắp xếp theo</span>
+    <a href="#" class="btn active">Cao đến thấp</a>
+    <a href="#" class="btn">Thấp đến cao</a>
+    <a href="#" class="btn">Mới nhất</a>
+    <div class="box-select">
+        <select>
+            <option disabled selected>Giá</option>
+            <option>0-100.000đ</option>
+            <option>0-100.000đ</option>
+            <option>0-100.000đ</option>
+        </select>
+    </div>
+</div>
+
+<div class="component-product-list">
+    @*Load component listing sản phẩm*@
+    @Html.Partial("~/Views/Shared/Components/Product/ProductListViewComponent.cshtml", Model)
+</div>
