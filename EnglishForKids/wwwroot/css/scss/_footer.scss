@@ -1,71 +1,13 @@
 .footer {
-    background: #252B37;
-    color: #FFF;
-
-    a {
-        color: #fff;
-    }
-
-    .topfooter {
-        padding: 40px 0;
-        position: relative;
-        @media (max-width:767px) {
-            padding: 20px 0;
-          
-        }
-      .title{
-        font-size: 18px;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-bottom: 16px;
-      }
-      .hotline{
-            color: #539C5F;
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 10px;
-      }
-      .time{
-        font-size: 14px;
-        font-weight: bold;
-        margin-bottom: 30px;
-      }
-      .links{
-        font-size: 16px;
-        font-weight: 700;
-        margin-bottom: 30px;
-        li{
-            margin-bottom: 16px;
-        }
-      }
-      .payment{
-        display: flex;
-            gap: 10px;
-            img{
-                width: 60px;
-                height: 32px;
-                object-fit: contain;
-            }
-      }
-    }
+    border-top: 1px dashed #DFEBFA;
+    background: #fff;
+    padding: 40px 0;
+  
 
     .midfooter {
-        padding: 40px 0;
-        position: relative;
-        @media (max-width:767px) {
-            padding: 20px 0;
-            border-top: 1px solid #e2e2e2;
-        }
 
-        &::before{
-            content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="2" viewBox="0 0 1200 2" fill="none"><path d="M0 1H1200" stroke="url(%23paint0_linear_276_341)" stroke-width="0.5"/><defs><linearGradient id="paint0_linear_276_341" x1="0" y1="1.5" x2="1200" y2="1.5" gradientUnits="userSpaceOnUse"><stop stop-color="%23E4F6E6" stop-opacity="0"/><stop offset="0.51" stop-color="%23E4F6E6"/><stop offset="1" stop-color="%23E4F6E6" stop-opacity="0"/></linearGradient></defs></svg>');
-            position: absolute;
-            top: -10px;
-            @media (max-width:767px) {
-                display: none;
-            }
-        }
         .logo{
+            margin-bottom: 20px;
             img{
                 width: 200px;
                 @media (max-width:767px) {
@@ -80,23 +22,35 @@
             margin-top: 8px;
         }
         .info{
-            color: #D3D5D7;
-            margin-top: 25px;
             li{
-                display: flex;
-                gap: 10px;
                 margin-bottom: 8px;
                 a{
                     text-decoration: none;
-                    display: flex;
-                    gap: 10px;
                 }
             }
+        }
+        h4{
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
         .social{
             display: flex;
             gap: 10px;
-            
+            margin-top: 20px;
+            margin-bottom: 20px;
+            i{
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                background: #7DBAEC;
+                display: inline-block;
+                text-align: center;
+                line-height: 35px;
+                font-size: 1.5em;
+                color: #fff;
+            }
             img{
                 width: 45px;
                 height: 45px;

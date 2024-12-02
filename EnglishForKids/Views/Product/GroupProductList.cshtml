@@ -1,244 +1,105 @@
 ﻿@{
-    var group_product_parent_id =  ViewBag.group_product_parent_id;
+    var group_product_parent_id = ViewBag.group_product_parent_id;
 }
 
 <input type="hidden" id="group_product_parent_id" value="@group_product_parent_id" />
+<div class="banner-breadcrumb">
+    <img src="images/Herobanner.jpg" alt="" />
+    <div class="breadcrumb">
 
-<section class="banner-product">
-    <div class="container">
-        <div class="swiper swiper-banner">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <a href=""><img src="~/images/banner.jpg" alt="" /></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href=""><img src="~/images/banner2.jpg" alt="" /></a>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+        <div class="container">
+            <ul>
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/san-pham">Sản Phẩm</a></li>
+            </ul>
         </div>
     </div>
-</section>
+</div>
+
 <section class="section-product">
     <div class="container">
+        <!-- Header Section -->
+        <div class="box-head-search">
+            <h1 class="title-page">Tất cả khoá học</h1>
+            <div class="form-search">
+                <form>
+                    <input type="text" placeholder="Tìm kiếm khóa học..." />
+                    <button type="button" class="btn-search"><i class="icofont-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Product List -->
         <div class="wrap-list-product" id="productList">
+            <!-- Sidebar -->
             <div class="left-sidebar">
-
                 <div id="closeFilter" class="close"><i class="icon icon-close"></i></div>
-                <h3 class="tt-filter">Danh mục</h3>
-                <div id="group-product-left"></div>
 
+                <!-- Filter Dynamic Data -->
                 <div class="box-filter">
-                    <h3 class="tt-box gia">Giá</h3>
+                    <h3 class="tt-box">Danh mục</h3>
+                    <div id="group-product-left"></div>
+                </div>
+
+                <!-- Dynamic Price Filter -->
+                <div class="box-filter">
+                    <h3 class="tt-box">Giá</h3>
                     <form>
                         <div class="flex-form">
-                            <input type="number">
+                            <input type="number" placeholder="Từ">
                             <i class="icon icon-arrow-right"></i>
-                            <input type="number">
+                            <input type="number" placeholder="Đến">
                         </div>
                     </form>
                 </div>
+
+                <!-- Dynamic Brand Filter -->
                 <div class="box-filter">
-                    <h3 class="tt-box thuonghieu">Thương hiệu</h3>
+                    <h3 class="tt-box">Thương hiệu</h3>
                     <ul class="list-filter">
                         <li class="active">
                             <a href="/">EnglishForKids</a>
                         </li>
-
+                        <!-- Thương hiệu khác sẽ render động từ dữ liệu -->
                     </ul>
                 </div>
             </div>
+
+            <!-- Product Grid -->
             <div class="product-category">
-                <button class="btn-filter">Bộ lọc</button>
-                <div class="component-product-list">
-                   <div class="list-product">
+                <button class="btn-filter">Khóa học</button>
+                <div class="list-product">
+                    <!-- Render động danh sách sản phẩm -->
+                    @* Sản phẩm sẽ được load động từ logic backend *@
                     <div class="item-product">
                         <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
+                            <div class="thumb thumb-news">
+                                <img src="images/product.jpg" alt="Sản phẩm" />
                             </div>
                             <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item-product">
-                        <a href="">
-                            <div class="thumb thumb-product">
-                                <img src="~/images/product.jpg" alt="" />
-                            </div>
-                            <div class="box-info">
-                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">689,098đ</div>
-                                    <div class="price-old">689,098đ</div>
-                                </div>
+                                <h3 class="name-product">Màng bọc Thực phẩm Las Palms dao nhựa xanh</h3>
+                                <ul>
+                                    <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                    <li><i class="icon icon-video"></i>24 video</li>
+                                </ul>
                             </div>
                         </a>
                     </div>
                 </div>
-                    <div class="wrap-paging">
+
+                <!-- Pagination -->
+                <div class="wrap-paging">
                     <a href="" class="xemthem">Xem thêm</a>
                     <ul class="pagination">
-                        <!-- <li class="page first"><a href=""><i class="icon icon-page-first"></i></a></li> -->
                         <li class="page previous disabled"><a href=""><i class="icon icon-page-previous"></i></a></li>
                         <li class="page active"><a href="">1</a></li>
                         <li class="page"><a href="">2</a></li>
                         <li class="page"><a href="">...</a></li>
                         <li class="page"><a href="">3</a></li>
                         <li class="page next"><a href=""><i class="icon icon-page-next"></i></a></li>
-                        <!-- <li class="page last"><a href=""><i class="icon icon-page-last"></i></a></li> -->
                     </ul>
-                </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-

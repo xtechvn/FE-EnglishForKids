@@ -14,7 +14,7 @@ const swiperADS = new Swiper('.banner-cat', {
     pagination: false,
     navigation: false,
     slidesPerView: 1.5,
-    spaceBetween: 8,
+    spaceBetween: 15,
     breakpoints: {
         540: {
             slidesPerView: 1.5,
@@ -23,7 +23,8 @@ const swiperADS = new Swiper('.banner-cat', {
             slidesPerView: 2.5,
         },
         992: {
-            slidesPerView: 4,
+            slidesPerView: 3,
+            spaceBetween: 24,
         }
     },
     
@@ -84,8 +85,8 @@ const swiperFlash = new Swiper('.section-flashsale .product-slide', {
         }
     },
     navigation: {
-        nextEl: '.product-slide .swiper-button-next',
-        prevEl: '.product-slide .swiper-button-prev',
+        nextEl: '.section-flashsale .swiper-button-next',
+        prevEl: '.section-flashsale .swiper-button-prev',
     },
 });
 $(function () {
@@ -134,59 +135,9 @@ var swiperBigThumb = new Swiper(".thumb-big", {
     },
 });
 
-// custom select
-
-$('select').each(function () {
-    var $this = $(this), numberOfOptions = $(this).children('option').length;
-
-    $this.addClass('select-hidden');
-    $this.wrap('<div class="select"></div>');
-    $this.after('<div class="select-styled"></div>');
-
-    var $styledSelect = $this.next('div.select-styled');
-    $styledSelect.text($this.children('option').eq(0).text());
-
-    var $list = $('<ul />', {
-        'class': 'select-options'
-    }).insertAfter($styledSelect);
-
-    for (var i = 0; i < numberOfOptions; i++) {
-        $('<li />', {
-            text: $this.children('option').eq(i).text(),
-            rel: $this.children('option').eq(i).val()
-        }).appendTo($list);
-        if ($this.children('option').eq(i).is(':selected')) {
-            $('li[rel="' + $this.children('option').eq(i).val() + '"]').addClass('is-selected')
-        }
-    }
-
-    var $listItems = $list.children('li');
-
-    $styledSelect.click(function (e) {
-        e.stopPropagation();
-        $('div.select-styled.active').not(this).each(function () {
-            $(this).removeClass('active').next('ul.select-options').hide();
-        });
-        $(this).toggleClass('active').next('ul.select-options').toggle();
-    });
-
-    $listItems.click(function (e) {
-        e.stopPropagation();
-        $styledSelect.text($(this).text()).removeClass('active');
-        $this.val($(this).attr('rel'));
-        $list.find('li.is-selected').removeClass('is-selected');
-        $list.find('li[rel="' + $(this).attr('rel') + '"]').addClass('is-selected');
-        $list.hide();
-    });
-
-    $(document).click(function () {
-        $styledSelect.removeClass('active');
-        $list.hide();
-    });
-});
-
 $(function () {
     $("#datepicker").datepicker();
+    
 });
 function scrollTop() {
     if ($(window).scrollTop() > 500) {
@@ -220,6 +171,29 @@ $(document).ready(function () {
             $(this)
                 .siblings(".answer")
                 .slideDown(300);
+        }
+    });
+    //select2
+    $('select').select2();
+
+    $('.open-popup-link').magnificPopup({
+        type: 'inline',
+        midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+        mainClass: 'mfp-with-zoom',
+        fixedContentPos: false,
+        fixedBgPos: true,
+        overflowY: 'auto',
+        closeBtnInside: true,
+        preloader: false,
+        removalDelay: 300,
+    });
+    $(".toggle-password").click(function() {
+        $(this).toggleClass("active");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+          input.attr("type", "text");
+        } else {
+          input.attr("type", "password");
         }
     });
 });

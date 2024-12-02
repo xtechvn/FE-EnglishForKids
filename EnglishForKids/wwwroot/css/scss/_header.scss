@@ -1,44 +1,64 @@
-
+.topbar{
+    background: var(--color-base);
+    padding: 8px 0;
+    .top-nav{
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+        align-items: center;
+        color: #fff;
+        font-size: 13px;
+        li i{
+            margin-right: 5px;
+        }
+    }
+}
 
 .header {
     background: #FFF;
     box-shadow: 0px 6px 16px 0px #E0EBFF;
-    padding: 36px 0;
+    padding: 5px 0;
     transition: all 0.3s ease-in;
     @media (max-width:767px) {
-        padding: 10px 0;
+        padding: 5px 0;
     }
     &.pin{
-        background: var(--color-base);
-        padding: 15px 0;
+        padding:0;
         top: 0;
         position: fixed;
         left: 0;
         right: 0;
         margin: 0 auto;
         z-index: 12;
-        a{
-            color: #fff;
-        }
+      
     }
     .navbar{
         padding: 0;
-        .logo{
-            img{
-                width: 200px;
-                @media (max-width:767px) {
-                    width: 150px;
-                }
-            }
-            .white{
-                display: none;
+        justify-content: space-between;
+        .navbar-brand{
+            flex-shrink: 0;
+        }
+        .navbar-collapse{
+            flex-grow: inherit;
+            @media (max-width:767px) {
+                order: 4;
             }
         }
+        .logo{
+          
+            img{
+                width: 80px;
+                @media (max-width:767px) {
+                    width: 50px;
+                    order: 0;
+                }
+            }
+         
+        }
         .navbar-nav{
-            font-size: 18px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 700;
             line-height: 150%; /* 27px */
-            text-transform: uppercase;
             @media (max-width:767px) {
                 margin-top: 20px;
             }
@@ -47,155 +67,54 @@
                 padding-right: 10px;
             }
             a{
-                color: var(--color-base);
+                color: #404251;
                 padding-left: 10px;
+                white-space: nowrap;
                 padding-right: 10px;
-                border-bottom: 1px solid transparent;
                 @media (max-width:767px) {
                     padding: 10px 0;
                 }
             }
             .active, .nav-item:hover{
                 a{
-                   border-bottom: 1px solid;
+                    color: var(--color-base);
                 }
             }
         }
         .form-inline {
+            width: 100%;
             position: relative;
+            max-width: 600px;
+            @media (max-width:767px) {
+                order: 1;
+                max-width: calc(100% - 108px);
+            }
+
             .form-control{
-                border: 1px solid var(--color-base);
-                background: transparent;
+                border: 1px solid #DFEBFA;
+                background: #DFEBFA;
+                width: 100%;
             }
             .btn{
                 position: absolute;
                 right: 5px;
-                top: 4px;
-                color: #fff;
-                width: 40px;
-                height: 40px;
+                top: 2px;
+                color: #1F7CCC;
+                width: 36px;
+                height: 36px;
                 margin: 0 !important;
-                background: var(--color-base);
+                background: transparent;
             }
         }
     }
     .navbar-toggler{
         color: var(--color-base);
+        border: 0;
+        order: 2;
         &:focus{
             outline: none;
+            box-shadow: none;
         }
     }
-    &.pin{
-        background: var(--color-base);
-        padding: 15px 0;
-        top: 0;
-        position: fixed;
-        left: 0;
-        z-index: 99;
-        right: 0;
-        margin: 0 auto;
-        .navbar-toggler{
-            color: #fff;
-        }
-        .form-control{
-            color: #fff;
-            &::placeholder{
-                color: #fff;
-            }
-            border: 1px solid #fff !important;
-        }
-        a{
-            color: #fff !important;
-        }
-        .navbar{
-            .logo{
-                .green{
-                    display: none;
-                }
-                .white{
-                    display: block;
-                }
-            }
-        }
-        .btn{
-            background-color: #fff !important;
-            color: var(--color-base) !important;
-        }
-        
-        
-    }
-}
-.homepage{
-    .header{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 2;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.00) 100%);
-        backdrop-filter: blur(8px);
-        box-shadow: none;
-        transition: all 0.3s ease-in;
-        @media (max-width:767px) {
-            background: #fff;
-         }
-        .form-control{
-            border: 1px solid #fff !important;
-            color: #fff;
-            &::placeholder{
-                color: #fff;
-            }
-        }
-        .btn{
-            background-color: #fff !important;
-            color: var(--color-base) !important;
-        }
-        .navbar{
-            .logo{
-                .green{
-                    display: none;
-                }
-                .white{
-                    display: block;
-                }
-            }
-        }
-        a{
-            color: #fff !important;
-        }
-        &.pin{
-            background: var(--color-base);
-            padding: 15px 0;
-            top: 0;
-            position: fixed;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            z-index: 12;
-            .form-control{
-                color: #fff;
-                &::placeholder{
-                    color: #fff;
-                }
-                border: 1px solid #fff;
-            }
-            .navbar{
-                .logo{
-                    .green{
-                        display: none;
-                    }
-                    .white{
-                        display: block;
-                    }
-                }
-            }
-            a{
-                color: #fff !important;
-            }
-            .btn{
-                background-color: #fff !important;
-                color: var(--color-base) !important;
-            }
-        }
-    }
+   
 }
