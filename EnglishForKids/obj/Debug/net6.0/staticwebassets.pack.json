@@ -1,700 +1,1292 @@
 {
   "Files": [
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\EnglishForKids.bundle.scp.css",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\EnglishForKids.bundle.scp.css",
       "PackagePath": "staticwebassets\\EnglishForKids.bundle.scp.css"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\bootstrap.min.css",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\css\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\assets\\css\\jquery-ui.css"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\css\\lightgallery-bundle.css",
+      "PackagePath": "staticwebassets\\assets\\css\\lightgallery-bundle.css"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\css\\lightgallery.css",
+      "PackagePath": "staticwebassets\\assets\\css\\lightgallery.css"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\css\\main.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\main.min.css"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\select2.min.css"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\css\\swiper-bundle.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\swiper-bundle.min.css"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\fonts\\lg.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\lg.woff"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\ads.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\ads.jpg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\ads1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\ads1.jpg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\adssmall.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\adssmall.jpg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\banner-tt.png",
+      "PackagePath": "staticwebassets\\assets\\images\\banner-tt.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\banner.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\banner.jpg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\cat\\1.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cat\\1.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\cat\\2.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cat\\2.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\cat\\3.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cat\\3.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\cat\\4.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cat\\4.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\cat\\5.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cat\\5.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\cat\\6.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cat\\6.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\cat\\7.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cat\\7.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\cat\\8.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cat\\8.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\cat\\9.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cat\\9.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\check.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\check.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\copy.png",
+      "PackagePath": "staticwebassets\\assets\\images\\copy.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\empty.png",
+      "PackagePath": "staticwebassets\\assets\\images\\empty.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\error-1.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\error-1.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\error.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\error.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\facebook.png",
+      "PackagePath": "staticwebassets\\assets\\images\\facebook.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\flashsale.png",
+      "PackagePath": "staticwebassets\\assets\\images\\flashsale.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon-check.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon-check.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon-err.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon-err.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon-vc.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon-vc.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\1.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\1.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\2.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\2.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\3.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\3.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\ArrowLeft.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\ArrowLeft.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\BBank.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\BBank.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Bank_Dou.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Bank_Dou.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Bell.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Bell.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\CCompass.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\CCompass.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\COD_Dou.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\COD_Dou.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Calendar.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Calendar.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Caretright.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Caretright.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Chat.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Chat.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Check.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Check.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Dolar.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Dolar.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Envelope.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Envelope.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\EyeClose.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\EyeClose.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Eyee.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Eyee.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\FacebookLogo.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\FacebookLogo.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\File.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\File.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Heart.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Heart.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\InstagramLogo.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\InstagramLogo.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Leaves.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Leaves.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\List.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\List.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Lock.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Lock.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\MasterCard_Dou.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\MasterCard_Dou.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\PhoneCall.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\PhoneCall.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Pin.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Pin.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\QR.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\QR.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\QR_Dou.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\QR_Dou.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\ShoppingCartSimple.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\ShoppingCartSimple.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Star.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Star.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\TiktokLogo.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\TiktokLogo.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Trash.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Trash.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\User.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\User.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\Voucher.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\Voucher.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\YoutubeLogo.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\YoutubeLogo.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\add.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\add.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\add2cart.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\add2cart.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\bbill.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\bbill.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\box.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\box.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\ccard.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\ccard.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\ccursor.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\ccursor.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\clock.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\clock.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\double caret.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\double caret.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\down.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\down.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\info.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\info.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\infoi.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\infoi.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\left.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\left.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\map.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\map.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\minus.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\minus.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\mmapPin.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\mmapPin.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\paid.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\paid.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\right.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\right.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\search.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\search.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\truck.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\truck.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\icon\\x.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\x.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\image.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\image.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\img-search.png",
+      "PackagePath": "staticwebassets\\assets\\images\\img-search.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\img-successs.png",
+      "PackagePath": "staticwebassets\\assets\\images\\img-successs.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\img404.png",
+      "PackagePath": "staticwebassets\\assets\\images\\img404.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\jcb.png",
+      "PackagePath": "staticwebassets\\assets\\images\\jcb.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\logo-footer.png",
+      "PackagePath": "staticwebassets\\assets\\images\\logo-footer.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\logo1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\logo1.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\mastercard.png",
+      "PackagePath": "staticwebassets\\assets\\images\\mastercard.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\pinterest.png",
+      "PackagePath": "staticwebassets\\assets\\images\\pinterest.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\product.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\product.jpg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\qr.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\success.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\success.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\twiter.png",
+      "PackagePath": "staticwebassets\\assets\\images\\twiter.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\video.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\video.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\visa.png",
+      "PackagePath": "staticwebassets\\assets\\images\\visa.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\voucher.png",
+      "PackagePath": "staticwebassets\\assets\\images\\voucher.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\images\\warning.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\warning.svg"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\img\\loading.gif",
+      "PackagePath": "staticwebassets\\assets\\img\\loading.gif"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\img\\video-play.png",
+      "PackagePath": "staticwebassets\\assets\\img\\video-play.png"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\common.js",
+      "PackagePath": "staticwebassets\\assets\\js\\common.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery-ui.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\jquery.mousewheel.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.mousewheel.min.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\lg-fullscreen.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\lg-fullscreen.min.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\lg-thumbnail.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\lg-thumbnail.min.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\lg-video.umd.js",
+      "PackagePath": "staticwebassets\\assets\\js\\lg-video.umd.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\lg-zoom.js",
+      "PackagePath": "staticwebassets\\assets\\js\\lg-zoom.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\lightgallery.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\lightgallery.min.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\lightgallery.umd.js",
+      "PackagePath": "staticwebassets\\assets\\js\\lightgallery.umd.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\select2.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\select2.min.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\swiper-bundle.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\swiper-bundle.min.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\assets\\js\\video.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\video.min.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\images\\IconEyeOpen.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\images\\IconEyeOpen.svg",
       "PackagePath": "staticwebassets\\css\\images\\IconEyeOpen.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\images\\bg-contact.jpg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\images\\bg-contact.jpg",
       "PackagePath": "staticwebassets\\css\\images\\bg-contact.jpg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\images\\bg-img-about.jpg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\images\\bg-img-about.jpg",
       "PackagePath": "staticwebassets\\css\\images\\bg-img-about.jpg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\jquery-ui.css",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\jquery-ui.css",
       "PackagePath": "staticwebassets\\css\\jquery-ui.css"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\main.css",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\main.css",
       "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\maps\\main.css.map",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\maps\\main.css.map",
       "PackagePath": "staticwebassets\\css\\maps\\main.css.map"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\maps\\swiper-vars.css.map",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\maps\\swiper-vars.css.map",
       "PackagePath": "staticwebassets\\css\\maps\\swiper-vars.css.map"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\_footer.scss",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\_footer.scss",
       "PackagePath": "staticwebassets\\css\\scss\\_footer.scss"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\_header.scss",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\_header.scss",
       "PackagePath": "staticwebassets\\css\\scss\\_header.scss"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\_icon.scss",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\_icon.scss",
       "PackagePath": "staticwebassets\\css\\scss\\_icon.scss"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\_lightbox.scss",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\_lightbox.scss",
       "PackagePath": "staticwebassets\\css\\scss\\_lightbox.scss"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\_reset.scss",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\_reset.scss",
       "PackagePath": "staticwebassets\\css\\scss\\_reset.scss"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\_swiper.scss",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\_swiper.scss",
       "PackagePath": "staticwebassets\\css\\scss\\_swiper.scss"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\_theme.scss",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\_theme.scss",
       "PackagePath": "staticwebassets\\css\\scss\\_theme.scss"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\main.scss",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\main.scss",
       "PackagePath": "staticwebassets\\css\\scss\\main.scss"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\swiper-vars.css",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\swiper-vars.css",
       "PackagePath": "staticwebassets\\css\\scss\\swiper-vars.css"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\swiper-vars.css.map",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\swiper-vars.css.map",
       "PackagePath": "staticwebassets\\css\\scss\\swiper-vars.css.map"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\scss\\swiper-vars.scss",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\scss\\swiper-vars.scss",
       "PackagePath": "staticwebassets\\css\\scss\\swiper-vars.scss"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\select2.min.css",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\select2.min.css",
       "PackagePath": "staticwebassets\\css\\select2.min.css"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\swiper-bundle.min.css",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\swiper-bundle.min.css",
       "PackagePath": "staticwebassets\\css\\swiper-bundle.min.css"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\css\\swiper-vars.css",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\css\\swiper-vars.css",
       "PackagePath": "staticwebassets\\css\\swiper-vars.css"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\favicon.ico",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\custom\\jquery.magnific-popup.min.js",
+      "PackagePath": "staticwebassets\\custom\\jquery.magnific-popup.min.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\custom\\site.css",
+      "PackagePath": "staticwebassets\\custom\\site.css"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\icofont\\demo.html",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\icofont\\demo.html",
       "PackagePath": "staticwebassets\\icofont\\demo.html"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\icofont\\fonts\\icofont.eot",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\icofont\\fonts\\icofont.eot",
       "PackagePath": "staticwebassets\\icofont\\fonts\\icofont.eot"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\icofont\\fonts\\icofont.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\icofont\\fonts\\icofont.svg",
       "PackagePath": "staticwebassets\\icofont\\fonts\\icofont.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\icofont\\fonts\\icofont.ttf",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\icofont\\fonts\\icofont.ttf",
       "PackagePath": "staticwebassets\\icofont\\fonts\\icofont.ttf"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\icofont\\fonts\\icofont.woff",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\icofont\\fonts\\icofont.woff",
       "PackagePath": "staticwebassets\\icofont\\fonts\\icofont.woff"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\icofont\\fonts\\icofont.woff2",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\icofont\\fonts\\icofont.woff2",
       "PackagePath": "staticwebassets\\icofont\\fonts\\icofont.woff2"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\icofont\\icofont.css",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\icofont\\icofont.css",
       "PackagePath": "staticwebassets\\icofont\\icofont.css"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\icofont\\icofont.min.css",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\icofont\\icofont.min.css",
       "PackagePath": "staticwebassets\\icofont\\icofont.min.css"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\BG.jpg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\BG.jpg",
       "PackagePath": "staticwebassets\\images\\BG.jpg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\ChartDonut.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\ChartDonut.svg",
       "PackagePath": "staticwebassets\\images\\ChartDonut.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\ChartDonut1.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\ChartDonut1.svg",
       "PackagePath": "staticwebassets\\images\\ChartDonut1.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\Eye.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\Eye.png",
       "PackagePath": "staticwebassets\\images\\Eye.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\FilmReel.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\FilmReel.png",
       "PackagePath": "staticwebassets\\images\\FilmReel.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\HeadCircuit.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\HeadCircuit.svg",
       "PackagePath": "staticwebassets\\images\\HeadCircuit.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\Herobanner.jpg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\Herobanner.jpg",
       "PackagePath": "staticwebassets\\images\\Herobanner.jpg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\Leaf-w.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\Leaf-w.png",
       "PackagePath": "staticwebassets\\images\\Leaf-w.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\Leaf.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\Leaf.png",
       "PackagePath": "staticwebassets\\images\\Leaf.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\LineSegments.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\LineSegments.svg",
       "PackagePath": "staticwebassets\\images\\LineSegments.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\Logo_BIOLIFE-white.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\Logo_BIOLIFE-white.png",
       "PackagePath": "staticwebassets\\images\\Logo_BIOLIFE-white.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\Logo_BIOLIFE.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\Logo_BIOLIFE.png",
       "PackagePath": "staticwebassets\\images\\Logo_BIOLIFE.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\ShoppingBag.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\ShoppingBag.png",
       "PackagePath": "staticwebassets\\images\\ShoppingBag.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\SketchLogo.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\SketchLogo.png",
       "PackagePath": "staticwebassets\\images\\SketchLogo.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\Star.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\Star.svg",
       "PackagePath": "staticwebassets\\images\\Star.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\Target.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\Target.png",
       "PackagePath": "staticwebassets\\images\\Target.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\ToiletPaper.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\ToiletPaper.png",
       "PackagePath": "staticwebassets\\images\\ToiletPaper.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\UserCircle.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\UserCircle.svg",
       "PackagePath": "staticwebassets\\images\\UserCircle.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\avt.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\avt.png",
       "PackagePath": "staticwebassets\\images\\avt.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\banner-contact.jpg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\banner-contact.jpg",
       "PackagePath": "staticwebassets\\images\\banner-contact.jpg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\banner-news.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\banner-news.png",
       "PackagePath": "staticwebassets\\images\\banner-news.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\banner.jpg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\banner.jpg",
       "PackagePath": "staticwebassets\\images\\banner.jpg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\banner2.jpg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\banner2.jpg",
       "PackagePath": "staticwebassets\\images\\banner2.jpg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\banner3.jpg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\banner3.jpg",
       "PackagePath": "staticwebassets\\images\\banner3.jpg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\big-logo.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\big-logo.png",
       "PackagePath": "staticwebassets\\images\\big-logo.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\bio_icon.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\bio_icon.png",
       "PackagePath": "staticwebassets\\images\\bio_icon.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\check.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\check.svg",
       "PackagePath": "staticwebassets\\images\\check.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\copy.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\copy.png",
       "PackagePath": "staticwebassets\\images\\copy.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\doingu.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\doingu.png",
       "PackagePath": "staticwebassets\\images\\doingu.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\empty.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\empty.png",
       "PackagePath": "staticwebassets\\images\\empty.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\error-1.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\error-1.svg",
       "PackagePath": "staticwebassets\\images\\error-1.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\error.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\error.svg",
       "PackagePath": "staticwebassets\\images\\error.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\facebook.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\facebook.png",
       "PackagePath": "staticwebassets\\images\\facebook.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\fb.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\fb.png",
       "PackagePath": "staticwebassets\\images\\fb.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\hab_center.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\hab_center.png",
       "PackagePath": "staticwebassets\\images\\hab_center.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon-check.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon-check.png",
       "PackagePath": "staticwebassets\\images\\icon-check.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon-err.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon-err.png",
       "PackagePath": "staticwebassets\\images\\icon-err.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon-vc.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon-vc.png",
       "PackagePath": "staticwebassets\\images\\icon-vc.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\1.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\1.svg",
       "PackagePath": "staticwebassets\\images\\icon\\1.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\2.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\2.svg",
       "PackagePath": "staticwebassets\\images\\icon\\2.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\3.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\3.svg",
       "PackagePath": "staticwebassets\\images\\icon\\3.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\ArrowLeft.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\ArrowLeft.svg",
       "PackagePath": "staticwebassets\\images\\icon\\ArrowLeft.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\BBank.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\BBank.svg",
       "PackagePath": "staticwebassets\\images\\icon\\BBank.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Bank.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Bank.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Bank.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Bank_Dou.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Bank_Dou.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Bank_Dou.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Bell.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Bell.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Bell.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\CCompass.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\CCompass.svg",
       "PackagePath": "staticwebassets\\images\\icon\\CCompass.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\COD_Dou.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\COD_Dou.svg",
       "PackagePath": "staticwebassets\\images\\icon\\COD_Dou.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Calendar.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Calendar.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Calendar.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Caretright.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Caretright.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Caretright.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Chat.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Chat.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Chat.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Check.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Check.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Check.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\CreditCard.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\CreditCard.svg",
       "PackagePath": "staticwebassets\\images\\icon\\CreditCard.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Dolar.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Dolar.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Dolar.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Envelope.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Envelope.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Envelope.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\EyeClose.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\EyeClose.svg",
       "PackagePath": "staticwebassets\\images\\icon\\EyeClose.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Eyee.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Eyee.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Eyee.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\FacebookLogo.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\FacebookLogo.svg",
       "PackagePath": "staticwebassets\\images\\icon\\FacebookLogo.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\File.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\File.svg",
       "PackagePath": "staticwebassets\\images\\icon\\File.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Heart.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Heart.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Heart.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\InstagramLogo.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\InstagramLogo.svg",
       "PackagePath": "staticwebassets\\images\\icon\\InstagramLogo.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Leaves.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Leaves.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Leaves.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\List.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\List.svg",
       "PackagePath": "staticwebassets\\images\\icon\\List.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Lock.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Lock.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Lock.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\MasterCard_Dou.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\MasterCard_Dou.svg",
       "PackagePath": "staticwebassets\\images\\icon\\MasterCard_Dou.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Package.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Package.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Package.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\PhoneCall.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\PhoneCall.svg",
       "PackagePath": "staticwebassets\\images\\icon\\PhoneCall.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Pin.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Pin.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Pin.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\QR.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\QR.svg",
       "PackagePath": "staticwebassets\\images\\icon\\QR.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\QR_Dou.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\QR_Dou.svg",
       "PackagePath": "staticwebassets\\images\\icon\\QR_Dou.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\QrCode.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\QrCode.svg",
       "PackagePath": "staticwebassets\\images\\icon\\QrCode.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\ShoppingCartSimple.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\ShoppingCartSimple.svg",
       "PackagePath": "staticwebassets\\images\\icon\\ShoppingCartSimple.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Star.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Star.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Star.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\TiktokLogo.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\TiktokLogo.svg",
       "PackagePath": "staticwebassets\\images\\icon\\TiktokLogo.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Trash.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Trash.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Trash.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\User.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\User.svg",
       "PackagePath": "staticwebassets\\images\\icon\\User.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\Voucher.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\Voucher.svg",
       "PackagePath": "staticwebassets\\images\\icon\\Voucher.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\YoutubeLogo.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\YoutubeLogo.svg",
       "PackagePath": "staticwebassets\\images\\icon\\YoutubeLogo.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\add.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\add.svg",
       "PackagePath": "staticwebassets\\images\\icon\\add.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\add2cart.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\add2cart.svg",
       "PackagePath": "staticwebassets\\images\\icon\\add2cart.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\bbill.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\bbill.svg",
       "PackagePath": "staticwebassets\\images\\icon\\bbill.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\box.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\box.svg",
       "PackagePath": "staticwebassets\\images\\icon\\box.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\ccard.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\ccard.svg",
       "PackagePath": "staticwebassets\\images\\icon\\ccard.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\ccursor.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\ccursor.svg",
       "PackagePath": "staticwebassets\\images\\icon\\ccursor.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\clock.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\clock.svg",
       "PackagePath": "staticwebassets\\images\\icon\\clock.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\double caret.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\double caret.svg",
       "PackagePath": "staticwebassets\\images\\icon\\double caret.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\down.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\down.svg",
       "PackagePath": "staticwebassets\\images\\icon\\down.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\info.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\info.svg",
       "PackagePath": "staticwebassets\\images\\icon\\info.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\infoi.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\infoi.svg",
       "PackagePath": "staticwebassets\\images\\icon\\infoi.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\left.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\left.svg",
       "PackagePath": "staticwebassets\\images\\icon\\left.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\map.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\map.svg",
       "PackagePath": "staticwebassets\\images\\icon\\map.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\minus.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\minus.svg",
       "PackagePath": "staticwebassets\\images\\icon\\minus.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\mmapPin.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\mmapPin.svg",
       "PackagePath": "staticwebassets\\images\\icon\\mmapPin.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\paid.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\paid.svg",
       "PackagePath": "staticwebassets\\images\\icon\\paid.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\right.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\right.svg",
       "PackagePath": "staticwebassets\\images\\icon\\right.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\search.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\search.svg",
       "PackagePath": "staticwebassets\\images\\icon\\search.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\truck.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\truck.svg",
       "PackagePath": "staticwebassets\\images\\icon\\truck.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\icon\\x.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\icon\\x.svg",
       "PackagePath": "staticwebassets\\images\\icon\\x.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\img1.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\img1.png",
       "PackagePath": "staticwebassets\\images\\img1.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\img2.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\img2.png",
       "PackagePath": "staticwebassets\\images\\img2.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\jcb.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\jcb.png",
       "PackagePath": "staticwebassets\\images\\jcb.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\logo.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\logo.svg",
       "PackagePath": "staticwebassets\\images\\logo.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\logoSaleNoti.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\logoSaleNoti.png",
       "PackagePath": "staticwebassets\\images\\logoSaleNoti.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\map.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\map.png",
       "PackagePath": "staticwebassets\\images\\map.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\mastercard.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\mastercard.png",
       "PackagePath": "staticwebassets\\images\\mastercard.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\news.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\news.png",
       "PackagePath": "staticwebassets\\images\\news.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\person1.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\person1.png",
       "PackagePath": "staticwebassets\\images\\person1.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\person2.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\person2.png",
       "PackagePath": "staticwebassets\\images\\person2.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\person3.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\person3.png",
       "PackagePath": "staticwebassets\\images\\person3.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\pinterest.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\pinterest.png",
       "PackagePath": "staticwebassets\\images\\pinterest.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\product.jpg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\product.jpg",
       "PackagePath": "staticwebassets\\images\\product.jpg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\qr.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\qr.png",
       "PackagePath": "staticwebassets\\images\\qr.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\shera.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\shera.png",
       "PackagePath": "staticwebassets\\images\\shera.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\shoppe.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\shoppe.png",
       "PackagePath": "staticwebassets\\images\\shoppe.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\success.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\success.svg",
       "PackagePath": "staticwebassets\\images\\success.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\tiktok.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\tiktok.png",
       "PackagePath": "staticwebassets\\images\\tiktok.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\twiter.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\twiter.png",
       "PackagePath": "staticwebassets\\images\\twiter.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\video.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\video.png",
       "PackagePath": "staticwebassets\\images\\video.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\visa.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\visa.png",
       "PackagePath": "staticwebassets\\images\\visa.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\voucher.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\voucher.png",
       "PackagePath": "staticwebassets\\images\\voucher.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\warning.svg",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\warning.svg",
       "PackagePath": "staticwebassets\\images\\warning.svg"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\images\\yt.png",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\images\\yt.png",
       "PackagePath": "staticwebassets\\images\\yt.png"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\account.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\account.js",
       "PackagePath": "staticwebassets\\js\\account.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\bootstrap.min.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\common.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\common.js",
       "PackagePath": "staticwebassets\\js\\common.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\footer\\main.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\courses - Copy\\main.js",
+      "PackagePath": "staticwebassets\\js\\courses - Copy\\main.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\courses - Copy\\news_detail.js",
+      "PackagePath": "staticwebassets\\js\\courses - Copy\\news_detail.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\courses\\courses_detail.js",
+      "PackagePath": "staticwebassets\\js\\courses\\courses_detail.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\courses\\main.js",
+      "PackagePath": "staticwebassets\\js\\courses\\main.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\footer\\main.js",
       "PackagePath": "staticwebassets\\js\\footer\\main.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\group_product\\main.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\group_product\\main.js",
       "PackagePath": "staticwebassets\\js\\group_product\\main.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\header\\main.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\header\\main.js",
       "PackagePath": "staticwebassets\\js\\header\\main.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\jquery-ui.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\jquery-ui.js",
       "PackagePath": "staticwebassets\\js\\jquery-ui.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\jquery.magnific-popup.min.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\jquery.magnific-popup.min.js",
       "PackagePath": "staticwebassets\\js\\jquery.magnific-popup.min.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\jquery.min.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\jquery.min.js",
       "PackagePath": "staticwebassets\\js\\jquery.min.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\lib\\defined_param.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\lib\\defined_param.js",
       "PackagePath": "staticwebassets\\js\\lib\\defined_param.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\lib\\defined_param.min.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\lib\\defined_param.min.js",
       "PackagePath": "staticwebassets\\js\\lib\\defined_param.min.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\news\\main.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\news\\main.js",
       "PackagePath": "staticwebassets\\js\\news\\main.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\news\\news_detail.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\news\\news_detail.js",
       "PackagePath": "staticwebassets\\js\\news\\news_detail.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\popper.min.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\popper.min.js",
       "PackagePath": "staticwebassets\\js\\popper.min.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\product\\constants.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\product\\constants.js",
       "PackagePath": "staticwebassets\\js\\product\\constants.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\product\\global.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\product\\global.js",
       "PackagePath": "staticwebassets\\js\\product\\global.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\product\\product_detail.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\product\\product_detail.js",
       "PackagePath": "staticwebassets\\js\\product\\product_detail.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\select2.min.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\select2.min.js",
       "PackagePath": "staticwebassets\\js\\select2.min.js"
     },
     {
-      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\wwwroot\\js\\swiper-bundle.min.js",
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\js\\swiper-bundle.min.js",
       "PackagePath": "staticwebassets\\js\\swiper-bundle.min.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\account.js",
+      "PackagePath": "staticwebassets\\modules\\account.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\account_client.js",
+      "PackagePath": "staticwebassets\\modules\\account_client.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\account_management_global.js",
+      "PackagePath": "staticwebassets\\modules\\account_management_global.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\address_client.js",
+      "PackagePath": "staticwebassets\\modules\\address_client.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\cart.js",
+      "PackagePath": "staticwebassets\\modules\\cart.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\constants.js",
+      "PackagePath": "staticwebassets\\modules\\constants.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\feedback.js",
+      "PackagePath": "staticwebassets\\modules\\feedback.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\global.js",
+      "PackagePath": "staticwebassets\\modules\\global.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\global_search.js",
+      "PackagePath": "staticwebassets\\modules\\global_search.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\home_product.js",
+      "PackagePath": "staticwebassets\\modules\\home_product.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\new.js",
+      "PackagePath": "staticwebassets\\modules\\new.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\newbydate.js",
+      "PackagePath": "staticwebassets\\modules\\newbydate.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\newdetail.js",
+      "PackagePath": "staticwebassets\\modules\\newdetail.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\order_address.js",
+      "PackagePath": "staticwebassets\\modules\\order_address.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\order_detail.js",
+      "PackagePath": "staticwebassets\\modules\\order_detail.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\order_history.js",
+      "PackagePath": "staticwebassets\\modules\\order_history.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\order_raiting.js",
+      "PackagePath": "staticwebassets\\modules\\order_raiting.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\payment.js",
+      "PackagePath": "staticwebassets\\modules\\payment.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\product_detail.js",
+      "PackagePath": "staticwebassets\\modules\\product_detail.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\product_raiting.js",
+      "PackagePath": "staticwebassets\\modules\\product_raiting.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\services.js",
+      "PackagePath": "staticwebassets\\modules\\services.js"
+    },
+    {
+      "Id": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\wwwroot\\modules\\support.js",
+      "PackagePath": "staticwebassets\\modules\\support.js"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.EnglishForKids.Microsoft.AspNetCore.StaticWebAssets.props",

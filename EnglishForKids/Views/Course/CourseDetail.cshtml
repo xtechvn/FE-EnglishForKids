@@ -1,0 +1,340 @@
+﻿<!-- Breadcrumb -->
+@model EnglishForKids.ViewModels.CourseDetailViewModel
+@using System.Linq;
+<div class="banner-breadcrumb">
+    <img src="~/images/Herobanner.jpg" alt="" />
+    <div class="breadcrumb">
+
+        <div class="container">
+            <ul>
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/khoa-hoc">Khóa Học</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<section class="section-news section-product-detail">
+    <div class="container">
+
+        <div class="wrap-news">
+            <div class="content">
+
+                <h1 class="title-news">@Model.Source.SourceTitle</h1>
+                <div class="short-lead">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
+                    volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum ligula
+                    egestas.
+                </div>
+
+                <div class="box-des">
+                    <h4>Tổng quan</h4>
+                    <p>
+                        @Model.Source.SourceDescription
+                    </p>
+                </div>
+                <div class="box-des">
+                    <h4>Bạn sẽ học được gì?</h4>
+                    @if (!string.IsNullOrEmpty(Model.Source.SourceBenefif))
+                    {
+                        <div class="list">
+                            @Html.Raw(Model.Source.SourceBenefif)
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Không có thông tin về lợi ích của khóa học.</p>
+                    }
+                </div>
+                @if (Model.Chapters != null && Model.Chapters.Any())
+                {
+                    <div class="box-des">
+                        <h4>Nội dung khoá học</h4>
+                        <div class="block-course accordion">
+                            @foreach (var chapter in Model.Chapters)
+                            {
+                                <div class="item">
+                                    <div class="title" id="chapter-@chapter.ChapterId">
+                                        <a data-toggle="collapse" data-target="#chapter-collapse-@chapter.ChapterId">
+                                            @chapter.ChapterTitle
+                                            <span class="time">@chapter.Lessons.Count video</span>
+                                        </a>
+                                    </div>
+                                    <div id="chapter-collapse-@chapter.ChapterId" class="collapse">
+                                        <div class="card-body">
+                                            <ul>
+                                                @foreach (var lesson in chapter.Lessons)
+                                                {
+                                                    <li>
+                                                        <a href="#">
+                                                            @lesson.LessonTitle
+                                                            <span class="time">@lesson.VideoDuration</span>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+            <div class="siderbar-news">
+                <div class="item-product">
+                    <a href="">
+                        <div class="thumb thumb-news">
+                            <img src="@Model.Source.SourceThumbnail" alt="" />
+                        </div>
+                        <div class="box-info">
+                            <div class="block-price">
+                                <span>@Model.Source.Price.ToString("N0") đ</span><strike>@Model.Source.OriginalPrice.ToString("N0") đ </strike>
+                            </div>
+                            <a href="" class="btn btn-line">Thêm vào giỏ hàng</a>
+                            <a href="" class="btn btn-base">Mua ngay</a>
+                            <ul>
+                                <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                <li>
+                                    <i class="icon icon-video"></i>
+                                    24 video
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-category">
+    <div class="container">
+        <div class="list-product-category">
+            <div class="title-box">
+                <h3 class="name-tt"><a href="">Khóa học LIÊN QUAN</a></h3>
+            </div>
+            <div class="product-category">
+                <div class="list-product">
+                    <div class="item-product">
+                        <a href="">
+                            <div class="thumb thumb-news">
+                                <img src="images/product.jpg" alt="" />
+                            </div>
+                            <div class="box-info">
+                                <h3 class="name-product">Mũ bảo vệ đầu cho bé Hulo Toys 100% Cotton</h3>
+                                <ul>
+                                    <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                    <li>
+                                        <i class="icon icon-video"></i>
+                                        24 video
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item-product">
+                        <a href="">
+                            <div class="thumb thumb-news">
+                                <img src="images/product.jpg" alt="" />
+                            </div>
+                            <div class="box-info">
+                                <h3 class="name-product">Mũ bảo vệ đầu cho bé Hulo Toys 100% Cotton</h3>
+                                <ul>
+                                    <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                    <li>
+                                        <i class="icon icon-video"></i>
+                                        24 video
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="item-product">
+                        <a href="">
+                            <div class="thumb thumb-news">
+                                <img src="images/product.jpg" alt="" />
+                            </div>
+                            <div class="box-info">
+                                <h3 class="name-product">Mũ bảo vệ đầu cho bé Hulo Toys 100% Cotton</h3>
+                                <ul>
+                                    <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                    <li>
+                                        <i class="icon icon-video"></i>
+                                        24 video
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item-product">
+                        <a href="">
+                            <div class="thumb thumb-news">
+                                <img src="images/product.jpg" alt="" />
+                            </div>
+                            <div class="box-info">
+                                <h3 class="name-product">Mũ bảo vệ đầu cho bé Hulo Toys 100% Cotton</h3>
+                                <ul>
+                                    <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                    <li>
+                                        <i class="icon icon-video"></i>
+                                        24 video
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-news-bottom">
+    <div class="container">
+        <div class="title-box">
+            <h3 class="name-tt"><a href="">Tin liên quan</a></h3>
+        </div>
+        <div class="list-news">
+            <div class="row">
+                <div class="item-news col-md-4 col-sm-6">
+                    <div class="box-news">
+                        <div class="thumb-art">
+                            <div class="thumb thumb-news">
+                                <a href=""><img src="images/news.png" alt="" /> </a>
+                            </div>
+                        </div>
+                        <div class="right-content">
+                            <div class="flex-cat">
+                                <span class="time">
+                                    <i class="icon icon-time"></i>
+                                    19/02/2020
+                                </span>
+                                <a href="" class="cat-tag">mẹo hay</a>
+                            </div>
+                            <h2 class="title-news">
+                                <a href="">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất</a>
+                            </h2>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item-news  col-md-4 col-sm-6">
+                    <div class="box-news">
+                        <div class="thumb-art">
+                            <div class="thumb thumb-news">
+                                <a href=""><img src="images/news.png" alt="" /> </a>
+                            </div>
+                        </div>
+                        <div class="right-content">
+                            <div class="flex-cat">
+                                <span class="time">
+                                    <i class="icon icon-time"></i>
+                                    19/02/2020
+                                </span>
+                                <a href="" class="cat-tag">mẹo hay</a>
+                            </div>
+                            <h2 class="title-news">
+                                <a href="">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất</a>
+                            </h2>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item-news col-md-4 col-sm-6">
+                    <div class="box-news">
+                        <div class="thumb-art">
+                            <div class="thumb thumb-news">
+                                <a href=""><img src="images/news.png" alt="" /> </a>
+                            </div>
+                        </div>
+                        <div class="right-content">
+                            <div class="flex-cat">
+                                <span class="time">
+                                    <i class="icon icon-time"></i>
+                                    19/02/2020
+                                </span>
+                                <a href="" class="cat-tag">mẹo hay</a>
+                            </div>
+                            <h2 class="title-news">
+                                <a href="">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất</a>
+                            </h2>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item-news col-md-4 col-sm-6">
+                    <div class="box-news">
+                        <div class="thumb-art">
+                            <div class="thumb thumb-news">
+                                <a href=""><img src="images/news.png" alt="" /> </a>
+                            </div>
+                        </div>
+                        <div class="right-content">
+                            <div class="flex-cat">
+                                <span class="time">
+                                    <i class="icon icon-time"></i>
+                                    19/02/2020
+                                </span>
+                                <a href="" class="cat-tag">mẹo hay</a>
+                            </div>
+                            <h2 class="title-news">
+                                <a href="">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất</a>
+                            </h2>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item-news col-md-4 col-sm-6">
+                    <div class="box-news">
+                        <div class="thumb-art">
+                            <div class="thumb thumb-news">
+                                <a href=""><img src="images/news.png" alt="" /> </a>
+                            </div>
+                        </div>
+                        <div class="right-content">
+                            <div class="flex-cat">
+                                <span class="time">
+                                    <i class="icon icon-time"></i>
+                                    19/02/2020
+                                </span>
+                                <a href="" class="cat-tag">mẹo hay</a>
+                            </div>
+                            <h2 class="title-news">
+                                <a href="">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất</a>
+                            </h2>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item-news col-md-4 col-sm-6">
+                    <div class="box-news">
+                        <div class="thumb-art">
+                            <div class="thumb thumb-news">
+                                <a href=""><img src="images/news.png" alt="" /> </a>
+                            </div>
+                        </div>
+                        <div class="right-content">
+                            <div class="flex-cat">
+                                <span class="time">
+                                    <i class="icon icon-time"></i>
+                                    19/02/2020
+                                </span>
+                                <a href="" class="cat-tag">mẹo hay</a>
+                            </div>
+                            <h2 class="title-news">
+                                <a href="">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất</a>
+                            </h2>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/js/courses/courses_detail.js"></script>
+}

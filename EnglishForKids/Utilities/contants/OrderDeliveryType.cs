@@ -1,4 +1,4 @@
-﻿namespace HuloToys_Front_End.Utilities.contants
+﻿namespace EnglishForKids.Utilities.contants
 {
     public enum OrderDeliveryType
     {

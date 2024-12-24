@@ -1,4 +1,4 @@
-﻿namespace HuloToys_Front_End.Models.Authentication
+﻿namespace EnglishForKids.Models.Authentication
 {
     public class APITokenCacheModel
     {

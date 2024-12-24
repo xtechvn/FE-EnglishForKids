@@ -1149,11 +1149,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\EnglishForKids.csproj",
+      "projectUniqueName": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\EnglishForKids.csproj",
       "projectName": "EnglishForKids",
-      "projectPath": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\EnglishForKids.csproj",
+      "projectPath": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\EnglishForKids.csproj",
       "packagesPath": "C:\\Users\\nguye\\.nuget\\packages\\",
-      "outputPath": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\obj\\",
+      "outputPath": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
