@@ -1,0 +1,203 @@
+﻿@{
+    Layout = null;
+}
+<!-- đăng nhập -->
+<div id="dangnhap" class="overlay client-login-popup">
+    <div class="popup">
+        <a class="close" href="javascript:;">
+            <i class="icon icon-close"></i>
+        </a>
+        <div class="content">
+            <ul class="tab-login">
+                <li class="active">
+                    <a class="client-login" href="javascript:;" data-id="#dangnhap">Đăng nhập</a>
+                </li>
+                <li class="">
+                    <a class="client-login" href="javascript:;" data-id="#dangky">Đăng ký</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <div class="form-group">
+                        <label>Tên tài khoản / Email / Số điện thoại</label>
+                        <div class="box-input user">
+                            <input class="form-control" type="text" placeholder="Nhập Tên tài khoản / Địa chỉ Email" />
+                        </div>
+                        <span class="err">Vui lòng không để trống</span>
+
+                    </div>
+                    <div class="form-group">
+
+                        <label>Mật khẩu</label>
+                        <div class="box-input password">
+                            <input class="form-control" type="password" placeholder="Nhập mật khẩu" />
+                        </div>
+                        <span class="err">Vui lòng không để trống</span>
+
+                    </div>
+                    <div class="flex-note">
+                        <div class="ghinho">
+                            <div class="box-checkbox">
+                                <input type="checkbox" class="checkbox" />
+                                <label for="checkbox"></label>
+                            </div>
+                            <span>Ghi nhớ đăng nhập</span>
+                        </div>
+                        <a href="javascript:;" class="forgot-pass">Quên mật khẩu?</a>
+                    </div>
+                    <div id="register-detail" data-type="1"></div>
+                    <button id="btn-client-login" class="btn-submit ">Đăng nhập</button>
+                    <div class="orther-login" style="display:none;"><span>Hoặc đăng nhập bằng</span></div>
+                    <div class="flex-social" style="grid-template-columns:auto;display:none;">
+                        <a href="javascript:;" class="btn btn-login-fb" style="display:none;">Đăng nhập bằng Facebook</a>
+                        <a href="javascript:;" class="btn btn-login-gg ">Đăng nhập bằng Google</a>
+                        <div id="g_id_onload" style="display:none;"
+                             data-client_id="65575993345-u9qk911fs77lls8tgmn2c3gjk04lg78c.apps.googleusercontent.com"
+                             data-context="signin"
+                             data-ux_mode="popup"
+                             data-callback="GoogleSignIn"
+                             data-auto_prompt="false">
+                        </div>
+                        <div class="g_id_signin" style="display:none;"
+                             data-type="standard"
+                             data-shape="pill"
+                             data-theme="filled_black"
+                             data-text="signin_with"
+                             data-size="large"
+                             data-logo_alignment="left">
+                        </div>
+                    </div>
+                    <div id="fb-root" style="display:none;"></div>
+                    <div class="fb-login-button" style="display:none;" data-width="" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
+                </li>
+              </ul>
+        </div>
+    </div>
+</div>
+<!-- đăng kí -->
+<div id="dangky" class="overlay client-login-popup">
+    <div class="popup">
+        <a class="close" href="javascript:;">
+            <i class="icon icon-close"></i>
+        </a>
+        <div class="content">
+            <ul class="tab-login">
+                <li class="">
+                    <a class="client-login" href="javascript:;" data-id="#dangnhap">Đăng nhập</a>
+                </li>
+                <li class="active">
+                    <a class="client-login" href="javascript:;" data-id="#dangky">Đăng ký</a>
+                </li>
+            </ul>
+            <ul>
+                <div class="scroll-form">
+                    <div class="form-group">
+                        <!-- <label>Họ và tên</label> -->
+                        <div class="box-input user">
+                            <input class="form-control" type="text" placeholder="Nhập họ tên" />
+                        </div>
+                        <span class="err">Vui lòng không để trống</span>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label>Email</label> -->
+                        <div class="box-email">
+                            <div class="box-input email">
+                                <input class="form-control" type="text" placeholder="Nhập địa chỉ Email " />
+                            </div>
+                            @* <button class="resend">Gửi mã xác thực</button> *@
+
+                        </div>
+                        <span class="err">Vui lòng không để trống</span>
+                    </div>
+                    @*  <div class="form-group">
+                    <!-- <label>Mã xác thực</label> -->
+                    <div class="box-input code">
+                    <input class="form-control" type="text"
+                    placeholder="Nhập mã xác thực đã gửi vào email" />
+                    </div>
+                    </div> *@
+                    <div class="form-group">
+                        <!-- <label>Số điện thoại</label> -->
+                        <div class="box-input tel">
+                            <input class="form-control" type="text" placeholder="Nhập số điện thoại" />
+                        </div>
+                        <span class="err">Vui lòng không để trống</span>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label>Mật khẩu</label> -->
+                        <div class="box-input password register-password">
+                            <input class="form-control" type="password"
+                                   placeholder="Nhập mật khẩu từ 6 đến 32 ký tự" />
+                        </div>
+                        <span class="err">Vui lòng không để trống</span>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label>Xác nhận mật khẩu</label> -->
+                        <div class="box-input password confirm-password">
+                            <input class="form-control" type="password" placeholder="Nhập lại mật khẩu" />
+                        </div>
+                        <span class="err">Vui lòng không để trống</span>
+                    </div>
+                    <div class="ghinho">
+                        <div class="box-checkbox">
+                            <input type="checkbox" class="checkbox" />
+                            <label for="checkbox"></label>
+                        </div>
+                        <span>Nhận Email thông báo từ chúng tôi</span>
+                    </div>
+                </div>
+                <button id="btn-client-register" class="btn-submit">Tạo tài khoản</button>
+                <p class="note ">
+                    Khi bạn nhấn Đăng ký, bạn đã đồng ý thực hiện mọi giao dịch mua bán theo<a href="">
+                        điều kiện sử dụng và chính sách của Chúng tôi
+                    </a>.
+                </p>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Thành công -->
+<div id="success" class="overlay form-succes client-login-popup">
+    <div class="popup">
+        <a class="close" href="javascript:;">
+            <i class="icon icon-close"></i>
+        </a>
+        <div class="content">
+            <img src="/assets/images/img-successs.png" alt="" />
+            <h4>Đăng kí tài khoản thành công!</h4>
+        </div>
+    </div>
+</div>
+<!-- Quên mật khẩu -->
+<div id="quenmk" class="overlay client-forgot-popup">
+    <div class="popup">
+        <a class="close" href="javascript:;">
+            <i class="icon icon-close"></i>
+        </a>
+        <div class="content">
+            <ul class="tab-login">
+                <li class="active">
+                    <a class="client-forgot" href="javascript:;">Quên mật khẩu</a>
+                </li>
+            </ul>
+            <ul>
+                <div class="scroll-form">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <div class="box-email">
+                            <div class="box-input email">
+                                <input id="forgot-password-email" class="form-control" type="text" placeholder="Nhập địa chỉ Email " />
+                            </div>
+                            <span class="err">Email không đúng định dạng</span>
+                        </div>
+                        <span class="err">Vui lòng không để trống</span>
+                    </div>
+                    <button id="forgot-password-btn" class="btn-submit">Gửi email đổi mật khẩu</button>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>

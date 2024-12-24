@@ -1,14 +1,14 @@
 ﻿using EnglishForKids.Contants;
 using EnglishForKids.Service.Redis;
 using EnglishForKids.Utilities;
-using HuloToys_Front_End.Models.Authentication;
-using HuloToys_Service.Models;
+using EnglishForKids.Models.Authentication;
+using EnglishForKids_Service.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text;
 using Utilities.Contants;
 
-namespace HuloToys_Front_End.Utilities.Lib
+namespace EnglishForKids.Utilities.Lib
 {
     public class APIService
     {

@@ -1,4 +1,4 @@
-﻿namespace HuloToys_Front_End.Utilities.Contants
+﻿namespace EnglishForKids.Utilities.Contants
 {
     public class FileName
     {

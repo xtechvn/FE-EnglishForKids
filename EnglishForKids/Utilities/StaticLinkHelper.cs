@@ -4,8 +4,14 @@ using Microsoft.Extensions.Configuration;
 namespace EnglishForKids.Utilities
 {
     public static class StaticLinkHelper
-    {     
-
+    {
+        public static string GetStaticUrlCourse(this IHtmlHelper htmlHelper, string Title, long course_id)
+        {
+            Title = CommonHelper.RemoveUnicode(CommonHelper.CheckMaxLength(Title.Trim(), 100));
+            Title = CommonHelper.RemoveSpecialCharacters(CommonHelper.CheckMaxLength(Title.Trim(), 100));
+            Title = Title.Replace(" ", "-").ToLower();
+            return ("/khoa-hoc/" + Title + "-" + course_id + ".html");
+        }
         public static string GetStaticUrlNews(this IHtmlHelper htmlHelper, string Title, long article_id)
         {
             Title = CommonHelper.RemoveUnicode(CommonHelper.CheckMaxLength(Title.Trim(), 100));

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nC2GHQDz2pqqSLEfEdZheFPgvakthB78AnebHMTJyL4BefyCK0vSnY8vqP3N8QdkX1Q3MhYFKSlHU96aoZ4zpQ==",
+  "dgSpecHash": "e7CZ4YImTzpr8qOEItFAu0CH7FOzITIPsXORaNFQXHrBNlPEjZXJbg3DUZzfp1Oxy5F3SGWusj2w3G+NdO6OqA==",
   "success": true,
-  "projectFilePath": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End\\EnglishForKids\\EnglishForKids.csproj",
+  "projectFilePath": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\EnglishForKids.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nguye\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\nguye\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",

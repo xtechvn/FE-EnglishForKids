@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/select2.min.css">
+    <link rel="stylesheet" href="~/css/lightgallery-bundle.css" />
+    <link rel="stylesheet" href="~/css/main.min.css">
+    <link rel="stylesheet" href="/custom/site.css">
+
+    <link rel="stylesheet" href="/css/site.css">
+
+    <title>@ViewData["Title"]</title>
+    <link type="image/x-icon" href="~/images/img-search.png" rel="shortcut icon" />
+    <!-- CSS-->
+
+</head>
+<body>
+    <partial name="_Header" />
+    <partial name="_Login" />
+
+    <section id="main">
+        <section class="section-qly-taikhoan">
+            <div class="container">
+                <div class="box-quanlytaikhoan">
+                    <div class="menu-left-user placeholder">
+                        <partial name="_MenuLeftUser" />
+                    </div>
+                    <div class="content-left-user">
+                        @RenderBody()
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <partial name="/Views/Client/UpdateAddress.cshtml" />
+    <partial name="_Footer" />
+    <button class="backToTopBtn"></button>
+    <partial name="_Lightbox" />
+    <button class="backToTopBtn"></button>
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/swiper-bundle.min.js"></script>
+    <script src="~/js/jquery-ui.js"></script>
+    <script src="~/js/select2.min.js"></script>
+    <script src="~/js/lightgallery.min.js"></script>
+    <script src="~/js/common.js"></script>
+    <script asp-append-version="true" src="/custom/jquery.magnific-popup.min.js"></script>
+
+    <script asp-append-version="true" src="/modules/constants.js"></script>
+    <script asp-append-version="true" src="/modules/services.js"></script>
+    <script asp-append-version="true" src="/modules/global.js"></script>
+    <script asp-append-version="true" src="/modules/account_management_global.js"></script>
+    <script asp-append-version="true" src="~/js/select2.min.js"></script>
+    <!-- lightgallery-->
+    <script src="~/js/lightgallery.min.js"></script>
+    <script src="~/js/video.min.js"></script>
+    <script src="~/js/lightgallery.umd.js"></script>
+    <script src="~/js/lg-video.umd.js"></script>
+    <script src="~/js/lg-thumbnail.min.js"></script>
+    <!-- end lightgallery-->
+
+    <!-- Modules-->
+    <script asp-append-version="true" src="/modules/order_address.js"></script>
+    <script asp-append-version="true" src="/modules/account.js"></script>
+    <script asp-append-version="true" src="/modules/home_product.js"></script>
+    <script asp-append-version="true" src="~/modules/support.js"></script>
+    <script asp-append-version="true" type="text/javascript" src="~/modules/feedback.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    @* <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v20.0" nonce="P6zkdA3O"></script> *@
+
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

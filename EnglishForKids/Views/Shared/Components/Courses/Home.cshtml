@@ -1,0 +1,36 @@
+﻿@using EnglishForKids.ViewModels;
+@using EnglishForKids.Utilities;
+@model CourseViewModel
+@{
+    int d = 0;
+    int category_id = Model.category_id;
+}
+
+
+<div class="list-product">
+    @foreach (var item in Model.obj_article_list.Where(x => x.status == 0).Take(10))
+    {
+        string link = @Html.GetStaticUrlCourse(item.title, item.id); // Tạo đường dẫn động cho mỗi khóa học
+            <div class="item-product">
+                <a href="@link">
+                    <div class="thumb thumb-news">
+                        <img src="@item.thumbnail" alt="@item.title" />
+                    </div>
+                    <div class="box-info">
+                        <h3 class="name-product">@item.title</h3>
+                        <ul>
+                            <li>
+                                <i class="icon icon-time"></i>
+                            2 giờ 40 phút <!-- Giả sử bạn có trường 'duration' -->
+                            </li>
+                            <li>
+                                <i class="icon icon-video"></i>
+                            24 video <!-- Giả sử bạn có trường 'video_count' -->
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+

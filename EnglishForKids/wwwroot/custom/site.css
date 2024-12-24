@@ -1,0 +1,101 @@
+﻿.overlay-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.placeholder, .box-placeholder .article-thumb, .box-placeholder .article-content .title_new, .box-placeholder .article-content .description, .box-placeholder .article-content .tag-title, .box-placeholder .article-content .star, .box-placeholder .article-content .number-vote, .box-placeholder .article-content .service li, .box-placeholder .article-content .price {
+    background: #666;
+    opacity: 0.1;
+    animation: fading 1.5s infinite;
+}
+
+.box-placeholder .article-thumb {
+    height: auto !important;
+}
+
+    .box-placeholder .article-thumb img {
+        display: none;
+    }
+
+.box-placeholder .btn-default {
+    display: none;
+}
+
+.box-placeholder .article-content {
+    font-size: 0;
+}
+
+    .box-placeholder .article-content .title_new *, .box-placeholder .article-content .description *, .box-placeholder .article-content .tag-title *, .box-placeholder .article-content .star *, .box-placeholder .article-content .number-vote *, .box-placeholder .article-content .service li *, .box-placeholder .article-content .price * {
+        font-size: 0 !important;
+    }
+
+    .box-placeholder .article-content .title_new span, .box-placeholder .article-content .description span, .box-placeholder .article-content .tag-title span, .box-placeholder .article-content .star span, .box-placeholder .article-content .number-vote span, .box-placeholder .article-content .service li span, .box-placeholder .article-content .price span, .box-placeholder .article-content .title_new img, .box-placeholder .article-content .description img, .box-placeholder .article-content .tag-title img, .box-placeholder .article-content .star img, .box-placeholder .article-content .number-vote img, .box-placeholder .article-content .service li img, .box-placeholder .article-content .price img, .box-placeholder .article-content .title_new svg, .box-placeholder .article-content .description svg, .box-placeholder .article-content .tag-title svg, .box-placeholder .article-content .star svg, .box-placeholder .article-content .number-vote svg, .box-placeholder .article-content .service li svg, .box-placeholder .article-content .price svg, .box-placeholder .article-content .title_new .point, .box-placeholder .article-content .description .point, .box-placeholder .article-content .tag-title .point, .box-placeholder .article-content .star .point, .box-placeholder .article-content .number-vote .point, .box-placeholder .article-content .service li .point, .box-placeholder .article-content .price .point {
+        opacity: 0;
+        padding: 0;
+    }
+
+    .box-placeholder .article-content .lbl {
+        display: none;
+    }
+
+    .box-placeholder .article-content .service li {
+        max-width: 50%;
+    }
+
+    .box-placeholder .article-content .title_new {
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .box-placeholder .article-content .description, .box-placeholder .article-content .star {
+        height: 20px;
+    }
+
+    .box-placeholder .article-content .tag-title {
+        max-width: 100px;
+        margin-bottom: 6px;
+    }
+
+    .box-placeholder .placeholder, .box-placeholder .article-thumb, .box-placeholder .article-content .title_new, .box-placeholder .article-content .description, .box-placeholder .article-content .tag-title, .box-placeholder .article-content .star, .box-placeholder .article-content .number-vote, .box-placeholder .article-content .service li, .box-placeholder .article-content .price {
+        height: 20px;
+        width: 100%;
+        font-size: 0;
+    }
+.form-update-address .select2-selection {
+    border:none !important;
+}
+.select2-disabled-background {
+    background-color: #EEEEEE !important;
+}
+#address-book .box-address .action-center .btn-add {
+    background: #343e7a;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 25px;
+    width: auto
+}
+    #address-book .box-address .action-center .btn-add::before {
+        position: relative;
+        top: 3px;
+        left: -5px;
+        content: url('data:image/svg+xml,<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 9C18 9.19891 17.921 9.38968 17.7803 9.53033C17.6397 9.67098 17.4489 9.75 17.25 9.75H9.75V17.25C9.75 17.4489 9.67098 17.6397 9.53033 17.7803C9.38968 17.921 9.19891 18 9 18C8.80109 18 8.61032 17.921 8.46967 17.7803C8.32902 17.6397 8.25 17.4489 8.25 17.25V9.75H0.75C0.551088 9.75 0.360322 9.67098 0.21967 9.53033C0.0790178 9.38968 0 9.19891 0 9C0 8.80109 0.0790178 8.61032 0.21967 8.46967C0.360322 8.32902 0.551088 8.25 0.75 8.25H8.25V0.75C8.25 0.551088 8.32902 0.360322 8.46967 0.21967C8.61032 0.0790178 8.80109 0 9 0C9.19891 0 9.38968 0.0790178 9.53033 0.21967C9.67098 0.360322 9.75 0.551088 9.75 0.75V8.25H17.25C17.4489 8.25 17.6397 8.32902 17.7803 8.46967C17.921 8.61032 18 8.80109 18 9Z" fill="%23FCFCFC"/></svg>')
+    }
+
+.header .mainheader .wrap_mainheader .form-search .box-search-list .list-product-recomment .item-product {
+    padding-bottom: 0
+}
+
+    .header .mainheader .wrap_mainheader .form-search .box-search-list .list-product-recomment .item-product .flex-price, .header .mainheader .wrap_mainheader .form-search .box-search-list .list-product-recomment .item-product .name-product, .header .mainheader .wrap_mainheader .form-search .box-search-list .list-product-recomment .item-product .price-old {
+        position: static;
+    }
+
+.box-search-list .item-product .box-info{
+    width:100% !important;
+}
+
+.box-comment .overview__score-wrapper {
+    min-width:130px !important;
+}
+
+.button-disabled{
+    background-color:lightgrey !important;
+}
