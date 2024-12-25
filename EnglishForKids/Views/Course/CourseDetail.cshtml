@@ -1,6 +1,27 @@
 ﻿<!-- Breadcrumb -->
 @model EnglishForKids.ViewModels.CourseDetailViewModel
 @using System.Linq;
+<style>
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* Tỷ lệ khung hình 16:9 */
+        padding-top: 25px;
+        height: 0;
+        overflow: hidden;
+        margin-top :25px;
+        border-radius: 12px;
+    }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+</style>
 <div class="banner-breadcrumb">
     <img src="~/images/Herobanner.jpg" alt="" />
     <div class="breadcrumb">
@@ -45,6 +66,12 @@
                         <p>Không có thông tin về lợi ích của khóa học.</p>
                     }
                 </div>
+                @if (!string.IsNullOrEmpty(Model.Source.VideoIntro))
+                {
+                    <div class="video-container">
+                        <iframe src="@Model.Source.VideoIntro" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                }
                 @if (Model.Chapters != null && Model.Chapters.Any())
                 {
                     <div class="box-des">
@@ -60,16 +87,41 @@
                                         </a>
                                     </div>
                                     <div id="chapter-collapse-@chapter.ChapterId" class="collapse">
-                                        <div class="card-body">
+                                        <div >
                                             <ul>
                                                 @foreach (var lesson in chapter.Lessons)
                                                 {
-                                                    <li>
-                                                        <a href="#">
-                                                            @lesson.LessonTitle
-                                                            <span class="time">@lesson.VideoDuration</span>
-                                                        </a>
+                                                    var fileExtension = System.IO.Path.GetExtension(lesson.Thumbnail)?.ToLower();
+
+                                                    <li class="ui-state-default lesson-item" id="lesson-@lesson.LessonId">
+
+                                                        <div class="d-flex align-items-center">
+                                                           
+                                                            <!-- Icon mở file/video -->
+                                                            @if (fileExtension == ".mp4")
+                                                            {
+                                                                <img class="lesson-icon"
+                                                                     data-url="@lesson.Thumbnail"
+                                                                     style="font-size: 24px; cursor: pointer;padding-left: 15px;" src="/images/icons/PlayCircle.svg">
+
+                                                            }
+                                                            else if (fileExtension == ".pdf")
+                                                            {
+                                                                <img class="lesson-icon"
+                                                                     data-url="@lesson.Thumbnail"
+                                                                     style="font-size: 24px; cursor: pointer;padding-left: 15px;" src="/images/icons/BookOpenText.svg">
+                                                            }
+
+                                                            <!-- Lesson Title -->
+                                                            <span class="flex-tt ml-2">
+                                                                <input style="background:none;" class="lesson-title" type="text" value="@lesson.LessonTitle" readonly />
+                                                            </span>
+
+
+                                                        </div>
+                                                        <span class="time">@lesson.VideoDuration</span>
                                                     </li>
+
                                                 }
                                             </ul>
                                         </div>
@@ -94,8 +146,16 @@
                             <div class="block-price">
                                 <span>@Model.Source.Price.ToString("N0") đ</span><strike>@Model.Source.OriginalPrice.ToString("N0") đ </strike>
                             </div>
-                            <a href="" class="btn btn-line">Thêm vào giỏ hàng</a>
-                            <a href="" class="btn btn-base">Mua ngay</a>
+                            <a href="" class="btn btn-line" style="
+                                justify-content: center;
+                                align-items: center;
+                                display: flex;
+                            ">Thêm vào giỏ hàng</a>
+                            <a href="" class="btn btn-base" style="
+                                justify-content: center;
+                                align-items: center;
+                                display: flex;
+                            ">Mua ngay</a>
                             <ul>
                                 <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
                                 <li>
