@@ -17,7 +17,6 @@
     <Folder Include="Controllers\ContactUs\Service\" />
     <Folder Include="Views\Shared\Components\Home\" />
     <Folder Include="Views\Shared\PartialView\Menu\" />
-    <Folder Include="wwwroot\js\courses - Copy\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -121,6 +120,24 @@
     <None Include="wwwroot\images\check.svg" />
     <None Include="wwwroot\images\error-1.svg" />
     <None Include="wwwroot\images\error.svg" />
+    <None Include="wwwroot\images\icons\amazon.svg" />
+    <None Include="wwwroot\images\icons\BookOpenText.svg" />
+    <None Include="wwwroot\images\icons\box.svg" />
+    <None Include="wwwroot\images\icons\changer.svg" />
+    <None Include="wwwroot\images\icons\elite.svg" />
+    <None Include="wwwroot\images\icons\FilePlus.svg" />
+    <None Include="wwwroot\images\icons\icon-dola.svg" />
+    <None Include="wwwroot\images\icons\icon-donhang.svg" />
+    <None Include="wwwroot\images\icons\icon-percent.svg" />
+    <None Include="wwwroot\images\icons\icon-user.svg" />
+    <None Include="wwwroot\images\icons\icon.svg" />
+    <None Include="wwwroot\images\icons\payment.svg" />
+    <None Include="wwwroot\images\icons\plane.svg" />
+    <None Include="wwwroot\images\icons\PlayCircle.svg" />
+    <None Include="wwwroot\images\icons\shipped.svg" />
+    <None Include="wwwroot\images\icons\Trash.svg" />
+    <None Include="wwwroot\images\icons\Vector.svg" />
+    <None Include="wwwroot\images\icons\web-crawler.svg" />
     <None Include="wwwroot\images\success.svg" />
     <None Include="wwwroot\images\warning.svg" />
     <None Include="wwwroot\modules\account.js" />
