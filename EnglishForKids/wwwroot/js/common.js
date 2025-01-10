@@ -27,7 +27,7 @@ const swiperADS = new Swiper('.banner-cat', {
             spaceBetween: 24,
         }
     },
-    
+
 });
 
 const swiperAds = new Swiper('.swiper-banner-ads', {
@@ -137,7 +137,7 @@ var swiperBigThumb = new Swiper(".thumb-big", {
 
 $(function () {
     $("#datepicker").datepicker();
-    
+
 });
 function scrollTop() {
     if ($(window).scrollTop() > 500) {
@@ -187,13 +187,13 @@ $(document).ready(function () {
         preloader: false,
         removalDelay: 300,
     });
-    $(".toggle-password").click(function() {
+    $(".toggle-password").click(function () {
         $(this).toggleClass("active");
         var input = $($(this).attr("toggle"));
         if (input.attr("type") == "password") {
-          input.attr("type", "text");
+            input.attr("type", "text");
         } else {
-          input.attr("type", "password");
+            input.attr("type", "password");
         }
     });
 });

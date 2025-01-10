@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Biolife</title>    
-    <link rel="icon" type="image/png" href="~/images/bio_icon.png" sizes="32x32">
+   @*  <link rel="icon" type="image/png" href="~/images/bio_icon.png" sizes="32x32">
     <link rel="stylesheet" href="~/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="~/css/jquery-ui.css">
@@ -14,9 +14,16 @@
     <link rel="stylesheet" href="/assets/css/select2.min.css">
     <link rel="stylesheet" href="/assets/css/lightgallery-bundle.css" />
     <link rel="stylesheet" href="/assets/css/main.min.css">
-    <link rel="stylesheet" href="/custom/site.css">
-    
-    
+    <link rel="stylesheet" href="/custom/site.css"> *@
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/select2.min.css">
+    <link rel="stylesheet" href="/icofont/icofont.min.css" />
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
 
     <style type="text/css">
        /* Định nghĩa placeholder */
@@ -67,7 +74,7 @@
     <!-- Header Start -->
 
     <div id="header-container"></div>
-    <partial name="_Login" />
+    @* <partial name="_Login" /> *@
     <!-- Header End -->
 
     <!-- HOME -->
@@ -81,24 +88,22 @@
     <!-- Footer End-->
 
     <button class="backToTopBtn"></button>
-
-   
-    <script src="~/js/jquery.min.js"></script>
-    <script src="~/js/popper.min.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/swiper-bundle.min.js"></script>
-    <script src="~/js/jquery-ui.js"></script>
-    <script src="~/js/jquery.magnific-popup.min.js"></script>
-    <script src="~/js/select2.min.js"></script>
-    <script src="~/js/common.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/swiper-bundle.min.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/select2.min.js"></script>
+    <script src="/js/common.js"></script>
 
 
    
     <script src="~/js/lib/defined_param.js"></script>
     <script src="~/js/header/main.js"></script>
     <script src="~/js/footer/main.js"></script>
-    <script src="~/js/group_product/main.js"></script>
-    <script src="/modules/constants.js" asp-append-version="true"></script>
+    @* <script src="~/js/group_product/main.js"></script> *@
+   @*  <script src="/modules/constants.js" asp-append-version="true"></script>
     <script src="/modules/services.js" asp-append-version="true"></script>
     <script src="/modules/global.js" asp-append-version="true"></script>
 
@@ -106,7 +111,7 @@
     <script asp-append-version="true" src="/modules/account.js"></script>
     <script asp-append-version="true" src="/modules/home_product.js"></script>
     <script asp-append-version="true" src="~/modules/support.js"></script>
-    <script type="text/javascript" src="~/modules/feedback.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/modules/feedback.js" asp-append-version="true"></script> *@
     
     @await RenderSectionAsync("Scripts", required: false)  
 </body>
