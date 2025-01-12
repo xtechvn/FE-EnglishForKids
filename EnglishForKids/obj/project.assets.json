@@ -1143,23 +1143,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nguye\\.nuget\\packages\\": {},
+    "C:\\Users\\cuong\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\EnglishForKids.csproj",
+      "projectUniqueName": "F:\\PROJECT\\TRUONG_HOC_TOT\\FRONT_END\\FE-EnglishForKids\\EnglishForKids\\EnglishForKids.csproj",
       "projectName": "EnglishForKids",
-      "projectPath": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\EnglishForKids.csproj",
-      "packagesPath": "C:\\Users\\nguye\\.nuget\\packages\\",
-      "outputPath": "D:\\Thuc_Tap_VnXpress\\Clone_giaoduc\\HuloToys-Font-End1\\EnglishForKids\\obj\\",
+      "projectPath": "F:\\PROJECT\\TRUONG_HOC_TOT\\FRONT_END\\FE-EnglishForKids\\EnglishForKids\\EnglishForKids.csproj",
+      "packagesPath": "C:\\Users\\cuong\\.nuget\\packages\\",
+      "outputPath": "F:\\PROJECT\\TRUONG_HOC_TOT\\FRONT_END\\FE-EnglishForKids\\EnglishForKids\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\nguye\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1186,7 +1186,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net6.0": {
@@ -1232,7 +1233,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },
