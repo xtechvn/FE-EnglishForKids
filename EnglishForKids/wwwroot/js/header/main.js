@@ -23,7 +23,7 @@ var header = {
                     <div class="container">
                         <div class="list-product-category">
                             <div class="title-box">
-                                <h3 class="name-tt"><a href="">Sản phẩm đã xem </a></h3>                
+                                <h3 class="name-tt"><a href="">Khóa học liên quan </a></h3>                
                             </div>
                             <div class="product-category">
                                 <div class="list-product scroll-product">
