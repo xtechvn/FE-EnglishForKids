@@ -34,9 +34,32 @@ namespace EnglishForKids.Controllers.Course
 
 
 
+        //[Route("khoa-hoc/{title}-{course_id}.html")]
+        //[HttpGet]
+        //public async Task<IActionResult> CourseDetail(string title, long course_id)
+        //{
+        //    // Key trong Redis tương ứng với khóa học
+        //    string redisKey = $"COURSE_DETAIL_{course_id}";
+        //    int redisDbIndex = int.Parse(configuration["Redis:Database:db_course"]);
+        //    string redisData = await redisService.GetAsync(redisKey, redisDbIndex);
+        //    if (string.IsNullOrEmpty(redisData))
+        //    {
+        //        // Nếu không tìm thấy dữ liệu trong Redis
+        //        return NotFound("Không tìm thấy thông tin khóa học.");
+        //    }
+        //    // Parse dữ liệu JSON từ Redis sang object
+        //    var courseModel = JsonConvert.DeserializeObject<CourseDetailViewModel>(redisData);
+        //    if (courseModel == null  || courseModel.Chapters == null)
+        //    {
+        //        return NotFound("Dữ liệu không hợp lệ.");
+        //    }
+
+        //    return View("~/Views/Course/CourseDetail.cshtml", courseModel);
+        //}
+
         [Route("khoa-hoc/{title}-{course_id}.html")]
         [HttpGet]
-        public async Task<IActionResult> CourseDetail(string title, long course_id)
+        public async Task<IActionResult> QuizDetail(string title, int course_id)
         {
             // Key trong Redis tương ứng với khóa học
             string redisKey = $"COURSE_DETAIL_{course_id}";
@@ -51,10 +74,10 @@ namespace EnglishForKids.Controllers.Course
             var courseModel = JsonConvert.DeserializeObject<CourseDetailViewModel>(redisData);
             if (courseModel == null || courseModel.Source == null || courseModel.Chapters == null)
             {
-                return NotFound("Dữ liệu không hợp lệ.");
+                return NotFound("Dữ liệu khóa học không hợp lệ.");
             }
 
-            return View("~/Views/Course/CourseDetail.cshtml", courseModel);
+            return View("~/Views/Course/QuizDetail.cshtml", courseModel);
         }
 
         /// <summary>
