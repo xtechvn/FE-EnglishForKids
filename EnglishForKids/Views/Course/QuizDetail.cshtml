@@ -1,0 +1,316 @@
+﻿@model EnglishForKids.ViewModels.CourseDetailViewModel
+@using System.Linq;
+<section class="section-news section-product-detail section-quiz-detail">
+    <div class="block-quiz">
+        <!-- Cột trái: Hiển thị nội dung bài giảng/video -->
+        <div class="left-quiz">
+            <div class="video-container">
+                <video id="lesson-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="100%" height="auto">
+                    <source id="video-source" src="@(Model.Chapters.FirstOrDefault()?.Items.FirstOrDefault(i => i.Type == "Lesson")?.Files.FirstOrDefault(f => f.Type == 40)?.Path ?? "Không có Video nào")" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ video.
+                </video>
+            </div>
+        </div>
+
+        <!-- Cột phải: Danh sách chương + bài giảng -->
+        <div class="right-quiz">
+            <div class="list-quiz">
+                @foreach (var chapter in Model.Chapters)
+                {
+                    <div class="lesson">
+                        <div class="head-lesson" onclick="toggleChapter(@chapter.ChapterId)">
+                            <a href="javascript:void(0)">@chapter.ChapterTitle</a>
+                            <div class="total-quiz">
+                                <span>@chapter.Items.Count bài học</span>
+                            </div>
+                        </div>
+
+                        @{
+                            int quizCount = 0;
+                        } <!-- Biến đếm số thứ tự Quiz -->
+
+                        <div class="list-lesson" id="chapter-@chapter.ChapterId" style="display: @(chapter == Model.Chapters.FirstOrDefault() ? "block" : "none");">
+                            @foreach (var item in chapter.Items)
+                            {
+                                <!-- Kiểm tra xem bài học có File Type = 40 (video) hay không -->
+                                bool hasVideo = item.Files.Any(f => f.Type == 40);
+
+                                <div class="item" onclick="@(hasVideo ? $"playLesson('{item.Files.FirstOrDefault(f => f.Type == 40)?.Path}')" : "")">
+                                    <div class="icon-check"></div>
+                                    <div>
+                                        <p class="name" style="display: flex; align-items: center; gap: 5px;">
+                                            @if (item.Type == "Lesson")
+                                            {
+                                                @if (!hasVideo) // Chỉ hiển thị icon-file nếu không có video
+                                                {
+                                                    <i class="icofont-file-alt"></i>
+                                                }
+                                                <span>@item.LessonTitle</span>
+                                            }
+
+                                            else
+                                            {
+                                                quizCount++;
+                                                <strong>Trắc nghiệm @quizCount:</strong> <span>@item.Title</span>
+                                            }
+                                        </p>
+
+                                        @if (item.Type == "Lesson" && hasVideo)
+                                        {
+                                            <div class="time">
+                                                <i class="icon icon-video"></i> 8 phút
+                                            </div>
+                                        }
+
+                                        @if (item.Type == "Lesson" && item.Files.Any(f => f.Type == 50))
+                                        {
+                                            <a href="javascript:void(0)" class="btn-file" onclick="toggleFiles(@item.LessonId, event)">Tài liệu</a>
+                                        }
+                                    </div>
+                                </div>
+
+                                @if (item.Type == "Lesson" && item.Files.Any(f => f.Type == 50))
+                                {
+                                    <div class="file-list" id="files-@item.LessonId" style="display: none;">
+                                        @foreach (var file in item.Files.Where(f => f.Type == 50))
+                                        {
+                                            <p><a href="@file.Path" download>📂 @System.IO.Path.GetFileName(file.Path)</a></p>
+                                        }
+                                    </div>
+                                }
+                            }
+                        </div>
+
+
+
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="wrap-news">
+            <div class="content">
+                <div class="menu-khoahoc">
+                    <ul>
+                        <li class="active"><a href="">Tổng quan</a></li>
+                        <li><a href="">Hỏi đáp</a></li>
+                        <li><a href="">Ghi chú</a></li>
+                        <li><a href="">Thông báo</a></li>
+                        <li><a href="">Đánh giá</a></li>
+                        <li><a href="">Công cụ học tập</a></li>
+                    </ul>
+                </div>
+                <div class="box-alarm">
+                    <i class="icofont-ui-alarm"></i>
+                    <div class="txt-box">
+                        <h6><b>Lên lịch nhắc học</b></h6>
+                        <p>
+                            Mỗi ngày học một chút, thành công sẽ đến gần hơn! Nghiên cứu cho thấy rằng những ai duy trì
+                            thói quen học tập đều đặn có nhiều khả năng đạt được mục tiêu của mình. Hãy dành thời gian
+                            cho việc học và sử dụng bộ lập lịch để luôn giữ vững động lực!
+                        </p>
+                        <a href="" class="btn-alarm">Đặt lịch</a>
+                        <a href="">Bỏ qua</a>
+                    </div>
+                </div>
+
+                <h1 class="title-news">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất hiện nay</h1>
+                <div class="short-lead">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
+                    volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum ligula
+                    egestas.
+                </div>
+
+
+                <ul class="view-time">
+                    <li class="d-flex"><i class="icon-star"></i>4.9</li>
+                    <li class="d-flex"><i class="icofont-users"></i>490 học viên</li>
+                    <li class="d-flex"><i class="icofont-clock-time"></i>8 giờ học</li>
+                </ul>
+
+                <div class="box-des">
+                    <h4>Bạn sẽ học được gì?</h4>
+                    <ul class="list">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                    </ul>
+                </div>
+                <div class="box-des-nobg">
+                    <h4 class="title-box">Mô tả</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
+                        volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum
+                        ligula
+                        egestas.
+                    </p>
+                </div>
+                <div class="box-des-nobg">
+                    <h4 class="title-box">Hướng dẫn</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
+                        volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum
+                        ligula
+                        egestas.
+                    </p>
+                </div>
+                <div class="box-des-nobg">
+                    <h4 class="title-box">Yêu cầu</h4>
+                    <ul class="list">
+                        <li>Đã học tiếng Anh cơ bản</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="siderbar-news">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CSS -->
+<style>
+    .video-container {
+        width: 100%;
+        height: 572.200px; /* Đặt chiều cao cố định */
+        position: relative;
+    }
+
+    .btn-file:hover {
+        background-color: color-mix(in sRGB, #3b82f6 12%, transparent);
+    }
+
+
+    .video-js {
+        width: 100%;
+        height: 100%; /* Đảm bảo video luôn lấp đầy container */
+    }
+
+        .video-js .vjs-tech {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    .file-list {
+        background-color: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin-left: 20px;
+        padding: 10px;
+        position: relative;
+        z-index: 100;
+    }
+
+        .file-list p {
+            margin: 5px 0;
+        }
+
+        .file-list a {
+            color: #1c1d1f;
+            display: block;
+            text-decoration: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 250px;
+        }
+
+            .file-list a:hover {
+                color: #5624d0;
+            }
+
+    .item {
+        
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
+    }
+
+        .item:hover {
+            background-color: #d1d2e0;
+            transform: translateY(-2px);
+        }
+
+    .head-lesson {
+        cursor: pointer;
+    }
+</style>
+
+<!-- Scripts -->
+@section Scripts {
+    <!-- Thư viện VideoJS -->
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+
+    <script>
+        var player;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            player = videojs('lesson-video', {
+                playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
+                responsive: true,
+                fluid: false, // Đảm bảo không bị thay đổi chiều cao động
+                height: 572.200, // Chiều cao cố định
+                controlBar: {
+                    children: [
+                        'playToggle',
+                        'volumePanel',
+                        'currentTimeDisplay',
+                        'timeDivider',
+                        'durationDisplay',
+                        'progressControl',
+                        'playbackRateMenuButton',
+                        'fullscreenToggle'
+                    ]
+                }
+            });
+
+            // Tự động mở chương đầu tiên và phát video bài học đầu tiên
+            var firstLessonVideo = "@(Model.Chapters.FirstOrDefault()?.Items.FirstOrDefault()?.Files.FirstOrDefault(f => f.Type == 40)?.Path)";
+            if (firstLessonVideo) {
+                playLesson(firstLessonVideo);
+            }
+        });
+
+        function playLesson(videoUrl) {
+            if (!videoUrl) return;
+
+            if (player) {
+                player.src({ src: videoUrl, type: 'video/mp4' });
+                player.load();
+                player.play();
+                document.querySelector('.video-container').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleChapter(chapterId) {
+            var chapterElement = document.getElementById("chapter-" + chapterId);
+            chapterElement.style.display = chapterElement.style.display === "none" ? "block" : "none";
+        }
+
+        function toggleFiles(lessonId, event) {
+            if (event) event.stopPropagation();
+            var fileList = document.getElementById('files-' + lessonId);
+            fileList.style.display = fileList.style.display === 'none' ? 'block' : 'none';
+        }
+
+        document.addEventListener('click', function (event) {
+            var fileLists = document.querySelectorAll('.file-list');
+            fileLists.forEach(function (fileList) {
+                if (fileList.style.display === 'block' && !fileList.contains(event.target) && !event.target.classList.contains('btn-file')) {
+                    fileList.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <script src="~/js/courses/quiz_detail.js"></script>
+}
