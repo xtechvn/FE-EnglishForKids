@@ -1,21 +1,25 @@
 ﻿using EnglishForKids.Contants;
 using EnglishForKids.Models;
+using EnglishForKids.Models.Course;
 using EnglishForKids.Service.Redis;
 using EnglishForKids.Utilities;
+using EnglishForKids.Utilities.Lib;
 using EnglishForKids.ViewModels;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net.Http;
 using System.Reflection;
 
 namespace EnglishForKids.Controllers.Course.Service
 {
-    public class CourseService
+    public class CourseService : APIService
     {
-        private readonly IConfiguration configuration;
+        private readonly IConfiguration _configuration;
         private readonly RedisConn redisService;
-        public CourseService(IConfiguration _configuration, RedisConn _redisService)
+
+        public CourseService(IConfiguration configuration, RedisConn _redisService) : base(configuration)
         {
-            configuration = _configuration;
+            _configuration = configuration;
             redisService = _redisService;
         }
         /// <summary>
@@ -28,7 +32,7 @@ namespace EnglishForKids.Controllers.Course.Service
             try
             {
                 string response_api = string.Empty;
-                var connect_api_us = new ConnectApi(configuration, redisService);
+                var connect_api_us = new ConnectApi(_configuration, redisService);
                 var input_request = new Dictionary<string, long>
                 {
                     {"article_id",article_id }
@@ -54,10 +58,138 @@ namespace EnglishForKids.Controllers.Course.Service
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:token"], configuration["log_telegram:group_id"], error_msg);
+                Utilities.LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], error_msg);
                 return null;
             }
         }
+        public async Task<QuizResultResponse?> SubmitQuizAnswer(SubmitQuizAnswer request)
+            {
+            try
+            {
+                int userId = 1; // Lấy từ session hoặc context
+                string apiResponse = string.Empty;
+                var connect_api_us = new ConnectApi(_configuration, redisService);
+
+                // 1️⃣ Gửi đáp án lên API `QuizResult` để lưu vào DB
+                var requestBody = new SubmitQuizAnswer
+                {
+                    SourceId = request.SourceId,
+                    QuizId = request.QuizId,
+                    QuizAnswerId = request.QuizAnswerId,
+                    UserId = userId
+                };
+
+                apiResponse =  await POST(_configuration["API:quiz_result"], request);
+                //var apiResult = await apiResponse.Content.ReadAsStringAsync();
+                var jsonData = JObject.Parse(apiResponse);
+                int status = int.Parse(jsonData["status"].ToString());
+                return new QuizResultResponse
+                {
+                    Status = status == (int)ResponseType.SUCCESS,
+                    IsCorrect = bool.Parse(jsonData["IsCorrect"].ToString()),
+                    CorrectAnswerNote = jsonData["CorrectAnswerNote"]?.ToString(),
+                    Message = jsonData["Message"].ToString()
+                };
+
+              
+            }
+            catch (Exception ex)
+            {
+                return new QuizResultResponse { Status = false, Message = "Lỗi hệ thống: " + ex.Message };
+            }
+        }
+
+
+        public async Task<QuizProgressResponse?> GetQuizResults(GetQuizResultRequest request)
+        {
+            try
+            {
+                int userId = request.UserId;
+                int quizId = request.QuizId;
+                string apiResponse = string.Empty;
+                var connect_api_us = new ConnectApi(_configuration, redisService);
+
+                // 1️⃣ Gọi API lấy kết quả quiz từ database
+                var requestBody = new GetQuizResultRequest
+                {
+                    QuizId = quizId,
+                    UserId = userId
+                };
+
+                apiResponse = await POST(_configuration["API:quiz_get_results"], request);
+                // Nhan ket qua tra ve                            
+                var jsonData = JObject.Parse(apiResponse);
+                int status = int.Parse(jsonData["Status"].ToString());
+                if (status != (int)ResponseType.SUCCESS)
+                {
+                    return new QuizProgressResponse
+                    {
+                        Status = false,
+                        Message = jsonData["Message"].ToString()
+                    };
+                }
+
+                return new QuizProgressResponse
+                {
+                    Status = status == (int)ResponseType.SUCCESS,
+                    Completed = jsonData["Completed"] != null && bool.Parse(jsonData["Completed"].ToString()),
+
+                    NextQuestionIndex = jsonData["NextQuestionIndex"] != null
+                          ? (int?)int.Parse(jsonData["NextQuestionIndex"].ToString())
+                          : null,  // 🛑 Nếu không có thì để null tránh lỗi
+
+                    CorrectCount = jsonData["CorrectCount"] != null
+                     ? int.Parse(jsonData["CorrectCount"].ToString())
+                     : 0,  // 🛑 Nếu không có thì mặc định là 0
+
+                    CorrectAnswers = jsonData["CorrectAnswers"] != null
+                       ? jsonData["CorrectAnswers"].ToObject<List<QuestionViewModel>>()
+                       : new List<QuestionViewModel>(), // 🛑 Nếu null thì trả về danh sách rỗng
+
+                    IncorrectAnswers = jsonData["IncorrectAnswers"] != null
+                         ? jsonData["IncorrectAnswers"].ToObject<List<QuestionViewModel>>()
+                         : new List<QuestionViewModel>() // 🛑 Nếu null thì trả về danh sách rỗng
+                };
+
+            }
+            catch (Exception ex)
+            {
+                return new QuizProgressResponse { Status = false, Message = "Lỗi hệ thống: " + ex.Message };
+            }
+        }
+
+        public async Task<bool> ResetQuizResults(GetQuizResultRequest request)
+        {
+            try
+            {
+                int userId = request.UserId;
+                int quizId = request.QuizId;
+                string apiResponse = string.Empty;
+
+                // 1️⃣ Gọi API để reset quiz từ database
+                apiResponse = await POST(_configuration["API:quiz_reset"], request);
+
+                // 2️⃣ Nhận kết quả trả về
+                var jsonData = JObject.Parse(apiResponse);
+                int status = int.Parse(jsonData["status"].ToString());
+
+                if (status != (int)ResponseType.SUCCESS)
+                {
+                    Console.WriteLine("❌ Lỗi khi reset quiz: " + jsonData["message"].ToString());
+                    return false;
+                }
+
+                Console.WriteLine("✅ Quiz đã reset thành công!");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("❌ Lỗi hệ thống khi reset quiz: " + ex.Message);
+                return false;
+            }
+        }
+
+
         //public async Task<ArticleViewModel?> getArticleByCategoryId(int category_id, int top, int skip)
         //{
         //    try
@@ -114,7 +246,7 @@ namespace EnglishForKids.Controllers.Course.Service
             try
             {
                 string response_api = string.Empty;
-                var connect_api_us = new ConnectApi(configuration, redisService);
+                var connect_api_us = new ConnectApi(_configuration, redisService);
                 var input_request = new Dictionary<string, int>
                 {
                      {"skip", skip},
@@ -149,7 +281,7 @@ namespace EnglishForKids.Controllers.Course.Service
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:token"], configuration["log_telegram:group_id"], error_msg);
+                Utilities.LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], error_msg);
                 return null;
             }
         }
@@ -163,7 +295,7 @@ namespace EnglishForKids.Controllers.Course.Service
             try
             {
                 string response_api = string.Empty;
-                var connect_api_us = new ConnectApi(configuration, redisService);
+                var connect_api_us = new ConnectApi(_configuration, redisService);
                 var input_request = new Dictionary<string, int>
                 {
                      {"category_id",category_id }
@@ -189,7 +321,7 @@ namespace EnglishForKids.Controllers.Course.Service
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:token"], configuration["log_telegram:group_id"], error_msg);
+                Utilities.LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], error_msg);
                 return 0;
             }
         }

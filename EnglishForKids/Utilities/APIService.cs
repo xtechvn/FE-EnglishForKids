@@ -42,24 +42,52 @@ namespace EnglishForKids.Utilities.Lib
             _redisService.Connect();
         }
 
+        //public async Task<string> POST(string endpoint, object request)
+        //{
+        //    try
+        //    {   
+        //        if(TOKEN==null || TOKEN.Trim()=="" ) TOKEN = await GetToken();
+        //        string token = EncodeHelpers.Encode(JsonConvert.SerializeObject(request), _ApiSecretKey);
+        //        var request_message = new HttpRequestMessage(HttpMethod.Post, endpoint);
+        //        request_message.Headers.Add("Authorization", "Bearer " + TOKEN);
+        //        var content = new StringContent("{\"token\":\""+token+"\"}", Encoding.UTF8, "application/json");
+        //        request_message.Content = content;
+        //        var response = await _HttpClient.SendAsync(request_message);
+        //        return await response.Content.ReadAsStringAsync();
+        //    }
+        //    catch
+        //    {
+        //        return null;
+        //    }
+        //}
         public async Task<string> POST(string endpoint, object request)
         {
             try
-            {   
-                if(TOKEN==null || TOKEN.Trim()=="" ) TOKEN = await GetToken();
-                string token = EncodeHelpers.Encode(JsonConvert.SerializeObject(request), _ApiSecretKey);
-                var request_message = new HttpRequestMessage(HttpMethod.Post, endpoint);
-                request_message.Headers.Add("Authorization", "Bearer " + TOKEN);
-                var content = new StringContent("{\"token\":\""+token+"\"}", Encoding.UTF8, "application/json");
-                request_message.Content = content;
-                var response = await _HttpClient.SendAsync(request_message);
-                return await response.Content.ReadAsStringAsync();
-            }
-            catch
             {
+                string jsonRequest = JsonConvert.SerializeObject(request);
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, endpoint);
+                var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+                requestMessage.Content = content;
+
+                Console.WriteLine($"🚀 Gửi API {endpoint} với dữ liệu: {jsonRequest}");
+
+                var response = await _HttpClient.SendAsync(requestMessage);
+                string responseContent = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"❌ API trả về lỗi {response.StatusCode}: {responseContent}");
+                }
+
+                return responseContent;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Lỗi khi gọi API {endpoint}: {ex.Message}");
                 return null;
             }
         }
+
         public async Task<string> GetToken()
         {
             try
