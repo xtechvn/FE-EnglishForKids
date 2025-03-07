@@ -1,15 +1,124 @@
 ﻿@model EnglishForKids.ViewModels.CourseDetailViewModel
 @using System.Linq;
+@using EnglishForKids.Service.Helper
+@using EnglishForKids.ViewModels
+
+
 <section class="section-news section-product-detail section-quiz-detail">
     <div class="block-quiz">
         <!-- Cột trái: Hiển thị nội dung bài giảng/video -->
         <div class="left-quiz">
-            <div class="video-container">
+            <div id="video-panel" class="video-container" style="display: none;"
+                 onmouseover="showNavQuiz()" onmouseleave="hideNavQuiz()">
                 <video id="lesson-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="100%" height="auto">
-                    <source id="video-source" src="@(Model.Chapters.FirstOrDefault()?.Items.FirstOrDefault(i => i.Type == "Lesson")?.Files.FirstOrDefault(f => f.Type == 40)?.Path ?? "Không có Video nào")" type="video/mp4">
+                    <source id="video-source"
+                            src="@(Model.Chapters.FirstOrDefault()?.Items.FirstOrDefault()?.Files.FirstOrDefault(f => f.Type == 40)?.Path ?? "https://www.w3schools.com/html/mov_bbb.mp4")"
+                            type="video/mp4">
                     Trình duyệt của bạn không hỗ trợ video.
                 </video>
+                <div class="nav-quiz" id="nav-quiz">
+                    <div class="nav-prev" onclick="navigateLesson(-1)">❮</div>
+                    <div class="nav-next" onclick="navigateLesson(1)">❯</div>
+                </div>
             </div>
+            <!-- Panel Bài Viết -->
+            <div id="article-panel" class="full-screen-quiz article-panel" style="display: none;">
+                <div class="content-quiz">
+                    <div class="question">
+                        <h2 class="title" id="article-title"></h2> <!-- Hiển thị tiêu đề của bài học -->
+                        <p id="article-content" class="description"></p>
+
+                        <p class="mt-2 tai-nguyen"><b>Tài nguyên cho bài giảng này</b></p>
+                        <div id="article-files"></div> <!-- Danh sách tài nguyên sẽ được cập nhật động -->
+
+                        <p id="article-notice" class="article-warning" style="display: none; color: red; font-weight: bold;">
+                            Chú ý: Phần này của khóa học hiện không có nội dung để hiển thị.
+                        </p>
+                    </div>
+                    <div class="nav-quiz">
+                        <div class="nav-prev" onclick="navigateLesson(-1)"></div>
+                        <div class="nav-next" onclick="navigateLesson(1)"></div>
+                    </div>
+
+                </div>
+                <div class="bottom-screen" style="
+                        justify-content: end;
+                    ">
+                    <div class="button-action">
+
+                        <div class="btn-zoom-out"></div>
+                        <div class="btn-zoom-in"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="quiz-panel" class="full-screen-quiz quiz-panel" style="display: none;">
+                <div class="content-quiz">
+                    <div class="question">
+                        <h2 class="title" id="quizIndex"></h2>
+                        <p id="quiz-question" class="description"></p>
+                        <div id="quiz-answers" class="list-answers"></div>
+                        <div class="noti error" style="display: none;">
+                            <span>Sai gòi</span>
+                            <p></p>
+                        </div>
+                        <div class="noti success" style="display: none;">
+                            <span>Đúng gòi</span>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-screen">
+                    <div class="total-question" id="quizTotal"></div>
+                    <div class="button-action">
+                        <button class="btn btn-white" onclick="nextQuestion()">Bỏ qua</button>
+                        <button class="btn btn-base btn-check-answer">Kiểm tra câu hỏi</button>
+                        <div class="btn-zoom-out"></div>
+                        <div class="btn-zoom-in"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Hiển thị Kết Quả -->
+            <div id="quiz-result-panel" class="full-screen-quiz quiz-panel" style="display: none;">
+                <div class="content-quiz">
+                    <div class="congratulations">
+                        <img src="images/3star.png" alt="" />
+                        <h3 id="quiz-result-title"></h3>
+                        <p id="quiz-result-score"></p>
+                    </div>
+                    <div class="quiz-cor" style="
+                            margin-left: 100px;
+                        ">
+                        <div id="quiz-correct-section">
+                            <span>Những điều bạn biết</span>
+                            <div id="quiz-correct-answers"></div>
+                        </div>
+
+                        <div id="quiz-incorrect-section" style="display: none;">
+                            <span>Những điều bạn nên xem lại</span>
+                            <div id="quiz-incorrect-answers"></div>
+                        </div>
+                        <div id="quiz-skipped-section" style="display: none;">
+                            <span id="quiz-skipped-title">Những điều bạn đã bỏ qua</span>
+                            <div id="quiz-skipped-answers"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="bottom-screen">
+                    <div class="total-question"></div>
+                    <div class="button-action">
+                        <button class="btn btn-white" onclick="resetQuiz()">Thử làm lại trắc nghiệm</button>
+
+                        <button class="btn btn-base btn-check-answer" onclick="navigateLesson(1)">Tiếp tục</button>
+                        <div class="btn-zoom-out"></div>
+                        <div class="btn-zoom-in"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Cột phải: Danh sách chương + bài giảng -->
@@ -17,11 +126,16 @@
             <div class="list-quiz">
                 @foreach (var chapter in Model.Chapters)
                 {
+                    int totalLessons = chapter.Items.Count(i => i.Type == "Lesson"); // Đếm bài học
+                    int totalQuizzes = chapter.Items.Count(i => i.Type == "Quiz" && i.Questions != null && i.Questions.Any()); // Đếm quiz có câu hỏi
+                    int totalItems = totalLessons + totalQuizzes; // Tổng số bài hợp lệ
                     <div class="lesson">
                         <div class="head-lesson" onclick="toggleChapter(@chapter.ChapterId)">
                             <a href="javascript:void(0)">@chapter.ChapterTitle</a>
                             <div class="total-quiz">
-                                <span>@chapter.Items.Count bài học</span>
+                                @* <span>@chapter.Items.Count bài học</span> *@
+                                <span>0/@totalItems</span>
+                                <span>@TimeHelper.FormatDuration(chapter.Items.Sum(i => i.Files.Where(f => f.Type == 40).Sum(f => f.Duration)))</span>
                             </div>
                         </div>
 
@@ -32,22 +146,45 @@
                         <div class="list-lesson" id="chapter-@chapter.ChapterId" style="display: @(chapter == Model.Chapters.FirstOrDefault() ? "block" : "none");">
                             @foreach (var item in chapter.Items)
                             {
-                                <!-- Kiểm tra xem bài học có File Type = 40 (video) hay không -->
-                                bool hasVideo = item.Files.Any(f => f.Type == 40);
 
-                                <div class="item" onclick="@(hasVideo ? $"playLesson('{item.Files.FirstOrDefault(f => f.Type == 40)?.Path}')" : "")">
+                                bool hasVideo = item.Files.Any(f => f.Type == 40);
+                                bool hasArticle = !string.IsNullOrEmpty(item.Article);
+                                bool hasQuiz = item.Type == "Quiz";
+                                bool hasQuestions = hasQuiz && item.Questions != null && item.Questions.Any(); // Kiểm tra nếu có câu hỏi
+                                var videoUrl = hasVideo ? item.Files.FirstOrDefault(f => f.Type == 40)?.Path : "";
+                                var articleContent = hasArticle ? item.Article : "";
+                                var articleFilesJson = @Html.Raw(Json.Serialize(item.Files.Where(f => f.Type == 50).ToList()));
+                                var quizDataJson = @Html.Raw(Json.Serialize(item.Questions ?? new List<QuestionViewModel>()));
+                                // 🛑 Nếu là Quiz nhưng không có câu hỏi -> Bỏ qua (không render)
+                                if (hasQuiz && !hasQuestions)
+                                {
+                                    continue;
+                                }
+
+                                <div class="item item1"
+                                     data-lesson-id="@item.LessonId"
+                                     data-type="@(hasVideo ? "video" : (hasArticle ? "article" : (hasQuiz ? "quiz" : (item.Files.Any(f => f.Type == 50) ? "document" : ""))))"
+                                     data-video-url="@videoUrl"
+                                     data-article-content="@articleContent"
+                                     data-article-files='@articleFilesJson'
+                                     data-quiz-data='@quizDataJson'
+                                     data-lesson-title="@item.LessonTitle"
+                                     data-course-id="@Model.Source.SourceId"
+                                     data-quiz-id="@item.QuizId"
+                                     data-quiz-id="@(hasQuiz ? item.QuizId : "")"
+                                     onclick="handleLessonClick(this)">
+
                                     <div class="icon-check"></div>
                                     <div>
                                         <p class="name" style="display: flex; align-items: center; gap: 5px;">
                                             @if (item.Type == "Lesson")
                                             {
-                                                @if (!hasVideo) // Chỉ hiển thị icon-file nếu không có video
+                                                @if (!hasVideo)
                                                 {
                                                     <i class="icofont-file-alt"></i>
                                                 }
                                                 <span>@item.LessonTitle</span>
                                             }
-
                                             else
                                             {
                                                 quizCount++;
@@ -57,9 +194,12 @@
 
                                         @if (item.Type == "Lesson" && hasVideo)
                                         {
-                                            <div class="time">
-                                                <i class="icon icon-video"></i> 8 phút
-                                            </div>
+                                            @foreach (var file in item.Files.Where(f => f.Type == 40))
+                                            {
+                                                <div class="time">
+                                                    <i class="icon icon-video"></i> @TimeHelper.FormatDuration(file.Duration)
+                                                </div>
+                                            }
                                         }
 
                                         @if (item.Type == "Lesson" && item.Files.Any(f => f.Type == 50))
@@ -80,6 +220,7 @@
                                 }
                             }
                         </div>
+
 
 
 
@@ -174,10 +315,94 @@
 </section>
 <!-- CSS -->
 <style>
+
+    #quiz-result-panel span {
+        font-weight: 700;
+    }
+
+    /* Đổi màu khi đáp án bị vô hiệu hóa */
+    .disabled-option {
+        opacity: 0.5;
+        pointer-events: none;
+        background-color: #f0f0f0;
+        border-radius: 50px;
+    }
+
+    .item3 {
+        padding: 5px 10px;
+    }
+
+    .file-download {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+        .file-download:hover {
+            color: #ff4500;
+            text-decoration: underline;
+        }
+
     .video-container {
         width: 100%;
         height: 572.200px; /* Đặt chiều cao cố định */
         position: relative;
+    }
+
+
+    /* Navigation Controls */
+    .nav-quiz {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        pointer-events: none;
+    }
+
+        /* Nút Prev & Next */
+        .nav-quiz div {
+            background: rgba(255, 255, 255, 0.8); /* Nền trắng trong suốt */
+            color: black; /* Màu icon */
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50%; /* Làm tròn */
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: all; /* Bật click cho nút */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Viền mờ */
+        }
+
+    /* Căn chỉnh nút Prev */
+    .nav-prev {
+        position: absolute;
+        left: 10px;
+        z-index: 10;
+    }
+
+    /* Căn chỉnh nút Next */
+    .nav-next {
+        position: absolute;
+        right: 10px;
+        z-index: 10;
+    }
+
+    /* Hiệu ứng hover */
+    .nav-quiz div:hover {
+        background: rgba(255, 255, 255, 1);
+        color: black;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     }
 
     .btn-file:hover {
@@ -227,14 +452,13 @@
                 color: #5624d0;
             }
 
-    .item {
-        
+    .item1 {
         border-radius: 5px;
         transition: background-color 0.3s ease, transform 0.2s ease;
         cursor: pointer;
     }
 
-        .item:hover {
+        .item1:hover {
             background-color: #d1d2e0;
             transform: translateY(-2px);
         }
@@ -250,67 +474,7 @@
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
 
-    <script>
-        var player;
 
-        document.addEventListener('DOMContentLoaded', function () {
-            player = videojs('lesson-video', {
-                playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
-                responsive: true,
-                fluid: false, // Đảm bảo không bị thay đổi chiều cao động
-                height: 572.200, // Chiều cao cố định
-                controlBar: {
-                    children: [
-                        'playToggle',
-                        'volumePanel',
-                        'currentTimeDisplay',
-                        'timeDivider',
-                        'durationDisplay',
-                        'progressControl',
-                        'playbackRateMenuButton',
-                        'fullscreenToggle'
-                    ]
-                }
-            });
-
-            // Tự động mở chương đầu tiên và phát video bài học đầu tiên
-            var firstLessonVideo = "@(Model.Chapters.FirstOrDefault()?.Items.FirstOrDefault()?.Files.FirstOrDefault(f => f.Type == 40)?.Path)";
-            if (firstLessonVideo) {
-                playLesson(firstLessonVideo);
-            }
-        });
-
-        function playLesson(videoUrl) {
-            if (!videoUrl) return;
-
-            if (player) {
-                player.src({ src: videoUrl, type: 'video/mp4' });
-                player.load();
-                player.play();
-                document.querySelector('.video-container').scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        function toggleChapter(chapterId) {
-            var chapterElement = document.getElementById("chapter-" + chapterId);
-            chapterElement.style.display = chapterElement.style.display === "none" ? "block" : "none";
-        }
-
-        function toggleFiles(lessonId, event) {
-            if (event) event.stopPropagation();
-            var fileList = document.getElementById('files-' + lessonId);
-            fileList.style.display = fileList.style.display === 'none' ? 'block' : 'none';
-        }
-
-        document.addEventListener('click', function (event) {
-            var fileLists = document.querySelectorAll('.file-list');
-            fileLists.forEach(function (fileList) {
-                if (fileList.style.display === 'block' && !fileList.contains(event.target) && !event.target.classList.contains('btn-file')) {
-                    fileList.style.display = 'none';
-                }
-            });
-        });
-    </script>
 
     <script src="~/js/courses/quiz_detail.js"></script>
 }

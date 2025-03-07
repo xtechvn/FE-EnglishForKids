@@ -64,5 +64,6 @@
         public int Type { get; set; }
         public string Path { get; set; }
         public string Ext { get; set; }
+        public int Duration { get; set; }
     }
 }

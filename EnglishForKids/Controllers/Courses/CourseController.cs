@@ -1,10 +1,12 @@
 ﻿using EnglishForKids.Controllers.Course.Service;
-
+using EnglishForKids.Controllers.News.Service;
 using EnglishForKids.Models;
+using EnglishForKids.Models.Course;
 using EnglishForKids.Service.Redis;
 using EnglishForKids.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace EnglishForKids.Controllers.Course
 {
@@ -12,10 +14,15 @@ namespace EnglishForKids.Controllers.Course
     {
         private readonly IConfiguration configuration;
         private readonly RedisConn redisService;
+        private readonly CourseService _courseServices;
+        private readonly NewsService _newServices;
+
         public CourseController(IConfiguration _configuration, RedisConn _redisService)
         {
             configuration = _configuration;
+            _courseServices = new CourseService(configuration, redisService);
             redisService = _redisService;
+            
         }
         // Layout trang chủ news dùng chung với trang Category cấp 2
         [Route("khoa-hoc")]
@@ -79,6 +86,44 @@ namespace EnglishForKids.Controllers.Course
 
             return View("~/Views/Course/QuizDetail.cshtml", courseModel);
         }
+        [HttpPost]
+        public async Task<IActionResult> SubmitQuizAnswer([FromBody] SubmitQuizAnswer request)
+        {
+            var result = await _courseServices.SubmitQuizAnswer(request);
+
+            if (result == null || !result.Status)
+            {
+                return BadRequest(result?.Message ?? "Lỗi xử lý câu trả lời.");
+            }
+
+            return Json(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetQuizResults([FromBody] GetQuizResultRequest request)
+        {
+            var result = await _courseServices.GetQuizResults(request);
+
+            if (result == null || !result.Status)
+            {
+                return BadRequest(result?.Message ?? "Lỗi khi lấy kết quả quiz.");
+            }
+
+            return Json(result);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetQuiz([FromBody] GetQuizResultRequest request)
+        {
+            var result = await _courseServices.ResetQuizResults(request);
+
+            if (result == null )
+            {
+                return BadRequest( "Lỗi khi lấy kết quả quiz.");
+            }
+
+            return Json(result);
+        }
+
 
         /// <summary>
         /// Lấy ra các bài viết mới nhất của các chuyên mục
@@ -99,8 +144,8 @@ namespace EnglishForKids.Controllers.Course
 
                 var model = new CategoryConfigModel
                 {
-                    category_id = category_id,                
-                    view_name = view_name,                    
+                    category_id = category_id,
+                    view_name = view_name,
                     skip = skip,
                     take = page_size
                 };
@@ -113,6 +158,8 @@ namespace EnglishForKids.Controllers.Course
                 return StatusCode(500); // Trả về lỗi 500 nếu có lỗi
             }
         }
+
+        
 
     }
 }
