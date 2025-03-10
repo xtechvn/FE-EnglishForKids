@@ -63,7 +63,7 @@ namespace EnglishForKids.Controllers.Course.Service
             }
         }
         public async Task<QuizResultResponse?> SubmitQuizAnswer(SubmitQuizAnswer request)
-            {
+        {
             try
             {
                 int userId = 1; // Lấy từ session hoặc context
@@ -79,7 +79,7 @@ namespace EnglishForKids.Controllers.Course.Service
                     UserId = userId
                 };
 
-                apiResponse =  await POST(_configuration["API:quiz_result"], request);
+                apiResponse = await POST(_configuration["API:quiz_result"], request);
                 //var apiResult = await apiResponse.Content.ReadAsStringAsync();
                 var jsonData = JObject.Parse(apiResponse);
                 int status = int.Parse(jsonData["status"].ToString());
@@ -91,7 +91,7 @@ namespace EnglishForKids.Controllers.Course.Service
                     Message = jsonData["Message"].ToString()
                 };
 
-              
+
             }
             catch (Exception ex)
             {
@@ -144,6 +144,12 @@ namespace EnglishForKids.Controllers.Course.Service
 
                     CorrectAnswers = jsonData["CorrectAnswers"] != null
                        ? jsonData["CorrectAnswers"].ToObject<List<QuestionViewModel>>()
+                       : new List<QuestionViewModel>(), // 🛑 Nếu null thì trả về danh sách rỗng
+                    SkippedQuestions = jsonData["SkippedQuestions"] != null
+                       ? jsonData["SkippedQuestions"].ToObject<List<QuestionViewModel>>()
+                       : new List<QuestionViewModel>(), // 🛑 Nếu null thì trả về danh sách rỗng
+                    AllQuestions = jsonData["AllQuestions"] != null
+                       ? jsonData["AllQuestions"].ToObject<List<QuestionViewModel>>()
                        : new List<QuestionViewModel>(), // 🛑 Nếu null thì trả về danh sách rỗng
 
                     IncorrectAnswers = jsonData["IncorrectAnswers"] != null

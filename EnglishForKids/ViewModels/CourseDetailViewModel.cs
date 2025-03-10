@@ -48,6 +48,8 @@
         public int QuestionId { get; set; }
         public string Description { get; set; }
         public List<AnswerViewModel> Answers { get; set; } = new List<AnswerViewModel>();
+        public bool IsAnswered { get; set; } // ✅ Mới thêm: Kiểm tra câu hỏi đã làm chưa
+        public int? SelectedAnswer { get; set; } // ✅ Mới thêm: Lưu câu trả lời đã chọn (nếu có)
     }
 
     public class AnswerViewModel
