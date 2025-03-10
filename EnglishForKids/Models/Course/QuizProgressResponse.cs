@@ -10,6 +10,10 @@ namespace EnglishForKids.Models.Course
         public int CorrectCount { get; set; } // Số câu đúng
         public List<QuestionViewModel> CorrectAnswers { get; set; } = new List<QuestionViewModel>(); // Câu hỏi đúng
         public List<QuestionViewModel> IncorrectAnswers { get; set; } = new List<QuestionViewModel>(); // Câu hỏi sai
+        public List<QuestionViewModel> SkippedQuestions { get; set; } = new List<QuestionViewModel>(); // Câu hỏi sai
+        public List<QuestionViewModel> AllQuestions { get; set; } = new List<QuestionViewModel>(); // Câu hỏi sai
+
+
         public string Message { get; set; } // Thông báo trạng thái
     }
 }
