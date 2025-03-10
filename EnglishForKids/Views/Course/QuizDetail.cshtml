@@ -155,8 +155,9 @@
                                 bool hasQuestions = hasQuiz && item.Questions != null && item.Questions.Any(); // Kiểm tra nếu có câu hỏi
                                 var videoUrl = hasVideo ? item.Files.FirstOrDefault(f => f.Type == 40)?.Path : "";
                                 var articleContent = hasArticle ? item.Article : "";
-                                var articleFilesJson = @Html.Raw(JsonSerializer.Serialize(item.Files.Where(f => f.Type == 50).ToList()));
-                                var quizDataJson = @Html.Raw(JsonSerializer.Serialize(item.Questions ?? new List<QuestionViewModel>()));
+                                // ✅ Sửa lại: Không thêm @{ } nữa (vì đang nằm trong khối Razor rồi)
+                                var articleFilesJson = JsonSerializer.Serialize(item.Files.Where(f => f.Type == 50).ToList());
+                                var quizDataJson = JsonSerializer.Serialize(item.Questions ?? new List<QuestionViewModel>());
 
                                 // 🛑 Nếu là Quiz nhưng không có câu hỏi -> Bỏ qua (không render)
                                 if (hasQuiz && !hasQuestions)
@@ -169,8 +170,8 @@
                                      data-type="@(hasVideo ? "video" : (hasArticle ? "article" : (hasQuiz ? "quiz" : (item.Files.Any(f => f.Type == 50) ? "document" : ""))))"
                                      data-video-url="@videoUrl"
                                      data-article-content="@articleContent"
-                                     data-article-files='@articleFilesJson'
-                                     data-quiz-data='@quizDataJson'
+                                     data-article-files='@Html.Raw(articleFilesJson)'
+                                     data-quiz-data='@Html.Raw(quizDataJson)'
                                      data-lesson-title="@item.LessonTitle"
                                      data-course-id="@Model.Source.SourceId"
                                      data-quiz-id="@(hasQuiz ? item.QuizId : "")"
