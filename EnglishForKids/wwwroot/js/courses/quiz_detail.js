@@ -103,6 +103,9 @@ function handleLessonClick(element) {
     let videoUrl = element.getAttribute("data-video-url") || "";
     let articleContent = element.getAttribute("data-article-content");
     let articleFiles = JSON.parse(element.getAttribute("data-article-files") || "[]");
+    console.log("data-article-files:", element.getAttribute("data-article-files"));
+    console.log("data-quiz-data:", element.getAttribute("data-quiz-data"));
+
 
     // ✅ Xác định Chapter chứa bài giảng
     let chapterElement = element.closest(".lesson"); // Tìm phần tử cha là Chapter
@@ -148,16 +151,16 @@ function handleLessonClick(element) {
         if (articleFiles.length > 0) {
             articleFiles.forEach(file => {
                 let fileLink = document.createElement("p");
-                fileLink.innerHTML = `<a href="${file.path}" download>📂 ${file.path}</a>`;
+                fileLink.innerHTML = `<a href="${file.Path}" download>📂 ${file.Path}</a>`;
                 fileLink.addEventListener("click", function (event) {
                     event.preventDefault();
-                    autoDownload(file.path);
+                    autoDownload(file.Path);
                 });
                 articleFilesContainer.appendChild(fileLink);
             });
 
             if (articleResource) {
-                articleResource.href = articleFiles[0].path;  // Đảm bảo key đúng là "path"
+                articleResource.href = articleFiles[0].Path;  // Đảm bảo key đúng là "path"
                 articleResource.style.display = 'block';
             }
         } else {
@@ -192,10 +195,10 @@ function handleLessonClick(element) {
         if (articleFiles.length > 0) {
             articleFiles.forEach(file => {
                 let fileLink = document.createElement("p");
-                fileLink.innerHTML = `<a href="${file.path}" download class="file-download">${file.path}</a>`;
+                fileLink.innerHTML = `<a href="${file.Path}" download class="file-download">${file.Path}</a>`;
                 fileLink.addEventListener("click", function (event) {
                     event.preventDefault();
-                    autoDownload(file.path);
+                    autoDownload(file.Path);
                 });
                 articleFilesContainer.appendChild(fileLink);
             });
