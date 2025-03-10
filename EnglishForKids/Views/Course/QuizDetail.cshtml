@@ -2,6 +2,8 @@
 @using System.Linq;
 @using EnglishForKids.Service.Helper
 @using EnglishForKids.ViewModels
+@using System.Text.Json
+
 
 
 <section class="section-news section-product-detail section-quiz-detail">
@@ -153,8 +155,9 @@
                                 bool hasQuestions = hasQuiz && item.Questions != null && item.Questions.Any(); // Kiểm tra nếu có câu hỏi
                                 var videoUrl = hasVideo ? item.Files.FirstOrDefault(f => f.Type == 40)?.Path : "";
                                 var articleContent = hasArticle ? item.Article : "";
-                                var articleFilesJson = @Html.Raw(Json.Serialize(item.Files.Where(f => f.Type == 50).ToList()));
-                                var quizDataJson = @Html.Raw(Json.Serialize(item.Questions ?? new List<QuestionViewModel>()));
+                                var articleFilesJson = @Html.Raw(JsonSerializer.Serialize(item.Files.Where(f => f.Type == 50).ToList()));
+                                var quizDataJson = @Html.Raw(JsonSerializer.Serialize(item.Questions ?? new List<QuestionViewModel>()));
+
                                 // 🛑 Nếu là Quiz nhưng không có câu hỏi -> Bỏ qua (không render)
                                 if (hasQuiz && !hasQuestions)
                                 {
