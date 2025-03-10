@@ -12,17 +12,18 @@
         <div class="left-quiz">
             <div id="video-panel" class="video-container" style="display: none;"
                  onmouseover="showNavQuiz()" onmouseleave="hideNavQuiz()">
-                <video id="lesson-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="100%" height="auto">
+                <video id="lesson-video" controls playsinline width="100%">
                     <source id="video-source"
                             src="@(Model.Chapters.FirstOrDefault()?.Items.FirstOrDefault()?.Files.FirstOrDefault(f => f.Type == 40)?.Path ?? "https://www.w3schools.com/html/mov_bbb.mp4")"
                             type="video/mp4">
-                    Trình duyệt của bạn không hỗ trợ video.
+                    Trình duyệt của bạn không hỗ trợ video HTML5.
                 </video>
                 <div class="nav-quiz" id="nav-quiz">
                     <div class="nav-prev" onclick="navigateLesson(-1)">❮</div>
                     <div class="nav-next" onclick="navigateLesson(1)">❯</div>
                 </div>
             </div>
+
             <!-- Panel Bài Viết -->
             <div id="article-panel" class="full-screen-quiz article-panel" style="display: none;">
                 <div class="content-quiz">
@@ -469,8 +470,13 @@
 <!-- Scripts -->
 @section Scripts {
     <!-- Thư viện VideoJS -->
-    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
-    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+    @* <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" /> *@
+    @* <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script> *@
+    <!-- Plyr CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+
+    <!-- Plyr JS -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
 
     <script src="~/js/courses/quiz_detail.js"></script>
 }
