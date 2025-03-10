@@ -170,7 +170,6 @@
                                      data-quiz-data='@quizDataJson'
                                      data-lesson-title="@item.LessonTitle"
                                      data-course-id="@Model.Source.SourceId"
-                                     data-quiz-id="@item.QuizId"
                                      data-quiz-id="@(hasQuiz ? item.QuizId : "")"
                                      onclick="handleLessonClick(this)">
 
@@ -220,11 +219,6 @@
                                 }
                             }
                         </div>
-
-
-
-
-
                     </div>
                 }
             </div>
@@ -473,8 +467,6 @@
     <!-- Thư viện VideoJS -->
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
-
-
 
     <script src="~/js/courses/quiz_detail.js"></script>
 }
