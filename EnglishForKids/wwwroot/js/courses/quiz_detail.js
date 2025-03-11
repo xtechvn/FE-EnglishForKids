@@ -502,7 +502,7 @@ function checkAnswer() {
             debugger
             if (response.isCorrect) {
                 successMessage.style.display = "block";
-                successMessage.querySelector("p").innerText = "Chính xác! Bạn đã trả lời đúng.";
+                successMessage.querySelector("p").innerText = question.answers.find(a => a.answerId === selectedAnswerId)?.note || "Câu trả lời chưa chính xác!";
                 errorMessage.style.display = "none";
                 correctAnswersCount++;
 
