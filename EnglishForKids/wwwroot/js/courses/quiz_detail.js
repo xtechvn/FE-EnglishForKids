@@ -1,20 +1,20 @@
 ﻿
 var player;
-var currentLessonIndex = 0; // Index bài học hiện tại
-var lessons = []; // Lưu danh sách các bài học
-var debounceTimeout = null; // Dùng để chặn double click nhanh
+var audioPlayer;
+var currentLessonIndex = 0;
+var lessons = [];
+var debounceTimeout = null;
 let currentQuestionIndex = 0;
 let selectedAnswers = {};
-let quizData = []; // Lưu toàn bộ dữ liệu quiz
+let quizData = [];
 let correctAnswersCount = 0;
 let userResults = [];
-let skippedQuestions = []; // Lưu danh sách câu hỏi đã bỏ qua
-let currentLessonId = null; // Lưu ID bài giảng hiện tại
-let currentQuizId = null; // Lưu ID bài giảng hiện tại
-
-
+let skippedQuestions = [];
+let currentLessonId = null;
+let currentQuizId = null;
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Khởi tạo Plyr cho Video
     player = new Plyr('#lesson-video', {
         controls: ['play-large', 'restart', 'rewind', 'play', 'fast-forward',
             'progress', 'current-time', 'duration', 'mute', 'volume',
@@ -24,9 +24,40 @@ document.addEventListener('DOMContentLoaded', function () {
         ratio: '16:9'
     });
 
-    const videoContainer = document.querySelector('.video-container');
-    videoContainer.style.height = "572.200px";
+    
 
+    // Khởi tạo Plyr với nhiều chức năng hơn
+    audioPlayer = new Plyr('#lesson-audio', {
+        controls: [
+            'play',            // Nút Play/Pause
+            'progress',        // Thanh tiến trình
+            'current-time',    // Thời gian hiện tại
+            'duration',        // Tổng thời gian
+            'mute',            // Tắt tiếng
+            'volume',          // Điều chỉnh âm lượng
+            'speed',           // Tùy chỉnh tốc độ phát
+            'loop'        // Lặp lại audio
+            
+        ],
+        speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] }, // Tùy chọn tốc độ phát
+        loop: { active: false }, // Mặc định không lặp lại
+        keyboard: { focused: true, global: true }, // Dùng phím tắt
+        hideControls: false, // Không ẩn điều khiển khi không tương tác
+    });
+
+    // Chèn icon giữa thanh tiến trình
+    const progressBar = document.querySelector('.plyr__progress');
+    const audioIconOverlay = document.createElement('div');
+    audioIconOverlay.classList.add('audio-icon-overlay');
+    audioIconOverlay.innerHTML = '🎵'; // Thay icon tại đây nếu muốn
+    progressBar.appendChild(audioIconOverlay);
+
+    const videoContainer = document.querySelector('.video-container');
+    const audioContainer = document.querySelector('.audio-container');
+
+    videoContainer.style.height = "598px";
+
+    // Lưu trạng thái thời gian phát video
     player.on('loadedmetadata', () => {
         const videoUrl = player.source;
         const savedTime = localStorage.getItem(`video-time-${videoUrl}`);
@@ -42,23 +73,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     lessons = Array.from(document.querySelectorAll('.right-quiz .item'));
 
-    // ✅ Kiểm tra xem đã có bài giảng hoặc quiz nào được lưu trong localStorage không
     let savedLessonId = localStorage.getItem('currentLessonId');
-    let savedQuizId = localStorage.getItem('currentQuizId'); // 🔥 Lưu lại quiz ID
+    let savedQuizId = localStorage.getItem('currentQuizId');
 
     if (lessons.length > 0) {
         let savedLesson = lessons.find(lesson => lesson.getAttribute("data-lesson-id") === savedLessonId);
         let savedQuiz = lessons.find(lesson => lesson.getAttribute("data-quiz-id") === savedQuizId);
 
         if (savedQuiz) {
-            console.log("🟢 Mở lại Quiz đã lưu:", savedQuiz);
-            handleLessonClick(savedQuiz); // 👉 Nếu trước đó đang làm quiz, mở lại quiz đó
+            handleLessonClick(savedQuiz);
         } else if (savedLesson) {
-            console.log("🟢 Mở lại Bài giảng đã lưu:", savedLesson);
-            handleLessonClick(savedLesson); // 👉 Nếu không, mở lại bài học đang xem
+            handleLessonClick(savedLesson);
         } else {
-            console.log("🟢 Mở bài học đầu tiên.");
-            handleLessonClick(lessons[0]); // 👉 Nếu không có gì, mở bài đầu tiên
+            handleLessonClick(lessons[0]);
         }
     }
 
@@ -67,20 +94,25 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**
- * 🟡 Phát video khi chọn bài học
+ * 🟡 Phát video hoặc audio khi chọn bài học
  */
-function playLesson(videoUrl) {
-    if (!videoUrl) return;
+function playLesson(url, type) {
+    if (!url) return;
 
-    if (player) {
-        player.source = {
-            type: 'video',
-            sources: [{ src: videoUrl, type: 'video/mp4' }]
-        };
-        player.play();
-        document.querySelector('.video-container').scrollIntoView({ behavior: 'smooth' });
+    if (type === 'mp4') {
+        document.querySelector('.video-container').style.display = 'block';
+        document.querySelector('.audio-container').style.display = 'none';
+        player.source = { type: 'video', sources: [{ src: url, type: 'video/mp4' }] };
+       
+    }
+    else if (type === 'mp3') {
+        document.querySelector('.video-container').style.display = 'none';
+        document.querySelector('.audio-container').style.display = 'block';
+        audioPlayer.source = { type: 'audio', sources: [{ src: url, type: 'audio/mpeg' }] };
+        
     }
 }
+
 
 function navigateLesson(direction) {
     if (debounceTimeout) {
@@ -100,11 +132,16 @@ function navigateLesson(direction) {
 }
 function handleLessonClick(element) {
     debugger;
-
     // Lấy ID của bài học mới
     let lessonId = element.getAttribute("data-lesson-id"); // 👈 Thêm data-lesson-id vào HTML nếu chưa có
     let type = element.getAttribute("data-type");
     let quizId2 = element.getAttribute("data-quiz-id"); // 📌 Lấy ID Quiz (nếu có)
+    let lessonTitle = element.getAttribute("data-lesson-title"); // Lấy tiêu đề bài học
+    let videoUrl = element.getAttribute("data-video-url") || "";
+    let audioUrl = element.getAttribute("data-audio-url") || "";
+    let articleContent = element.getAttribute("data-article-content");
+    let articleFiles = JSON.parse(element.getAttribute("data-article-files") || "[]");
+    $('.btn-skip').show();
     // 🛑 Nếu đang ở chính bài học này rồi, không làm gì cả (Kể cả Quiz)
     if (lessonId === currentLessonId && type !== "quiz") {
         console.log("📌 Đã ở trong bài này rồi, không cần reset lại.");
@@ -135,12 +172,7 @@ function handleLessonClick(element) {
     closeAllPanels();
 
 
-    let lessonTitle = element.getAttribute("data-lesson-title"); // Lấy tiêu đề bài học
-    let videoUrl = element.getAttribute("data-video-url") || "";
-    let articleContent = element.getAttribute("data-article-content");
-    let articleFiles = JSON.parse(element.getAttribute("data-article-files") || "[]");
-    console.log("data-article-files:", element.getAttribute("data-article-files"));
-    console.log("data-quiz-data:", element.getAttribute("data-quiz-data"));
+ 
 
 
     // ✅ Xác định Chapter chứa bài giảng
@@ -152,15 +184,19 @@ function handleLessonClick(element) {
             chapterList.style.display = "block"; // Hiển thị chapter chứa bài học
         }
     }
-    //let quizData = JSON.parse(element.getAttribute("data-quiz-data") || "[]");
+    
     // Cập nhật trạng thái bài học đang được chọn (hover effect)
     lessons.forEach(lesson => lesson.classList.remove('active'));
     element.classList.add('active');
 
     if (type === "video") {
         document.getElementById('video-panel').style.display = 'block';
-        playLesson(videoUrl);
+        playLesson(videoUrl,'mp4');
     }
+    else if (type === "audio") {
+        document.getElementById('audio-panel').style.display = 'block';
+        playLesson(audioUrl, 'mp3');
+    } 
     else if (type === "article") {
         document.getElementById('article-panel').style.display = 'block';
         let articleTitle = document.getElementById('article-title');
@@ -244,8 +280,8 @@ function handleLessonClick(element) {
     }
     else if (type === "quiz") {
         debugger
-        document.getElementById('quiz-panel').style.display = 'block';
-        document.getElementById('quiz-result-panel').style.display = 'none'; // 🛑 Ẩn panel kết quả khi mở quiz
+        $('#quiz-panel').show();
+        $('#quiz-result-panel').hide();
         quizData = JSON.parse(element.getAttribute("data-quiz-data") || "[]");
         courseId = element.getAttribute("data-course-id");
         quizId = element.getAttribute("data-quiz-id");
@@ -255,12 +291,8 @@ function handleLessonClick(element) {
         selectedAnswers = {};
 
         // 🛑 Reset UI để tránh hiển thị dữ liệu cũ
-        document.getElementById('quiz-question').innerHTML = "";
-        document.getElementById('quiz-answers').innerHTML = "";
-        document.getElementById('quizIndex').innerHTML = "";
-        document.getElementById('quizTotal').innerHTML = "";
-        document.querySelector(".noti.error").style.display = "none";
-        document.querySelector(".noti.success").style.display = "none";
+        $('#quiz-question, #quiz-answers, #quizIndex, #quizTotal').empty();
+        $(".noti.error, .noti.success").hide();
 
         // 🛑 Gọi API để kiểm tra trạng thái quiz
         checkQuizProgress();
@@ -295,31 +327,30 @@ function checkQuizProgress() {
         url: "/Course/GetQuizResults",
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify({
-            QuizId: quizId,
-            UserId: 1
-        }),
+        data: JSON.stringify({ QuizId: quizId, UserId: 1 }),
         success: function (response) {
             debugger;
-            if (response.status && response.completed) {
+
+            if (response.completed) {
                 showQuizResult(response);
                 return;
             }
 
-            // ✅ 1️⃣ Lưu danh sách đầy đủ câu hỏi từ API (giữ nguyên thứ tự gốc)
-            if (response.allQuestions && response.allQuestions.length > 0) {
-                quizData = response.allQuestions.slice(); // ✅ Copy để không thay đổi mảng gốc
+            if (response.allQuestions?.length > 0) {
+                quizData = response.allQuestions; // Giữ nguyên thứ tự từ API
             }
 
-            // ✅ 2️⃣ Xác định câu đầu tiên chưa làm mà KHÔNG đảo thứ tự danh sách
-            let firstUnansweredIndex = quizData.findIndex(q => !response.correctAnswers.some(r => r.questionId === q.questionId));
-
-            if (firstUnansweredIndex !== -1) {
-                currentQuestionIndex = firstUnansweredIndex; // ✅ Chuyển đến câu chưa làm đầu tiên
-            } else {
-                currentQuestionIndex = response.nextQuestionIndex ?? 0; // Nếu tất cả đã làm, chuyển theo logic cũ
+            // Tìm câu đầu tiên chưa làm hoặc sai
+            let firstUnansweredIndex = -1;
+            for (let i = 0; i < quizData.length; i++) {
+                if (!response.correctAnswers.some(r => r.questionId === quizData[i].questionId) ||
+                    response.incorrectAnswers.some(r => r.questionId === quizData[i].questionId)) {
+                    firstUnansweredIndex = i;
+                    break;
+                }
             }
 
+            currentQuestionIndex = firstUnansweredIndex !== -1 ? firstUnansweredIndex : (response.nextQuestionIndex ?? 0);
             userResults = response.correctAnswers || [];
             skippedQuestions = response.skippedQuestions || [];
 
@@ -331,6 +362,8 @@ function checkQuizProgress() {
     });
 }
 
+
+
 function renderQuizQuestion() {
     debugger;
     let quizIndex = document.getElementById('quizIndex');
@@ -341,11 +374,10 @@ function renderQuizQuestion() {
     let errorMessage = document.querySelector(".noti.error");
     let successMessage = document.querySelector(".noti.success");
 
-    errorMessage.style.display = "none";
-    successMessage.style.display = "none";
+    $(".noti.error, .noti.success").hide();
     checkButton.style.display = "block";
 
-    console.log("📌 Kiểm tra currentQuestionIndex trước render:", currentQuestionIndex);
+   // console.log("📌 Kiểm tra currentQuestionIndex trước render:", currentQuestionIndex);
 
     if (!quizData || quizData.length === 0 || currentQuestionIndex >= quizData.length) {
         console.log("🚨 Không có câu hỏi nào để hiển thị. Hiển thị kết quả quiz.");
@@ -356,13 +388,16 @@ function renderQuizQuestion() {
 
     let question = quizData[currentQuestionIndex];
 
-    console.log(`📝 Hiển thị câu hỏi ${question.questionId}`);
+  //  console.log(`📝 Hiển thị câu hỏi ${question.questionId}`);
 
     // ✅ Hiển thị số thứ tự đúng
     quizTotal.innerHTML = `Câu hỏi ${currentQuestionIndex + 1}/${quizData.length}`;
     quizIndex.innerHTML = `Câu hỏi ${currentQuestionIndex + 1}`;
     quizQuestion.innerHTML = question.description;
-    quizAnswers.innerHTML = "";
+    // Xóa nhanh phần tử cũ thay vì `innerHTML = ""`
+    while (quizAnswers.firstChild) {
+        quizAnswers.removeChild(quizAnswers.firstChild);
+    }
 
     // ✅ Giữ nguyên thứ tự câu trả lời từ API
     let originalAnswers = [...question.answers]; // Tạo bản sao để tránh thay đổi dữ liệu gốc
@@ -452,7 +487,7 @@ function checkAnswer() {
     // 🛑 Disable nút "Kiểm tra đáp án" để tránh spam
     checkButton.disabled = true;
 
-    console.log(question);
+   // console.log(question);
     $.ajax({
         url: "/Course/SubmitQuizAnswer",
         type: "POST",
@@ -524,66 +559,54 @@ function checkAnswer() {
     });
 
 }
-function showQuizResult(response = null) {
-    debugger;
-    document.getElementById('quiz-panel').style.display = 'none';
+function showQuizResult(response) {
+    $('#quiz-panel').hide();
+    $('#quiz-result-panel').show();
+    $('#quiz-result-title').text(response.completed
+        ? "Tuyệt vời! Bạn đã hoàn thành bài quiz."
+        : "Hãy xem lại tài liệu nhé.");
 
-    document.getElementById('quiz-result-panel').style.display = 'block';
+    $('#quiz-result-score').text(`Bạn đã trả lời đúng ${response.correctCount}/${quizData.length} câu hỏi.`);
+    $('#quiz-correct-answers').html(response.correctAnswers.map(q => `<p>✅ ${q.description}</p>`).join(''));
+    $('#quiz-incorrect-answers').html(response.incorrectAnswers.map(q => `<p>❌ ${q.description}</p>`).join(''));
+    $('#quiz-skipped-answers').html(response.skippedQuestions.map(q => `<p>⚠️ ${q.description}</p>`).join(''));
 
-    let checkButton = document.querySelector(".btn-check-answer");
-
-    if (response) {
-        document.getElementById('quiz-result-title').innerText = response.completed
-            ? "Tuyệt vời! Bạn đã sẵn sàng chuyển sang bài giảng tiếp theo"
-            : "Xem lại tài liệu khóa học để mở rộng kiến thức học tập của bạn.";
-        document.getElementById('quiz-result-score').innerText = `Bạn đã trả lời đúng ${response.correctCount}/${quizData.length} câu hỏi`;
-
-        document.getElementById('quiz-correct-answers').innerHTML = response.correctAnswers.map(q => `<p>✅ ${q.description}</p>`).join('');
-        document.getElementById('quiz-incorrect-answers').innerHTML = response.incorrectAnswers.map(q => `<p>❌ ${q.description}</p>`).join('');
-        document.getElementById('quiz-skipped-answers').innerHTML = response.skippedQuestions.map(q => `<p>⚠️ ${q.description}</p>`).join('');
-
-        document.getElementById('quiz-correct-section').style.display = response.correctAnswers.length > 0 ? 'block' : 'none';
-        document.getElementById('quiz-incorrect-section').style.display = response.incorrectAnswers.length > 0 ? 'block' : 'none';
-        document.getElementById('quiz-skipped-section').style.display = response.skippedQuestions.length > 0 ? 'block' : 'none';
-    } else {
-        alert("Không có dữ liệu kết quả! Hãy thử làm lại bài quiz.");
-    }
-
-    checkButton.innerText = "Tiếp tục";
-
+    $('#quiz-correct-section').toggle(response.correctAnswers.length > 0);
+    $('#quiz-incorrect-section').toggle(response.incorrectAnswers.length > 0);
+    $('#quiz-skipped-section').toggle(response.skippedQuestions.length > 0);
 }
 
 function nextQuestion() {
     debugger;
 
-    // 🛑 Lọc danh sách câu chưa trả lời
-    let remainingQuestions = quizData.filter(q => !q.isAnswered);
+    // 🔥 Xác định danh sách câu hỏi chưa làm (bỏ qua)
+    let skippedQuestions = quizData.filter(q => !q.isAnswered);
 
-    // ✅ Nếu vẫn còn câu hỏi chưa làm, tiếp tục chuyển câu
+    // 🔥 Xác định danh sách câu hỏi đã làm nhưng sai
+    let incorrectQuestions = quizData.filter(q => q.isAnswered && q.selectedAnswer !== q.answers.find(a => a.isCorrect)?.answerId);
+
+    // 🔥 Tổng số câu hỏi chưa hoàn thành đúng
+    let totalRemaining = skippedQuestions.length + incorrectQuestions.length;
+
+    // ✅ Nếu còn câu chưa làm, chuyển tiếp
     if (currentQuestionIndex < quizData.length - 1) {
-        currentQuestionIndex++; // ✅ Chuyển sang câu tiếp theo
+        currentQuestionIndex++;
         renderQuizQuestion();
         return;
     }
 
-    // 🚨 Chỉ khi tất cả câu hỏi đều bị bỏ qua, quay lại câu đầu tiên chưa làm
-    if (remainingQuestions.length === quizData.length) {
-        console.log("🚨 Người dùng đã bỏ qua tất cả câu hỏi.");
-        showSkippedResult();
+    // 🚨 Nếu câu cuối cùng bị bỏ qua hoặc sai, cần kiểm tra lại
+    if (totalRemaining > 0) {
+        console.log("🚨 Có câu hỏi chưa hoàn thành đúng, hiển thị kết quả.");
+        fetchQuizResultsAndShow();
         return;
     }
 
-    // 🛑 Nếu đang ở câu cuối mà vẫn còn câu chưa làm, tìm câu tiếp theo chưa làm
-    let nextSkipped = quizData.findIndex(q => !q.isAnswered && quizData.indexOf(q) > currentQuestionIndex);
-    if (nextSkipped !== -1) {
-        currentQuestionIndex = nextSkipped; // ✅ Chuyển đến câu tiếp theo chưa làm
-        renderQuizQuestion();
-        return;
-    }
-
-    // 🚀 Nếu không còn câu hỏi nào để làm nữa, hiển thị kết quả quiz
+    // 🚀 Nếu tất cả đã làm xong, hiển thị kết quả quiz
+    console.log("✅ Tất cả câu hỏi đã làm xong, hiển thị kết quả quiz.");
     fetchQuizResultsAndShow();
 }
+
 
 function showSkippedResult() {
     debugger;
@@ -770,6 +793,8 @@ function autoDownload(url) {
 function closeAllPanels() {
 
     document.getElementById('video-panel').style.display = 'none';
+    document.getElementById('audio-panel').style.display = 'none';
+
     document.getElementById('article-panel').style.display = 'none';
     document.getElementById('quiz-panel').style.display = 'none';
     document.getElementById('article-notice').style.display = 'none';
@@ -777,6 +802,7 @@ function closeAllPanels() {
 
     if (player) {
         player.pause(); // Dừng video khi chuyển bài
+        audioPlayer.pause();
     }
 }
 /**
