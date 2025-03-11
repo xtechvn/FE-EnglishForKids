@@ -24,6 +24,24 @@
                 </div>
             </div>
 
+            <div id="audio-panel" class="audio-container" style="display: none;">
+                <!-- Icon Audio Lớn -->
+                <div class="audio-icon">
+                    🎵
+                </div>
+                <!-- Trình phát Audio -->
+                    <audio id="lesson-audio" controls style="width: 100%;">
+                        <source id="audio-source" src="" type="audio/mpeg">
+                        Trình duyệt của bạn không hỗ trợ audio HTML5.
+                    </audio>
+              
+               
+            </div>
+
+            <!-- Audio Player Container -->
+           
+
+
             <!-- Panel Bài Viết -->
             <div id="article-panel" class="full-screen-quiz article-panel" style="display: none;">
                 <div class="content-quiz">
@@ -150,13 +168,15 @@
                             @foreach (var item in chapter.Items)
                             {
 
-                                bool hasVideo = item.Files.Any(f => f.Type == 40);
+                                bool hasVideo = item.Files.Any(f => f.Type == 40 && f.Path.EndsWith(".mp4"));
+                                bool hasAudio = item.Files.Any(f => f.Type == 40 && f.Path.EndsWith(".mp3"));
                                 bool hasArticle = !string.IsNullOrEmpty(item.Article);
                                 bool hasQuiz = item.Type == "Quiz";
                                 bool hasQuestions = hasQuiz && item.Questions != null && item.Questions.Any(); // Kiểm tra nếu có câu hỏi
-                                var videoUrl = hasVideo ? item.Files.FirstOrDefault(f => f.Type == 40)?.Path : "";
+                                var videoUrl = hasVideo ? item.Files.FirstOrDefault(f => f.Type == 40 && f.Path.EndsWith(".mp4"))?.Path : "";
+                                var audioUrl = hasAudio ? item.Files.FirstOrDefault(f => f.Type == 40 && f.Path.EndsWith(".mp3"))?.Path : "";
                                 var articleContent = hasArticle ? item.Article : "";
-                                // ✅ Sửa lại: Không thêm @{ } nữa (vì đang nằm trong khối Razor rồi)
+                       
                                 var articleFilesJson = JsonSerializer.Serialize(item.Files.Where(f => f.Type == 50).ToList());
                                 var quizDataJson = JsonSerializer.Serialize(item.Questions ?? new List<QuestionViewModel>());
 
@@ -168,8 +188,9 @@
 
                                 <div class="item item1"
                                      data-lesson-id="@item.LessonId"
-                                     data-type="@(hasVideo ? "video" : (hasArticle ? "article" : (hasQuiz ? "quiz" : (item.Files.Any(f => f.Type == 50) ? "document" : ""))))"
+                                     data-type="@(hasVideo ? "video" : hasAudio ? "audio" : hasArticle ? "article" : hasQuiz ? "quiz" : item.Files.Any(f => f.Type == 50) ? "document" : "")"
                                      data-video-url="@videoUrl"
+                                     data-audio-url="@audioUrl"
                                      data-article-content="@articleContent"
                                      data-article-files='@Html.Raw(articleFilesJson)'
                                      data-quiz-data='@Html.Raw(quizDataJson)'
@@ -183,7 +204,7 @@
                                         <p class="name" style="display: flex; align-items: center; gap: 5px;">
                                             @if (item.Type == "Lesson")
                                             {
-                                                @if (!hasVideo)
+                                                @if (!hasVideo ||!hasAudio)
                                                 {
                                                     <i class="icofont-file-alt"></i>
                                                 }
@@ -196,12 +217,19 @@
                                             }
                                         </p>
 
-                                        @if (item.Type == "Lesson" && hasVideo)
+                                         @if (item.Type == "Lesson" && hasVideo || hasAudio)
                                         {
                                             @foreach (var file in item.Files.Where(f => f.Type == 40))
                                             {
                                                 <div class="time">
-                                                    <i class="icon icon-video"></i> @TimeHelper.FormatDuration(file.Duration)
+                                                    @if (file.Path.EndsWith(".mp4"))
+                                                    {
+                                                        <i class="icon icon-video"></i> @TimeHelper.FormatDuration(file.Duration)
+                                                    }
+                                                    else if (file.Path.EndsWith(".mp3"))
+                                                    {
+                                                        <i class="fas fa-music"></i> @TimeHelper.FormatDuration(file.Duration)
+                                                    }
                                                 </div>
                                             }
                                         }
@@ -314,6 +342,95 @@
 </section>
 <!-- CSS -->
 <style>
+    /* Chỉ áp dụng cho audio-container */
+    .audio-container {
+        max-width: 500px;
+        margin: 20px auto;
+        margin-top: 50px;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+    }
+
+        /* Icon Audio lớn */
+        .audio-container .audio-icon {
+            font-size: 50px;
+            color: #ff4081;
+            margin-bottom: 10px;
+        }
+
+        /* Điều chỉnh thanh điều khiển */
+        .audio-container .plyr__controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Thanh tiến trình */
+        .audio-container .plyr__progress {
+            width: 100%;
+            height: 8px !important;
+            border-radius: 10px;
+            background: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+            /* Custom thanh tiến trình */
+            .audio-container .plyr__progress input {
+                height: 8px !important;
+                background: #ff4081;
+            }
+
+        /* Điều chỉnh icon ở trên thanh tiến trình */
+        .audio-container .audio-icon-overlay {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            color: #ff4081;
+        }
+
+        /* Nút điều khiển */
+        .audio-container .plyr__controls button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+            /* Nút phát/tạm dừng */
+            .audio-container .plyr__controls button.plyr__control--play {
+                font-size: 24px;
+                color: #ff4081;
+            }
+
+        /* Âm lượng */
+        .audio-container .plyr__volume {
+            width: 100px !important;
+        }
+
+            .audio-container .plyr__volume input {
+                background: #ff4081;
+            }
+
+        /* Tốc độ phát */
+        .audio-container .plyr__controls .plyr__control[data-plyr="speed"] {
+            font-size: 16px;
+            color: #ff4081;
+        }
+
+
+
+
 
     #quiz-result-panel span {
         font-weight: 700;
@@ -470,10 +587,10 @@
 <!-- Scripts -->
 @section Scripts {
     <!-- Thư viện VideoJS -->
-    @* <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" /> *@
-    @* <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script> *@
+   
     <!-- Plyr CSS -->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Plyr JS -->
     <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
