@@ -13,7 +13,13 @@ let skippedQuestions = [];
 let currentLessonId = null;
 let currentQuizId = null;
 
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
+
+
     // Khởi tạo Plyr cho Video
     player = new Plyr('#lesson-video', {
         controls: ['play-large', 'restart', 'rewind', 'play', 'fast-forward',
@@ -24,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ratio: '16:9'
     });
 
-    
+
 
     // Khởi tạo Plyr với nhiều chức năng hơn
     audioPlayer = new Plyr('#lesson-audio', {
@@ -37,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'volume',          // Điều chỉnh âm lượng
             'speed',           // Tùy chỉnh tốc độ phát
             'loop'        // Lặp lại audio
-            
+
         ],
         speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] }, // Tùy chọn tốc độ phát
         loop: { active: false }, // Mặc định không lặp lại
@@ -103,13 +109,13 @@ function playLesson(url, type) {
         document.querySelector('.video-container').style.display = 'block';
         document.querySelector('.audio-container').style.display = 'none';
         player.source = { type: 'video', sources: [{ src: url, type: 'video/mp4' }] };
-       
+
     }
     else if (type === 'mp3') {
         document.querySelector('.video-container').style.display = 'none';
         document.querySelector('.audio-container').style.display = 'block';
         audioPlayer.source = { type: 'audio', sources: [{ src: url, type: 'audio/mpeg' }] };
-        
+
     }
 }
 
@@ -125,13 +131,53 @@ function navigateLesson(direction) {
 
     let newIndex = currentLessonIndex + direction;
 
+    // 🛑 Nếu không còn bài học nào tiếp theo, hiển thị panel hoàn thành nhưng KHÔNG chặn việc chọn bài giảng khác
+    if (newIndex >= lessons.length) {
+        console.log("🎉 Đã hoàn thành tất cả bài học! Hiển thị panel hoàn thành.");
+
+        // Ẩn tất cả các panel bài giảng
+        document.getElementById('video-panel').style.display = 'none';
+        document.getElementById('audio-panel').style.display = 'none';
+        document.getElementById('article-panel').style.display = 'none';
+        document.getElementById('quiz-panel').style.display = 'none';
+        document.getElementById('quiz-result-panel').style.display = 'none';
+
+        // Hiển thị panel hoàn thành (không thay đổi .left-quiz để không chặn chọn bài khác)
+        let completionPanel = document.getElementById('completion-panel');
+        if (!completionPanel) {
+            let panel = document.createElement("div");
+            panel.id = "completion-panel";
+            panel.innerHTML = `
+                          <div class="completion-panel">
+                    <h2>🎉 Bạn đã hoàn thành khóa học!</h2>
+                    <p>Cảm ơn bạn đã tham gia. Bạn giỏi lắm!</p>
+                    
+                 <a href="/khoa-hoc" class="btn-find-more">🔍 Tìm thêm khóa học</a>
+
+                </div>
+            `;
+            document.querySelector('.left-quiz').appendChild(panel);
+        } else {
+            completionPanel.style.display = 'block';
+        }
+
+        return;
+    }
+
+    // Nếu còn bài học tiếp theo, cập nhật chỉ mục và hiển thị bài học mới
     if (newIndex >= 0 && newIndex < lessons.length) {
         currentLessonIndex = newIndex;
         handleLessonClick(lessons[currentLessonIndex]);
     }
 }
+
 function handleLessonClick(element) {
     debugger;
+    // 🛑 Nếu đang hiển thị panel hoàn thành, ẩn nó đi khi chọn lại bài giảng
+    let completionPanel = document.getElementById('completion-panel');
+    if (completionPanel) {
+        completionPanel.style.display = 'none';
+    }
     // Lấy ID của bài học mới
     let lessonId = element.getAttribute("data-lesson-id"); // 👈 Thêm data-lesson-id vào HTML nếu chưa có
     let type = element.getAttribute("data-type");
@@ -172,7 +218,7 @@ function handleLessonClick(element) {
     closeAllPanels();
 
 
- 
+
 
 
     // ✅ Xác định Chapter chứa bài giảng
@@ -184,19 +230,19 @@ function handleLessonClick(element) {
             chapterList.style.display = "block"; // Hiển thị chapter chứa bài học
         }
     }
-    
+
     // Cập nhật trạng thái bài học đang được chọn (hover effect)
     lessons.forEach(lesson => lesson.classList.remove('active'));
     element.classList.add('active');
 
     if (type === "video") {
         document.getElementById('video-panel').style.display = 'block';
-        playLesson(videoUrl,'mp4');
+        playLesson(videoUrl, 'mp4');
     }
     else if (type === "audio") {
         document.getElementById('audio-panel').style.display = 'block';
         playLesson(audioUrl, 'mp3');
-    } 
+    }
     else if (type === "article") {
         document.getElementById('article-panel').style.display = 'block';
         let articleTitle = document.getElementById('article-title');
@@ -362,8 +408,6 @@ function checkQuizProgress() {
     });
 }
 
-
-
 function renderQuizQuestion() {
     debugger;
     let quizIndex = document.getElementById('quizIndex');
@@ -377,7 +421,7 @@ function renderQuizQuestion() {
     $(".noti.error, .noti.success").hide();
     checkButton.style.display = "block";
 
-   // console.log("📌 Kiểm tra currentQuestionIndex trước render:", currentQuestionIndex);
+    // console.log("📌 Kiểm tra currentQuestionIndex trước render:", currentQuestionIndex);
 
     if (!quizData || quizData.length === 0 || currentQuestionIndex >= quizData.length) {
         console.log("🚨 Không có câu hỏi nào để hiển thị. Hiển thị kết quả quiz.");
@@ -388,7 +432,7 @@ function renderQuizQuestion() {
 
     let question = quizData[currentQuestionIndex];
 
-  //  console.log(`📝 Hiển thị câu hỏi ${question.questionId}`);
+    //  console.log(`📝 Hiển thị câu hỏi ${question.questionId}`);
 
     // ✅ Hiển thị số thứ tự đúng
     quizTotal.innerHTML = `Câu hỏi ${currentQuestionIndex + 1}/${quizData.length}`;
@@ -487,7 +531,7 @@ function checkAnswer() {
     // 🛑 Disable nút "Kiểm tra đáp án" để tránh spam
     checkButton.disabled = true;
 
-   // console.log(question);
+    // console.log(question);
     $.ajax({
         url: "/Course/SubmitQuizAnswer",
         type: "POST",
@@ -777,13 +821,22 @@ function enableCheckButton() {
 }
 
 function autoDownload(url) {
-    let a = document.createElement("a");
-    a.href = url;
-    a.download = "";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    let fileExtension = url.split('.').pop().toLowerCase(); // Lấy phần mở rộng của file
+
+    // Nếu là file video hoặc audio, mở trong tab mới
+    if (["mp4", "mp3", "wav", "ogg"].includes(fileExtension)) {
+        window.open(url, '_blank'); // Mở trong tab mới
+    } else {
+        // Nếu không phải video/audio, thực hiện auto download
+        let a = document.createElement("a");
+        a.href = url;
+        a.download = "";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
 }
+
 
 
 
@@ -823,8 +876,24 @@ function hideNavQuiz() {
 
 function toggleChapter(chapterId) {
     var chapterElement = document.getElementById("chapter-" + chapterId);
-    chapterElement.style.display = chapterElement.style.display === "none" ? "block" : "none";
+
+    // Kiểm tra nếu chương đang ẩn thì mở nó
+    var isHidden = chapterElement.style.display === "none";
+    chapterElement.style.display = isHidden ? "block" : "none";
+
+    // Nếu là chương cuối cùng và đang được mở, cuộn xuống để hiển thị
+    if (isHidden) {
+        var allChapters = document.querySelectorAll('.list-lesson');
+        var lastChapter = allChapters[allChapters.length - 1]; // Lấy chương cuối cùng
+
+        if (chapterElement === lastChapter) {
+            setTimeout(() => {
+                chapterElement.scrollIntoView({ behavior: "smooth", block: "end" });
+            }, 200); // Delay 200ms để đảm bảo nội dung đã render
+        }
+    }
 }
+
 
 function toggleFiles(lessonId, event) {
     if (event) event.stopPropagation();
@@ -840,3 +909,28 @@ document.addEventListener('click', function (event) {
         }
     });
 });
+
+
+document.querySelectorAll(".file-download").forEach(function (fileLink) {
+    fileLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        let fileUrl = this.getAttribute("data-url");
+        handleFileDownload(fileUrl);
+    });
+});
+function handleFileDownload(url) {
+    let fileExtension = url.split('.').pop().toLowerCase(); // Lấy phần mở rộng của file
+
+    if (["mp4", "mp3", "wav", "ogg"].includes(fileExtension)) {
+        // Nếu là video hoặc audio, mở tab mới
+        window.open(url, '_blank');
+    } else {
+        // Nếu là file khác, tự động tải xuống
+        let a = document.createElement("a");
+        a.href = url;
+        a.download = "";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+}
