@@ -5,6 +5,7 @@ using EnglishForKids.Service.Redis;
 using EnglishForKids.Utilities;
 using EnglishForKids.Utilities.Lib;
 using EnglishForKids.ViewModels;
+using Microsoft.VisualBasic.FileIO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
@@ -62,6 +63,59 @@ namespace EnglishForKids.Controllers.Course.Service
                 return null;
             }
         }
+
+        public async Task<LessonDetailResponse?> GetLessonDetail(LessonDetail request)
+        {
+            try
+            {
+                string apiResponse = string.Empty;
+                var connect_api_us = new ConnectApi(_configuration, redisService);
+
+                // 🔥 Gửi yêu cầu lấy chi tiết bài học đến API backend
+                var requestBody = new LessonDetail
+                {
+                    LessonId = request.LessonId,
+                    CourseId = request.CourseId,
+
+                };
+
+                apiResponse = await POST(_configuration["API:get_lesson_detail"], request);
+
+                var jsonData = JObject.Parse(apiResponse);
+                //int status = int.Parse(jsonData["status"].ToString());
+
+                return new LessonDetailResponse
+                {
+                    VideoUrl = jsonData["videoUrl"]?.ToString(),
+                    AudioUrl = jsonData["audioUrl"]?.ToString(),
+                    ArticleContent = jsonData["articleContent"]?.ToString(),
+                    ArticleFiles = jsonData["articleFilesJson"] != null
+                ? jsonData["articleFilesJson"].Select(f => new LessonFile
+                {
+                    Name = f["name"]?.ToString(),
+                    Path = f["path"]?.ToString()
+                }).ToList()
+                : new List<LessonFile>(),
+                    QuizData = jsonData["quizDataJson"] != null
+                ? jsonData["quizDataJson"].Select(q => new QuizQuestion
+                {
+                    QuestionId = q["questionId"].ToObject<int>(),
+                    QuestionText = q["questionText"]?.ToString(),
+                    Options = q["options"].Select(o => new QuizOption
+                    {
+                        OptionId = o["optionId"].ToObject<int>(),
+                        OptionText = o["optionText"]?.ToString()
+                    }).ToList()
+                }).ToList()
+                : new List<QuizQuestion>()
+                };
+            }
+            catch (Exception ex)
+            {
+                 return null;
+            }
+        }
+
         public async Task<QuizResultResponse?> SubmitQuizAnswer(SubmitQuizAnswer request)
         {
             try
