@@ -180,6 +180,8 @@
                                 bool hasVideo = item.Files.Any(f => f.Type == 40 && f.Path.EndsWith(".mp4"));
                                 bool hasAudio = item.Files.Any(f => f.Type == 40 && f.Path.EndsWith(".mp3"));
                                 bool hasArticle = !string.IsNullOrEmpty(item.Article);
+                                bool hasDocument = item.Files.Any(f => f.Type == 50) && !hasVideo && !hasAudio && !hasArticle; // Chỉ có tài nguyên
+
                                 bool hasQuiz = item.Type == "Quiz";
                                 bool hasQuestions = hasQuiz && item.Questions != null && item.Questions.Any(); // Kiểm tra nếu có câu hỏi
                                 bool hasFiles = item.Files.Any(); // Kiểm tra có file nào không
@@ -270,6 +272,14 @@
                                                         <span class="article-text">ARTICLE</span>
                                                     </div>
                                                 }
+                                              
+                                            }
+                                            @if (hasDocument)
+                                            {
+                                                <div class="time document-time">
+                                                    <i class="icon icon-audio"></i> <!-- Icon cho tài nguyên -->
+                                                    
+                                                </div>
                                             }
 
                                             <!-- Nút tài liệu -->
