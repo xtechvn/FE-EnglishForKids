@@ -120,7 +120,47 @@ function playLesson(url, type) {
     }
 }
 
+// Hàm cắt chữ, đảm bảo không bị cắt giữa từ
+function truncateLessonTitles() {
+    let elements = document.querySelectorAll(".lesson-title"); // Lấy tất cả tiêu đề
 
+    elements.forEach(el => {
+        let text = el.textContent.trim(); // Lấy nội dung gốc
+        let maxWidth = 300; // Giới hạn chiều rộng (px)
+        let words = text.split(" "); // Chia thành từng từ
+        let newText = "";
+
+        el.textContent = ""; // Xóa nội dung cũ để kiểm tra lại
+
+        for (let i = 0; i < words.length; i++) {
+            let tempText = newText + (newText ? " " : "") + words[i]; // Thử thêm từ tiếp theo
+            el.textContent = tempText;
+
+            if (el.scrollWidth > maxWidth) {
+                // Nếu từ quá dài và không có dấu cách
+                if (newText === "") {
+                    let truncatedWord = "";
+                    for (let j = 0; j < words[i].length; j++) {
+                        truncatedWord += words[i][j];
+                        el.textContent = truncatedWord + "...";
+                        if (el.scrollWidth > maxWidth) {
+                            el.textContent = truncatedWord.slice(0, -1) + "...";
+                            return;
+                        }
+                    }
+                } else {
+                    el.textContent = newText + "..."; // Nếu vượt quá 300px thì giữ lại phần cũ + "..."
+                }
+                break;
+            }
+            newText = tempText; // Cập nhật nội dung hợp lệ
+        }
+    });
+}
+
+
+// Chạy khi trang tải lần đầu
+document.addEventListener("DOMContentLoaded", truncateLessonTitles);
 function navigateLesson(direction) {
     debugger
     if (debounceTimeout) {
@@ -862,6 +902,7 @@ function hideNavQuiz() {
 
 
 
+// Hàm mở/đóng chương + tự động cuộn nếu là chương cuối
 function toggleChapter(chapterId) {
     var chapterElement = document.getElementById("chapter-" + chapterId);
 
@@ -869,8 +910,11 @@ function toggleChapter(chapterId) {
     var isHidden = chapterElement.style.display === "none";
     chapterElement.style.display = isHidden ? "block" : "none";
 
-    // Nếu là chương cuối cùng và đang được mở, cuộn xuống để hiển thị
+    // Nếu mở chương thì chạy lại hàm cắt chữ
     if (isHidden) {
+        setTimeout(truncateLessonTitles, 100); // Chạy lại để xử lý nội dung mới
+
+        // Kiểm tra nếu là chương cuối cùng
         var allChapters = document.querySelectorAll('.list-lesson');
         var lastChapter = allChapters[allChapters.length - 1]; // Lấy chương cuối cùng
 

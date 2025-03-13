@@ -428,7 +428,6 @@
     /* Bọc icon + nội dung */
     .lesson-wrapper {
         display: flex;
-        @* align-items: center; *@
         gap: 10px;
         width: 100%;
     }
@@ -452,12 +451,10 @@
     /* Tiêu đề bài học */
     .title {
         display: flex;
-        @* align-items: center; *@
         gap: 5px; /* Khoảng cách giữa icon và chữ */
         width: 100%;
         overflow: hidden; /* Ẩn nội dung quá dài */
-        @* white-space: nowrap; /* Không cho xuống dòng */ *@
-        @* text-overflow: ellipsis; /* Hiển thị dấu "..." nếu quá dài */ *@
+       
     }
 
         /* Định dạng icon trong phần tiêu đề */
@@ -469,13 +466,14 @@
 
     /* Định dạng chữ của bài học */
     .lesson-title {
-        display: inline-block; /* Giữ nó là phần tử nội dòng nhưng vẫn nhận width */
-        max-width: 300px; /* Giới hạn chiều rộng */
+        display: inline-block; /* Giữ nội dung theo chiều ngang */
+        max-width: 300px; /* Giới hạn chiều rộng để tránh tràn */
         white-space: nowrap; /* Ngăn xuống dòng */
-        overflow: hidden; /* Ẩn phần nội dung bị tràn */
-        text-overflow: ellipsis; /* Hiển thị dấu "..." khi nội dung quá dài */
+        overflow: hidden; /* Ẩn nội dung bị tràn */
+        text-overflow: clip; /* Không hiển thị dấu "..." mặc định */
         word-break: keep-all; /* Giữ nguyên từ, không tự động xuống dòng */
     }
+
 
 
     /* Định dạng thời gian */
