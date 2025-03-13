@@ -86,6 +86,29 @@ namespace EnglishForKids.Controllers.Course
 
             return View("~/Views/Course/QuizDetail.cshtml", courseModel);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> GetLessonDetail([FromBody] LessonDetail request)
+        {
+            try
+            {
+                // 🔥 Gọi Service để lấy dữ liệu bài học
+                var lessonDetail = await _courseServices.GetLessonDetail(request);
+
+                if (lessonDetail == null )
+                {
+                    return Json(new { success = false, message = "Không thể lấy dữ liệu bài học." });
+                }
+
+                // ❌ Tránh bọc thêm một lớp `data`
+                return Json(lessonDetail);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Lỗi hệ thống", error = ex.Message });
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> SubmitQuizAnswer([FromBody] SubmitQuizAnswer request)
         {
