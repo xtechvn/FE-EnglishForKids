@@ -1,5 +1,9 @@
-﻿<!-- Breadcrumb -->
-@model EnglishForKids.ViewModels.CourseDetailViewModel
+﻿@using System.Linq;
+@using EnglishForKids.Service.Helper
+@using EnglishForKids.ViewModels
+@using System.Text.Json
+<!-- Breadcrumb -->
+ @model EnglishForKids.ViewModels.CourseDetailViewModel
 @using System.Linq;
 <style>
     .video-container {
@@ -23,592 +27,266 @@
 
 </style>
 <div class="banner-breadcrumb">
-    <img src="images/Herobanner.jpg" alt="" />
+    <img src="~/images/Herobanner.jpg" alt="" />
     <div class="breadcrumb">
 
         <div class="container">
             <ul>
-                <li><a href="">Trang chủ</a></li>
-                <li><a href="">Khóa học</a></li>
-                <li><a href="">Lorem ipsum dolor </a></li>
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/khoa-hoc">Khóa Học</a></li>
             </ul>
         </div>
     </div>
 </div>
 <section class="section-news section-product-detail">
     <div class="container">
+
         <div class="wrap-news">
             <div class="content">
 
-                <h1 class="title-news">Top những đồ chơi cho trẻ 7 tháng tuổi hữu ích nhất hiện nay</h1>
-                <div class="short-lead">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
-                    volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum ligula
-                    egestas.
-                </div>
+                <h1 class="title-news">@Model.Source.SourceTitle</h1>
+
                 <div class="thumb thumb-news">
-                    <img src="images/product.jpg" alt="" />
+                    <img src="@Model.Source.SourceThumbnail" alt="" />
                 </div>
+
+
                 <div class="box-des">
                     <h4>Tổng quan</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
-                        volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum
-                        ligula
-                        egestas.
+                        @Model.Source.SourceDescription
                     </p>
                 </div>
                 <div class="box-des">
                     <h4>Bạn sẽ học được gì?</h4>
+                    @if (!string.IsNullOrEmpty(Model.Source.SourceBenefif))
+                    {
+                        <div class="list">
+                            @Html.Raw(Model.Source.SourceBenefif)
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Không có thông tin về lợi ích của khóa học.</p>
+                    }
+                </div>
+                @if (!string.IsNullOrEmpty(Model.Source.VideoIntro))
+                {
+                    <div class="video-container">
+                        <iframe src="@Model.Source.VideoIntro" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                }
+                @if (Model.Chapters != null && Model.Chapters.Any())
+                {
+                    <div class="box-des">
+                        <h4>Nội dung khoá học</h4>
+                        <div class="breadcrumb-khoahoc">
+                            <div class="breadcrumb">
+                                <ul>
+                                    <li>@Model.Chapters.Count phần</li>
+                                    <li>@Model.Chapters.Sum(ch => ch.Items.Count(i => i.Type == "Lesson")) bài giảng</li>
+                                    <li>@TimeHelper.FormatDuration(Model.Chapters.Sum(ch => ch.Items.Sum(i => i.Files.Where(f => f.Type == 40).Sum(f => f.Duration)))) tổng thời lượng</li>
+                                </ul>
+                            </div>
+                            <span class="text-nowrap" style="color: #1F7CCC" onclick="expandAllChapters()">Mở rộng tất cả các phần</span>
+                        </div>
 
+                        <div class="block-course accordion" id="accordionExample">
+                            @foreach (var chapter in Model.Chapters)
+                            {
+                                int totalLessons = chapter.Items.Count(i => i.Type == "Lesson"); // Đếm bài học
+                                int totalQuizzes = chapter.Items.Count(i => i.Type == "Quiz" && i.Questions != null && i.Questions.Any()); // Đếm quiz có câu hỏi
+                                int totalItems = totalLessons + totalQuizzes; // Tổng số bài hợp lệ
+                                string collapseId = "collapse" + chapter.ChapterId;
+                                //string headingId = "heading" + chapter.ChapterId;
 
-                    <ul class="list">
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                    </ul>
-                </div>
-                <div class="box-des">
-                    <h4>Khám phá các chủ đề liên quan</h4>
-                    <div class="list-tag-chude">
-                        <a href="">Python</a>
-                        <a href="">Python</a>
-                        <a href="">Python</a>
-                        <a href="">Python</a>
-                    </div>
-                    <p><b>Các công ty hàng đầu cung cấp khoá học này cho nhân viên</b></p>
-                    <p>
-                        Chúng tôi lựa chọn khoá học này cho tuyển tập khoá học đầu bảng được các doanh nghiệp toàn cầu
-                        tin
-                        dùng.
-                    </p>
-                    <div class="logo-box">
-                        <img src="images/nasdaq.png" alt="" />
-                        <img src="images/nasdaq.png" alt="" />
-                        <img src="images/nasdaq.png" alt="" />
-                        <img src="images/nasdaq.png" alt="" />
-                        <img src="images/nasdaq.png" alt="" />
-                    </div>
-                </div>
-                <div class="box-des">
-                    <h4>Nội dung khoá học</h4>
-                    <div class="breadcrumb-khoahoc">
-                        <div class="breadcrumb">
-                            <ul>
-                                <li>24 phần</li>
-                                <li>88 bài giảng</li>
-                                <li>8 giờ 32 phút tổng thời lượng</li>
-                            </ul>
-                        </div>
-                        <span class="text-nowrap" style="color: #1F7CCC">Mở rộng tất cả các phần</span>
-                    </div>
-                    <div class="block-course accordion">
-                        <div class="item">
-                            <div class="title" id="headingOne">
-                                <a data-toggle="collapse" data-target="#collapseOne">
-                                    Tiết 1<span class="time">
-                                        2 video -
-                                        0 giờ 10 phút
-                                    </span>
-                                </a>
-                            </div>
-                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                                 data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="title" id="headingTwo">
-                                <a data-toggle="collapse" data-target="#collapseTwo">
-                                    Tiết 2<span class="time">
-                                        2 video -
-                                        0 giờ 10 phút
-                                    </span>
-                                </a>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                 data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="title" id="headingThree">
-                                <a data-toggle="collapse" data-target="#collapseThree">
-                                    Tiết 2<span class="time">
-                                        2 video
-                                        - 0 giờ 10 phút
-                                    </span>
-                                </a>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                 data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="">Video 1<span class="time">2 video - 0 giờ 10 phút</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-des">
-                    <h4>Yêu cầu</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
-                        volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum
-                        ligula
-                        egestas.
-                    </p>
-                </div>
-                <div class="box-des">
-                    <h4>Mô tả</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
-                        volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum
-                        ligula
-                        egestas.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
-                        volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum
-                        ligula
-                        egestas.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
-                        volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum
-                        ligula
-                        egestas.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis
-                        volutpat elit sed tincidunt. Aliquam convallis nibh dictum arcu imperdiet, sit amet bibendum
-                        ligula
-                        egestas.
-                    </p>
-                    <div class="xemthem">
-                        <span>Xem thêm</span>
-                    </div>
-                </div>
-                <div class="box-des-nobg">
-                    <h4 class="title-box">Học viên cũng mua</h4>
-                    <div class="list-khoahoc">
-                        <div class="item">
-                            <div class="thumb-art">
-                                <div class="thumb thumb-1x1">
-                                    <img src="images/product.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="title">
-                                <h4>Lập trình Python All</h4>
-                                <div class="time">
-                                    8 giờ 32 phút tổng thời lượng<br /><span class="tag hot">Hot</span>
-                                </div>
-
-                            </div>
-                            <div class="review">
-                                4.9 <i class="icon-star"></i>
-                            </div>
-                            <div class="total-user">
-                                490 <i class="icofont-users"></i>
-                            </div>
-                            <div class="price">
-                                <span class="price-new">2.044.624 VND</span>
-                                <span class="price-old">2.044.624 VND</span>
-                            </div>
-                            <div class="add-favorites">
-                                <span class="icon-favorites"></span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb-art">
-                                <div class="thumb thumb-1x1">
-                                    <img src="images/product.jpg" alt="" />
-                                </div>
-                            </div>
-
-                            <div class="title">
-                                <h4>Lập trình Python All</h4>
-                                <div class="time">
-                                    8 giờ 32 phút tổng thời lượng<br /><span class="tag uudai">
-                                        Ưu
-                                        đãi
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="review">
-                                4.9 <i class="icon-star"></i>
-                            </div>
-                            <div class="total-user">
-                                490 <i class="icofont-users"></i>
-                            </div>
-                            <div class="price">
-                                <span class="price-new">2.044.624 VND</span>
-                                <span class="price-old">2.044.624 VND</span>
-                            </div>
-                            <div class="add-favorites">
-                                <span class="icon-favorites"></span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb-art">
-                                <div class="thumb thumb-1x1">
-                                    <img src="images/product.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="title">
-                                <h4>Lập trình Python All</h4>
-                                <div class="time">
-                                    8 giờ 32 phút tổng thời lượng<br /><span class="tag moi">Mới</span>
-                                </div>
-                            </div>
-                            <div class="review">
-                                4.9 <i class="icon-star"></i>
-                            </div>
-                            <div class="total-user">
-                                490 <i class="icofont-users"></i>
-                            </div>
-                            <div class="price">
-                                <span class="price-new">2.044.624 VND</span>
-                                <span class="price-old">2.044.624 VND</span>
-                            </div>
-                            <div class="add-favorites">
-                                <span class="icon-favorites"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="xemthem">
-                        <a href="">Xem thêm</a>
-                    </div>
-                </div>
-                <div class="box-des-nobg">
-                    <h4 class="title-box">Thường xuyên được mua cùng nhau</h4>
-                    <div class="list-khoahoc  list-khoahoc-combo">
-                        <div class="item">
-                            <div class="thumb-art">
-                                <div class="thumb thumb-1x2">
-                                    <img src="images/product.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="title">
-                                <h4>Lập trình Python All</h4>
-                                <div class="time">
-                                    8 giờ 32 phút tổng thời lượng<br /><span class="tag hot">Hot</span>
-                                </div>
-                                <div class="review">
-                                    4.9 <i class="icon-star"></i>
-                                </div>
-                                <div class="total-user">
-                                    490 <i class="icofont-users"></i>
-                                </div>
-                            </div>
-                            <div class="price">
-                                <span class="price-new">2.044.624 VND</span>
-                                <span class="price-old">2.044.624 VND</span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb-art">
-                                <div class="thumb thumb-1x2">
-                                    <img src="images/product.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="title">
-                                <h4>Lập trình Python All</h4>
-                                <div class="time">
-                                    8 giờ 32 phút tổng thời lượng<br /><span class="tag hot">Hot</span>
-                                </div>
-                                <div class="review">
-                                    4.9 <i class="icon-star"></i>
-                                </div>
-                                <div class="total-user">
-                                    490 <i class="icofont-users"></i>
-                                </div>
-                            </div>
-                            <div class="price">
-                                <span class="price-new">2.044.624 VND</span>
-                                <span class="price-old">2.044.624 VND</span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb-art">
-                                <div class="thumb thumb-1x2">
-                                    <img src="images/product.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="title">
-                                <h4>Lập trình Python All</h4>
-                                <div class="time">
-                                    8 giờ 32 phút tổng thời lượng<br /><span class="tag hot">Hot</span>
-                                </div>
-                                <div class="review">
-                                    4.9 <i class="icon-star"></i>
-                                </div>
-                                <div class="total-user">
-                                    490 <i class="icofont-users"></i>
-                                </div>
-                            </div>
-                            <div class="price">
-                                <span class="price-new">2.044.624 VND</span>
-                                <span class="price-old">2.044.624 VND</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="total-cart">
-                        <p>Tổng cộng</p>
-                        <div>
-                            <div class="price">
-                                <span class="price-new">2.044.624 VND</span>
-                                <span class="price-old">2.044.624 VND</span>
-                            </div>
-                            <a href="" class="btn btn-line">
-                                THÊM TẤT CẢ VÀO GIỎ HÀNG
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-des">
-                    <h4>Giảng viên</h4>
-                    <div class="info-teacher">
-                        <div class="avatar">
-                            <div class="thumb thumb-1x1">
-                                <img src="images/product.jpg" alt="" />
-                            </div>
-                        </div>
-                        <div class="left-info-teacher">
-                            <h4>Nguyễn Văn A</h4>
-                            <p>Senior AI Engineer</p>
-                            <ul>
-                                <li><i class="icofont-star"></i>4.8 xếp hạng giảng viên</li>
-                                <li><i class="icofont-users"></i>5834 học viên</li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17"
-                                         fill="none">
-                                        <path d="M8 2C6.71442 2 5.45772 2.38122 4.3888 3.09545C3.31988 3.80968 2.48676 4.82484 1.99479 6.01256C1.50282 7.20028 1.37409 8.50721 1.6249 9.76809C1.8757 11.029 2.49477 12.1872 3.40381 13.0962C4.31285 14.0052 5.47104 14.6243 6.73192 14.8751C7.99279 15.1259 9.29973 14.9972 10.4874 14.5052C11.6752 14.0132 12.6903 13.1801 13.4046 12.1112C14.1188 11.0423 14.5 9.78558 14.5 8.5C14.4982 6.77665 13.8128 5.12441 12.5942 3.90582C11.3756 2.68722 9.72335 2.00182 8 2ZM10.5344 8.91125L7.28438 11.1613C7.20935 11.2131 7.12156 11.2435 7.03051 11.2491C6.93946 11.2546 6.84862 11.2352 6.76783 11.1928C6.68704 11.1505 6.61938 11.0868 6.57217 11.0088C6.52496 10.9307 6.5 10.8412 6.5 10.75V6.25C6.5 6.15878 6.52496 6.0693 6.57217 5.99124C6.61938 5.91319 6.68704 5.84954 6.76783 5.80718C6.84862 5.76482 6.93946 5.74537 7.03051 5.75094C7.12156 5.7565 7.20935 5.78687 7.28438 5.83875L10.5344 8.08875C10.6009 8.13475 10.6553 8.1962 10.6928 8.26783C10.7304 8.33946 10.75 8.41912 10.75 8.5C10.75 8.58088 10.7304 8.66054 10.6928 8.73217C10.6553 8.8038 10.6009 8.86525 10.5344 8.91125Z"
-                                              fill="#7B7D8E" />
-                                    </svg>24 khoá học
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu diam Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Morbi eu diam Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Morbi eu diam Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu diam Lorem ipsum
-                    dolor sit amet, consectetur adipiscing elit. Morbi eu diam Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Morbi eu diam
-                    <div class="xemthem">
-                        <span>Xem thêm</span>
-                    </div>
-                </div>
-                <div class="box-comment">
-                    <h4 class="title-box">
-                        <span><i class="icon icon-star"></i>4.9 xếp hạng khoá học</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="4" height="5" viewBox="0 0 4 5" fill="none">
-                            <circle cx="2" cy="2.5" r="2" fill="#5A5D72" />
-                        </svg>
-                        <span><i class="icofont-users"></i>5834 học viên</span>
-                    </h4>
-                    <div class="grid-comment">
-                        <div class="item">
-                            <div class="info-user">
-                                <div class="avatar">
-                                    <div class="thumb thumb-1x1">
-                                        <img src="images/product.jpg" alt="" />
+                                <div class="item">
+                                    <div class="title" id="headingOne">
+                                        <a data-toggle="collapse" data-target="#@collapseId">
+                                            @chapter.ChapterTitle
+                                            <span class="time">@totalItems bài học - @TimeHelper.FormatDuration(chapter.Items.Sum(i => i.Files.Where(f => f.Type == 40).Sum(f => f.Duration)))</span>
+                                        </a>
                                     </div>
-                                </div>
-                                <div class="name">
-                                    <h5>Nguyễn Văn A</h5>
-                                    <div class="time-star">
-                                        <div class="star">
-                                            <div class="icofont-star active"></div>
-                                            <div class="icofont-star active"></div>
-                                            <div class="icofont-star"></div>
-                                            <div class="icofont-star"></div>
-                                            <div class="icofont-star"></div>
+                                    <div id="@collapseId" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <ul>
+                                                @foreach (var item in chapter.Items)
+                                                {
+                                                    bool hasVideo = item.Files.Any(f => f.Type == 40 && f.Path.EndsWith(".mp4"));
+                                                    bool hasAudio = item.Files.Any(f => f.Type == 40 && f.Path.EndsWith(".mp3"));
+                                                    bool hasArticle = !string.IsNullOrEmpty(item.Article);
+                                                    bool hasFiles = item.Files.Any();
+                                                    bool isValidLesson = hasVideo || hasAudio || hasArticle || hasFiles; // Kiểm tra bài học hợp lệ
+
+                                                    var videoUrl = hasVideo ? item.Files.FirstOrDefault(f => f.Type == 40 && f.Path.EndsWith(".mp4"))?.Path : "";
+                                                    var audioUrl = hasAudio ? item.Files.FirstOrDefault(f => f.Type == 40 && f.Path.EndsWith(".mp3"))?.Path : "";
+                                                    var articleContent = hasArticle ? item.Article : "";
+
+                                                    // 🛑 Nếu là Quiz nhưng không có câu hỏi -> Bỏ qua
+                                                    if (item.Type == "Quiz" && (item.Questions == null || !item.Questions.Any()))
+                                                    {
+                                                        continue;
+                                                    }
+
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="lesson-item"
+                                                           data-lesson-id="@item.LessonId"
+                                                           data-type="@(hasVideo ? "video" : hasAudio ? "audio" : hasArticle ? "article" : "document")"
+                                                           data-video-url="@videoUrl"
+                                                           data-audio-url="@audioUrl"
+                                                           data-article-content="@articleContent">
+                                                            @if (item.Type == "Lesson")
+                                                            {
+                                                              
+                                                                <span>@item.LessonTitle</span>
+
+                                                                <!-- ✅ Chỉ hiển thị thời gian nếu là Video (Type == 40) -->
+                                                                @if (hasVideo)
+                                                                {
+                                                                    <span class="time">
+                                                                        @TimeHelper.FormatDuration(item.Files.Where(f => f.Type == 40).Sum(f => f.Duration))
+                                                                    </span>
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                               
+                                                                <span>Trắc nghiệm: @item.Title</span>
+                                                            }
+                                                        </a>
+                                                    </li>
+
+                                                }
+                                            </ul>
                                         </div>
-                                        <small style="color: #919191">2024-03-29 11:12</small>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <p>
-                                Khóa học xịn, xúc tích, ngắn gọn, trọng tâm, dễ hiểu. Mong anh ra khóa machine learning,
-                                deep learning, etc,... từ cơ bản đến nâng cao để cho những người đam mê công nghệ như em
-                                có ...
-                            </p>
-                            <div class="xemthem">
-                                <a href="">Xem thêm</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="info-user">
-                                <div class="avatar">
-                                    <div class="thumb thumb-1x1">
-                                        <img src="images/product.jpg" alt="" />
                                     </div>
                                 </div>
-                                <div class="name">
-                                    <h5>Nguyễn Văn A</h5>
-                                    <div class="time-star">
-                                        <div class="star">
-                                            <div class="icofont-star active"></div>
-                                            <div class="icofont-star active"></div>
-                                            <div class="icofont-star"></div>
-                                            <div class="icofont-star"></div>
-                                            <div class="icofont-star"></div>
-                                        </div>
-                                        <small style="color: #919191">2024-03-29 11:12</small>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <p>
-                                Khóa học xịn, xúc tích, ngắn gọn, trọng tâm, dễ hiểu. Mong anh ra khóa machine learning,
-                                deep learning, etc,... từ cơ bản đến nâng cao để cho những người đam mê công nghệ như em
-                                có ...
-                            </p>
-                            <div class="xemthem">
-                                <a href="">Xem thêm</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="info-user">
-                                <div class="avatar">
-                                    <div class="thumb thumb-1x1">
-                                        <img src="images/product.jpg" alt="" />
-                                    </div>
-                                </div>
-                                <div class="name">
-                                    <h5>Nguyễn Văn A</h5>
-                                    <div class="time-star">
-                                        <div class="star">
-                                            <div class="icofont-star active"></div>
-                                            <div class="icofont-star active"></div>
-                                            <div class="icofont-star"></div>
-                                            <div class="icofont-star"></div>
-                                            <div class="icofont-star"></div>
-                                        </div>
-                                        <small style="color: #919191">2024-03-29 11:12</small>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <p>
-                                Khóa học xịn, xúc tích, ngắn gọn, trọng tâm, dễ hiểu. Mong anh ra khóa machine learning,
-                                deep learning, etc,... từ cơ bản đến nâng cao để cho những người đam mê công nghệ như em
-                                có ...
-                            </p>
-                            <div class="xemthem">
-                                <a href="">Xem thêm</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="info-user">
-                                <div class="avatar">
-                                    <div class="thumb thumb-1x1">
-                                        <img src="images/product.jpg" alt="" />
-                                    </div>
-                                </div>
-                                <div class="name">
-                                    <h5>Nguyễn Văn A</h5>
-                                    <div class="time-star">
-                                        <div class="star">
-                                            <div class="icofont-star active"></div>
-                                            <div class="icofont-star active"></div>
-                                            <div class="icofont-star"></div>
-                                            <div class="icofont-star"></div>
-                                            <div class="icofont-star"></div>
-                                        </div>
-                                        <small style="color: #919191">2024-03-29 11:12</small>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <p>
-                                Khóa học xịn, xúc tích, ngắn gọn, trọng tâm, dễ hiểu. Mong anh ra khóa machine learning,
-                                deep learning, etc,... từ cơ bản đến nâng cao để cho những người đam mê công nghệ như em
-                                có ...
-                            </p>
-                            <div class="xemthem">
-                                <a href="">Xem thêm</a>
-                            </div>
+                            }
                         </div>
                     </div>
-                    <div class="text-center"><a href="" style="color: #1f7ccc;">Hiển thị tất cả đánh giá</a></div>
-                </div>
+
+                }
+
             </div>
 
             <div class="siderbar-news">
                 <div class="item-product">
                     <a href="">
                         <div class="thumb thumb-news">
-                            <img src="images/product.jpg" alt="" />
+                            <img src="@Model.Source.SourceThumbnail" alt="" />
+                        </div>
+                        <div class="box-info">
+                            <div class="block-price">
+                                <span>@Model.Source.PriceInfo.Price.ToString("N0") đ</span>
+
+                            </div>
+                            <a href="" class="btn btn-line" style="
+                                justify-content: center;
+                                align-items: center;
+                                display: flex;
+                            ">Thêm vào giỏ hàng</a>
+                            <a href="" class="btn btn-base" style="
+                                justify-content: center;
+                                align-items: center;
+                                display: flex;
+                            ">Mua ngay</a>
+                            <ul>
+                                <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                <li>
+                                    <i class="icon icon-video"></i>
+                                    24 video
+                                </li>
+                            </ul>
                         </div>
                     </a>
-                    <div class="box-info">
-                        <div class="block-price">
-                            <span>299.000đ</span><strike>350.000đ </strike>
-                        </div>
-                        <p><b>Khoá học này bao gồm:</b></p>
-                        <ul>
-                            <li><i class="icon icon-time"></i>Thời lượng: 2 giờ 40 phút</li>
-                            <li><i class="icon icon-video"></i>Bài giảng: 26 video</li>
-                            <li><i class="icon icon-video"></i>Giấy chứng nhận hoàn thành</li>
-                            <li><i class="icon icon-video"></i>Quyền truy cập trọn đời</li>
-                        </ul>
-
-                        <a href="" class="btn btn-line">Thêm vào giỏ hàng</a>
-                        <a href="" class="btn btn-base">Mua ngay</a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<section class="section-category">
+    <div class="container">
+        <div class="list-product-category">
+            <div class="title-box">
+                <h3 class="name-tt"><a href="">Khóa học LIÊN QUAN</a></h3>
+            </div>
+            <div class="product-category">
+                <div class="list-product">
+                    <div class="item-product">
+                        <a href="">
+                            <div class="thumb thumb-news">
+                                <img src="~/images/product.jpg" alt="" />
+                            </div>
+                            <div class="box-info">
+                                <h3 class="name-product">Mũ bảo vệ đầu cho bé Hulo Toys 100% Cotton</h3>
+                                <ul>
+                                    <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                    <li>
+                                        <i class="icon icon-video"></i>
+                                        24 video
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item-product">
+                        <a href="">
+                            <div class="thumb thumb-news">
+                                <img src="~/images/product.jpg" alt="" />
+                            </div>
+                            <div class="box-info">
+                                <h3 class="name-product">Mũ bảo vệ đầu cho bé Hulo Toys 100% Cotton</h3>
+                                <ul>
+                                    <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                    <li>
+                                        <i class="icon icon-video"></i>
+                                        24 video
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="item-product">
+                        <a href="">
+                            <div class="thumb thumb-news">
+                                <img src="~/images/product.jpg" alt="" />
+                            </div>
+                            <div class="box-info">
+                                <h3 class="name-product">Mũ bảo vệ đầu cho bé Hulo Toys 100% Cotton</h3>
+                                <ul>
+                                    <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                    <li>
+                                        <i class="icon icon-video"></i>
+                                        24 video
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item-product">
+                        <a href="">
+                            <div class="thumb thumb-news">
+                                <img src="~/images/product.jpg" alt="" />
+                            </div>
+                            <div class="box-info">
+                                <h3 class="name-product">Mũ bảo vệ đầu cho bé Hulo Toys 100% Cotton</h3>
+                                <ul>
+                                    <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                    <li>
+                                        <i class="icon icon-video"></i>
+                                        24 video
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+ 
 @section Scripts {
     <script src="~/js/courses/courses_detail.js"></script>
 }

@@ -15,8 +15,8 @@
         public string SourceThumbnail { get; set; }
         public string VideoIntro { get; set; }
         public string SourceBenefif { get; set; }
-        public decimal Price { get; set; }
-        public decimal OriginalPrice { get; set; }
+        //public decimal Price { get; set; }
+        //public decimal OriginalPrice { get; set; }
         public int Status { get; set; }
         // ✅ Thêm thông tin giá
         public PriceInfoViewModel PriceInfo { get; set; } = new PriceInfoViewModel();

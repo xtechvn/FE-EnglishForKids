@@ -22,7 +22,7 @@ namespace EnglishForKids.Controllers.Course
             configuration = _configuration;
             _courseServices = new CourseService(configuration, redisService);
             redisService = _redisService;
-            
+
         }
         // Layout trang chủ news dùng chung với trang Category cấp 2
         [Route("khoa-hoc")]
@@ -40,52 +40,44 @@ namespace EnglishForKids.Controllers.Course
         }
 
 
-        //Trang Chi tiết khóa học
-        [Route("khoa-hoc/Detail/{title}-{course_id}.html")]
+       
+        //Trang khi đã Đăng ký thnahf Công Khóa Học
+
+        [Route("khoa-hoc/{title}-{course_id}.html")]
         [HttpGet]
-        public async Task<IActionResult> CourseDetail(string title, long course_id)
+        public async Task<IActionResult> CourseRedirect(string title, int course_id)
         {
             // Key trong Redis tương ứng với khóa học
             string redisKey = $"COURSE_DETAIL_{course_id}";
             int redisDbIndex = int.Parse(configuration["Redis:Database:db_course"]);
             string redisData = await redisService.GetAsync(redisKey, redisDbIndex);
+
             if (string.IsNullOrEmpty(redisData))
             {
                 // Nếu không tìm thấy dữ liệu trong Redis
                 return NotFound("Không tìm thấy thông tin khóa học.");
             }
+
             // Parse dữ liệu JSON từ Redis sang object
             var courseModel = JsonConvert.DeserializeObject<CourseDetailViewModel>(redisData);
-            if (courseModel == null || courseModel.Chapters == null)
+
+            if (courseModel == null || courseModel.Source == null)
             {
                 return NotFound("Dữ liệu không hợp lệ.");
             }
 
-            return View("~/Views/Course/CourseDetail.cshtml", courseModel);
-        }
-        //Trang khi đã Đăng ký thnahf Công Khóa Ho
-
-        [Route("khoa-hoc/{title}-{course_id}.html")]
-        [HttpGet]
-        public async Task<IActionResult> QuizDetail(string title, int course_id)
-        {
-            // Key trong Redis tương ứng với khóa học
-            string redisKey = $"COURSE_DETAIL_{course_id}";
-            int redisDbIndex = int.Parse(configuration["Redis:Database:db_course"]);
-            string redisData = await redisService.GetAsync(redisKey, redisDbIndex);
-            if (string.IsNullOrEmpty(redisData))
+            // ✅ Check nếu khóa học có phí hay không
+            if (courseModel.Source.PriceInfo != null && courseModel.Source.PriceInfo.Price > 0)
             {
-                // Nếu không tìm thấy dữ liệu trong Redis
-                return NotFound("Không tìm thấy thông tin khóa học.");
+                // Nếu Mất Phí → Vào trang CourseDetail và truyền Model
+                return View("~/Views/Course/CourseDetail.cshtml", courseModel);
             }
-            // Parse dữ liệu JSON từ Redis sang object
-            var courseModel = JsonConvert.DeserializeObject<CourseDetailViewModel>(redisData);
-            if (courseModel == null || courseModel.Source == null || courseModel.Chapters == null)
+            else
             {
-                return NotFound("Dữ liệu khóa học không hợp lệ.");
+                // Nếu Free → Vào trang QuizDetail và truyền Model
+                return View("~/Views/Course/QuizDetail.cshtml", courseModel);
+               
             }
-
-            return View("~/Views/Course/QuizDetail.cshtml", courseModel);
         }
 
         [HttpPost]
@@ -96,7 +88,7 @@ namespace EnglishForKids.Controllers.Course
                 // 🔥 Gọi Service để lấy dữ liệu bài học
                 var lessonDetail = await _courseServices.GetLessonDetail(request);
 
-                if (lessonDetail == null )
+                if (lessonDetail == null)
                 {
                     return Json(new { success = false, message = "Không thể lấy dữ liệu bài học." });
                 }
@@ -140,9 +132,9 @@ namespace EnglishForKids.Controllers.Course
         {
             var result = await _courseServices.ResetQuizResults(request);
 
-            if (result == null )
+            if (result == null)
             {
-                return BadRequest( "Lỗi khi lấy kết quả quiz.");
+                return BadRequest("Lỗi khi lấy kết quả quiz.");
             }
 
             return Json(result);
@@ -183,7 +175,7 @@ namespace EnglishForKids.Controllers.Course
             }
         }
 
-        
+
 
     }
 }
