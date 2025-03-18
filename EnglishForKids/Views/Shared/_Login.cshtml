@@ -73,82 +73,76 @@
     </div>
 </div>
 <!-- đăng kí -->
-<div id="dangky" class="overlay client-login-popup white-popup mfp-hide">
+<div id="dangky" class="white-popup mfp-hide">
     <div class="popup">
-       
         <div class="content">
             <ul class="tab-login">
                 <li class="">
-                    <a class="client-login" href="javascript:;" data-id="#dangnhap">Đăng nhập</a>
+                    <a href="">Đăng nhập</a>
                 </li>
                 <li class="active">
-                    <a class="client-login" href="javascript:;" data-id="#dangky">Đăng ký</a>
+                    <a href="">Đăng ký</a>
                 </li>
             </ul>
-            <ul>
+            <form>
                 <div class="scroll-form">
-                    <div class="form-group">
-                        <!-- <label>Họ và tên</label> -->
-                        <div class="box-input user">
-                            <input class="form-control" type="text" placeholder="Nhập họ tên" />
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <div class="box-input user">
+                                <input class="form-control" type="text" placeholder="Nhập họ tên" />
+                            </div>
+                            <span class="err">Vui lòng không để trống</span>
                         </div>
-                        <span class="err">Vui lòng không để trống</span>
+                        <div class="form-group">
+                            <div class="box-input user">
+                                <input class="form-control" type="tel" placeholder="Số điện thoại" />
+                            </div>
+                            <span class="err">Vui lòng không để trống</span>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <!-- <label>Email</label> -->
                         <div class="box-email">
                             <div class="box-input email">
-                                <input class="form-control" type="text" placeholder="Nhập địa chỉ Email " />
+                                <input class="form-control" type="text" placeholder="Nhập địa chỉ Email" />
                             </div>
-                            @* <button class="resend">Gửi mã xác thực</button> *@
+                            <button class="resend">Gửi mã xác thực</button>
+                        </div>
+                        <span class="err">Vui lòng không để trống</span>
+                    </div>
+                    <div class="form-group">
+                        <div class="box-input info">
+                            <input class="form-control" type="text" placeholder="Mã xác nhận" />
+                        </div>
+                    </div>
 
-                        </div>
-                        <span class="err">Vui lòng không để trống</span>
-                    </div>
-                    @*  <div class="form-group">
-                    <!-- <label>Mã xác thực</label> -->
-                    <div class="box-input code">
-                    <input class="form-control" type="text"
-                    placeholder="Nhập mã xác thực đã gửi vào email" />
-                    </div>
-                    </div> *@
                     <div class="form-group">
-                        <!-- <label>Số điện thoại</label> -->
-                        <div class="box-input tel">
-                            <input class="form-control" type="text" placeholder="Nhập số điện thoại" />
+                        <div class="box-input password">
+                            <input class="form-control" type="password" placeholder="Nhập mật khẩu từ 6 đến 32 ký tự" />
                         </div>
                         <span class="err">Vui lòng không để trống</span>
                     </div>
                     <div class="form-group">
-                        <!-- <label>Mật khẩu</label> -->
-                        <div class="box-input password register-password">
-                            <input class="form-control" type="password"
-                                   placeholder="Nhập mật khẩu từ 6 đến 32 ký tự" />
-                        </div>
-                        <span class="err">Vui lòng không để trống</span>
-                    </div>
-                    <div class="form-group">
-                        <!-- <label>Xác nhận mật khẩu</label> -->
-                        <div class="box-input password confirm-password">
+                        <div class="box-input password-unlock">
                             <input class="form-control" type="password" placeholder="Nhập lại mật khẩu" />
                         </div>
                         <span class="err">Vui lòng không để trống</span>
                     </div>
                     <div class="ghinho">
                         <div class="box-checkbox">
-                            <input type="checkbox" class="checkbox" />
+                            <input type="checkbox" id="checkbox" class="checkbox" />
                             <label for="checkbox"></label>
                         </div>
-                        <span>Nhận Email thông báo từ chúng tôi</span>
+                        <span>Nhận các thông tin và chương trình khuyến mãi qua email.</span>
                     </div>
                 </div>
-                <button id="btn-client-register" class="btn-submit">Tạo tài khoản</button>
+                <button class="btn-submit">Tạo tài khoản</button>
                 <p class="note ">
                     Khi bạn nhấn Đăng ký, bạn đã đồng ý thực hiện mọi giao dịch mua bán theo<a href="">
                         điều kiện sử dụng và chính sách của Chúng tôi
                     </a>.
                 </p>
-            </ul>
+            </form>
         </div>
     </div>
 </div>
