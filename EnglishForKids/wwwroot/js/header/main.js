@@ -64,20 +64,53 @@ var header = {
         </div>
     `;
     },
-    bind_menu: function () {
-
+   bind_menu: function () {
         $.ajax({
-            dataType: 'html', // Nếu bạn trả về HTML
-            type: 'POST', // Hoặc 'POST' nếu controller là POST
+            dataType: 'html',
+            type: 'POST',
             url: '/home/loadHeaderComponent',
             success: function (data) {
-
+                console.log("Header đã được tải qua AJAX.");
                 $('#header-container').html(data);
+
+                // 🔥 Gọi lại sự kiện Pop-up ngay sau khi Header tải xong
+                header.reinitializePopup();
             },
             error: function (xhr, status, error) {
-                console.log("Error: " + error); // Thay đổi từ 'failure' sang 'error'
+                console.log("Lỗi khi tải Header:", error);
             }
         });
+    },
 
+    // 🔥 Hàm gọi lại Pop-up cho phần tử mới được load
+    reinitializePopup: function () {
+        console.log("Gọi lại Magnific Popup sau AJAX...");
+        
+        $(".open-popup-link").magnificPopup({
+            type: 'inline',
+            midClick: true,
+            mainClass: 'mfp-with-zoom',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            removalDelay: 300
+        });
+
+        // Gán lại sự kiện click cho nút đăng nhập
+        $(document).on("click", ".client-login", function (e) {
+            e.preventDefault();
+            var targetPopup = $(this).attr("data-id");
+            console.log("Mở pop-up:", targetPopup);
+            $.magnificPopup.open({
+                items: { src: targetPopup },
+                type: 'inline'
+            });
+        });
     }
 }
+// Khi tài liệu sẵn sàng, gọi `bind_menu()` để load Header
+$(document).ready(function () {
+    header.bind_menu();
+});
