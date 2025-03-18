@@ -158,42 +158,52 @@ $(function () {
 
 // hỗ trợ
 $(document).ready(function () {
-    $(".list-faq-v2 .item > .title-faq").on("click", function () {
-        if ($(this).hasClass("active")) {
-            $(this).removeClass("active");
-            $(this)
-                .siblings(".answer")
-                .slideUp(300);
-        } else {
-            $(".list-faq-v2 .item > .title-faq").removeClass("active");
-            $(this).addClass("active");
-            $(".answer").slideUp(300);
-            $(this)
-                .siblings(".answer")
-                .slideDown(300);
-        }
-    });
-    //select2
-    $('select').select2();
+    console.log("common.js đã tải...");
 
-    $('.open-popup-link').magnificPopup({
-        type: 'inline',
-        midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-        mainClass: 'mfp-with-zoom',
-        fixedContentPos: false,
-        fixedBgPos: true,
-        overflowY: 'auto',
-        closeBtnInside: true,
-        preloader: false,
-        removalDelay: 300,
+    // 🛠 Gán sự kiện Pop-up ngay khi trang load
+    $(document).on("click", ".open-popup-link", function (e) {
+        e.preventDefault();
+        var targetPopup = $(this).attr("href") || $(this).data("id");
+        console.log("Mở Pop-up:", targetPopup);
+
+        if ($(targetPopup).length === 0) {
+            console.error("Không tìm thấy phần tử Pop-up:", targetPopup);
+            return;
+        }
+
+        $.magnificPopup.open({
+            items: { src: targetPopup },
+            type: 'inline',
+            midClick: true,
+            mainClass: 'mfp-with-zoom',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            removalDelay: 300
+        });
     });
-    $(".toggle-password").click(function () {
-        $(this).toggleClass("active");
-        var input = $($(this).attr("toggle"));
-        if (input.attr("type") == "password") {
-            input.attr("type", "text");
-        } else {
-            input.attr("type", "password");
+
+    // 🛠 Xử lý sự kiện đăng nhập mở Pop-up
+    $(document).on("click", ".client-login", function (e) {
+        e.preventDefault();
+        var targetPopup = $(this).attr("data-id");
+        console.log("Mở Pop-up:", targetPopup);
+
+        $.magnificPopup.open({
+            items: { src: targetPopup },
+            type: 'inline'
+        });
+    });
+
+    // 🛠 Gọi lại sự kiện Pop-up sau khi header AJAX load xong
+    $(document).ajaxComplete(function (event, xhr, settings) {
+        if (settings.url.includes("/home/loadHeaderComponent")) {
+            console.log("Header đã load xong từ AJAX.");
+            header.reinitializePopup();
         }
     });
 });
+
+

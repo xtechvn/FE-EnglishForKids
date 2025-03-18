@@ -18,8 +18,19 @@
         public decimal Price { get; set; }
         public decimal OriginalPrice { get; set; }
         public int Status { get; set; }
+        // ✅ Thêm thông tin giá
+        public PriceInfoViewModel PriceInfo { get; set; } = new PriceInfoViewModel();
     }
 
+    public class PriceInfoViewModel
+    {
+        public int PriceId { get; set; } // ID của giá (nếu có)
+        public decimal Price { get; set; } // Giá hiện tại
+        public decimal OriginalPrice { get; set; } // Giá gốc (nếu có)
+        public string Currency { get; set; } = "VND"; // Đơn vị tiền tệ
+        public DateTime? CreatedDate { get; set; } // Ngày cập nhật giá
+        public bool IsFree => Price == 0; // ✅ Xác định khóa học có miễn phí không
+    }
     public class ChapterViewModel
     {
         public int ChapterId { get; set; }

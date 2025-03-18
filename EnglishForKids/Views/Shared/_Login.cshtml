@@ -1,12 +1,8 @@
-﻿@{
-    Layout = null;
-}
+﻿
 <!-- đăng nhập -->
-<div id="dangnhap" class="overlay client-login-popup">
+<div id="dangnhap" class="overlay client-login-popup white-popup mfp-hide">
     <div class="popup">
-        <a class="close" href="javascript:;">
-            <i class="icon icon-close"></i>
-        </a>
+        
         <div class="content">
             <ul class="tab-login">
                 <li class="active">
@@ -39,7 +35,7 @@
                     <div class="flex-note">
                         <div class="ghinho">
                             <div class="box-checkbox">
-                                <input type="checkbox" class="checkbox" />
+                                <input type="checkbox" id="checkbox" class="checkbox" />
                                 <label for="checkbox"></label>
                             </div>
                             <span>Ghi nhớ đăng nhập</span>
@@ -72,16 +68,14 @@
                     <div class="fb-login-button" style="display:none;" data-width="" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
                 </li>
-              </ul>
+            </ul>
         </div>
     </div>
 </div>
 <!-- đăng kí -->
-<div id="dangky" class="overlay client-login-popup">
+<div id="dangky" class="overlay client-login-popup white-popup mfp-hide">
     <div class="popup">
-        <a class="close" href="javascript:;">
-            <i class="icon icon-close"></i>
-        </a>
+       
         <div class="content">
             <ul class="tab-login">
                 <li class="">
@@ -160,7 +154,7 @@
 </div>
 
 <!-- Thành công -->
-<div id="success" class="overlay form-succes client-login-popup">
+<div id="success" class="overlay form-succes client-login-popup white-popup mfp-hide">
     <div class="popup">
         <a class="close" href="javascript:;">
             <i class="icon icon-close"></i>
@@ -172,11 +166,9 @@
     </div>
 </div>
 <!-- Quên mật khẩu -->
-<div id="quenmk" class="overlay client-forgot-popup">
+<div id="quenmk" class="overlay client-forgot-popup white-popup mfp-hide">
     <div class="popup">
-        <a class="close" href="javascript:;">
-            <i class="icon icon-close"></i>
-        </a>
+       
         <div class="content">
             <ul class="tab-login">
                 <li class="active">
@@ -201,3 +193,5 @@
         </div>
     </div>
 </div>
+
+
