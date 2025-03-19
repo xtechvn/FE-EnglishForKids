@@ -1,10 +1,6 @@
 ﻿$(document).ready(function () {
     global_service.Initialization();
     global_service.DynamicBind();
-    global_service.LoadPolicy();
-    global_service.LoadAbouHulotoys();
-    global_service.LoadCustomerSupport();
-    global_service.LoadCartCount();
 })
 var global_service = {
     Initialization: function () {
@@ -44,88 +40,18 @@ var global_service = {
         //    }
             
         //});
-        $("body").on('keyup', ".global-search", global_service.DelayEventBinding(function (e) {
-            var element = $(this)
-            global_service.RenderSearchBoxLoading()
-            if (element.val() != undefined && element.val().trim() != '') {
-                $('.box-search-list').fadeIn()
-                global_service.RenderSearchBox()
-            } else {
-                $('.box-search-list').fadeOut()
-            }
-        }, 800));
+        //$("body").on('keyup', ".global-search", global_service.DelayEventBinding(function (e) {
+        //    var element = $(this)
+        //    global_service.RenderSearchBoxLoading()
+        //    if (element.val() != undefined && element.val().trim() != '') {
+        //        $('.box-search-list').fadeIn()
+        //        global_service.RenderSearchBox()
+        //    } else {
+        //        $('.box-search-list').fadeOut()
+        //    }
+        //}, 800));
     },
-    LoadPolicy: function () {
-        $.ajax({
-            url: "/Support/GetListPolicy",
-            type: 'post',
-            data: { idTypePolicy : 21},
-            success: function (data) {
-                data.forEach(item => {
-                    let html = `<li><a class="li-Cursor" onclick="global_service.PolicyNaviga('/chinh-sach/','${item.id}','${item.name}')">${item.name}</a></li>`;
-                    $(".policy-footer").append(html);
-                });
-            },
-        });
-    },
-    LoadAbouHulotoys: function () {
-        $.ajax({
-            url: "/Support/GetListAboutHulotoys",
-            type: 'post',
-            data: {idCate : 25},
-            success: function (data) {
-                data.forEach(item => {
-                    let html = `<li><a class="li-Cursor" onclick="global_service.Naviga('/tin-tuc/','${item.id}','${item.title}-${item.id}')">${item.title}</a></li>`;
-                    $(".AboutHulotoy-footer").append(html);
-                });
-            },
-        });
-    },
-    LoadCustomerSupport: function () {
-        $.ajax({
-            url: "/Support/GetListCustomerSupport",
-            type: 'post',
-            data: {idCate : 26},
-            success: function (data) {
-                data.forEach(item => {
-                    let html = `<li><a class="li-Cursor" onclick="global_service.Naviga('/tin-tuc/','${item.id}','${item.title}-${item.id}')">${item.title}</a></li>`;
-                    $(".CustomerSupport-footer").prepend(html);
-                });
-            },
-        });
-    },
-    LoadCartCount: function () {
-        var usr = global_service.CheckLogin()
-        if (usr) {
-            $.ajax({
-                url: API_URL.CartCount,
-                type: 'post',
-                data: {
-                    request: {
-                        token: usr.token
-                    }
-                },
-                success: function (result) {
-                    if (result.is_success && result.data) {
-                        $('#carts .badge').html(result.data)
-                    } else { $('#carts .badge').html('0') }
-                },
-            });
-        }
-        else {
-            $('#carts .badge').html('0')
-        }
-       
-    },
-    PolicyNaviga: function (url,id,title)
-    {
-        window.location.href = url + this.convertVietnameseToUnsign(title) + "-" + id;
-        //localStorage.setItem('ChosenIdPolicy', id);
-        //localStorage.setItem('ChosenUrlPolicy', title);
-    },
-    Naviga: function (url, id, title) {
-        window.location.href = url + this.convertVietnameseToUnsign(title);
-    },
+  
     CheckLogin: function () {
         var str = localStorage.getItem(STORAGE_NAME.Login)
         if (str != undefined && str.trim() != '') {

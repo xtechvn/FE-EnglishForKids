@@ -202,6 +202,7 @@ $(document).ready(function () {
         if (settings.url.includes("/home/loadHeaderComponent")) {
             console.log("Header đã load xong từ AJAX.");
             header.reinitializePopup();
+            header.RenderHeaderLogin();
         }
     });
 });

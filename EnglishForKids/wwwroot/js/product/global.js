@@ -55,45 +55,7 @@ var global_service = {
             }
         }, 800));
     },
-    LoadPolicy: function () {
-        $.ajax({
-            url: "/Support/GetListPolicy",
-            type: 'post',
-            data: { idTypePolicy : 21},
-            success: function (data) {
-                data.forEach(item => {
-                    let html = `<li><a class="li-Cursor" onclick="global_service.PolicyNaviga('/chinh-sach/','${item.id}','${item.name}')">${item.name}</a></li>`;
-                    $(".policy-footer").append(html);
-                });
-            },
-        });
-    },
-    LoadAbouHulotoys: function () {
-        $.ajax({
-            url: "/Support/GetListAboutHulotoys",
-            type: 'post',
-            data: {idCate : 25},
-            success: function (data) {
-                data.forEach(item => {
-                    let html = `<li><a class="li-Cursor" onclick="global_service.Naviga('/tin-tuc/','${item.id}','${item.title}-${item.id}')">${item.title}</a></li>`;
-                    $(".AboutHulotoy-footer").append(html);
-                });
-            },
-        });
-    },
-    LoadCustomerSupport: function () {
-        $.ajax({
-            url: "/Support/GetListCustomerSupport",
-            type: 'post',
-            data: {idCate : 26},
-            success: function (data) {
-                data.forEach(item => {
-                    let html = `<li><a class="li-Cursor" onclick="global_service.Naviga('/tin-tuc/','${item.id}','${item.title}-${item.id}')">${item.title}</a></li>`;
-                    $(".CustomerSupport-footer").prepend(html);
-                });
-            },
-        });
-    },
+   
     LoadCartCount: function () {
         var usr = global_service.CheckLogin()
         if (usr) {

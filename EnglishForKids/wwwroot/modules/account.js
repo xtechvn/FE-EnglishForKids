@@ -135,9 +135,6 @@ var account = {
             $("#forgot-password-email").closest('.box-email').find('.err').hide()
 
         });
-        $("body").on('click', ".forgot-pass", function () {
-            $('#quenmk').addClass('overlay-active')
-        });
         $("body").on('click', "#forgot-password-btn", function () {
             account.ConfirmForgotPassword()
 

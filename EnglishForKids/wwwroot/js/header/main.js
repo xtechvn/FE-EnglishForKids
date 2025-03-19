@@ -75,6 +75,7 @@ var header = {
 
                 // 🔥 Gọi lại sự kiện Pop-up ngay sau khi Header tải xong
                 header.reinitializePopup();
+                header.RenderHeaderLogin();
             },
             error: function (xhr, status, error) {
                 console.log("Lỗi khi tải Header:", error);
@@ -108,6 +109,17 @@ var header = {
                 type: 'inline'
             });
         });
+    },
+    RenderHeaderLogin: function () {
+        var usr = global_service.CheckLogin()
+        if (usr) {
+            $('#client-logged .account-name').html('Chào mừng, ' + (usr.name == undefined ? 'thành viên mới' : usr.name))
+            $('#client-account-name').remove()
+        }
+        else {
+            $('#client-logged').closest('.nav-item').remove()
+            $('#client-logout').closest('.nav-item').remove()
+        }
     }
 }
 // Khi tài liệu sẵn sàng, gọi `bind_menu()` để load Header
