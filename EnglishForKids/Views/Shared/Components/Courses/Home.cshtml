@@ -16,21 +16,54 @@
                     <div class="thumb thumb-news">
                         <img src="@item.thumbnail" alt="@item.title" />
                     </div>
-                    <div class="box-info">
-                        <h3 class="name-product">@item.title</h3>
-                        <ul>
-                            <li>
+                <div class="box-info">
+                    <h3 class="name-product">@item.title</h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <ul class="info-list">
+                            <li >
                                 <i class="icon icon-time"></i>
-                            2 giờ 40 phút <!-- Giả sử bạn có trường 'duration' -->
+                                2 giờ 40 phút <!-- Giả sử bạn có trường 'duration' -->
                             </li>
                             <li>
                                 <i class="icon icon-video"></i>
-                            24 video <!-- Giả sử bạn có trường 'video_count' -->
+                                24 video <!-- Giả sử bạn có trường 'video_count' -->
                             </li>
+                           
                         </ul>
+                        <!-- ✅ Hiển thị giá hoặc "Miễn phí" -->
+                         <span class="price-label"> 
+                             @(item.price > 0 ? $"{item.price:N0} đ " : "Miễn phí") 
+                         </span> 
                     </div>
+                </div>
+
                 </a>
             </div>
         }
     </div>
+    <style>
+    .info-list {
+        display: flex;
+        flex-direction: column; /* ✅ Đưa các mục thành cột */
+        padding: 0;
+        margin: 0;
+    }
 
+        .info-list li {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin-bottom: 5px; /* ✅ Tạo khoảng cách giữa các dòng */
+        }
+
+    /* ✅ Canh giá hoặc "Miễn phí" về phía phải */
+    .price-label {
+        font-weight: bold;
+        color: #1F7CCC;
+        white-space: nowrap; /* Ngăn chữ bị xuống dòng */
+        margin-left: auto; /* Đẩy giá về bên phải */
+    }
+
+ 
+
+    </style>
