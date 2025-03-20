@@ -77,7 +77,7 @@
 //        //    var cacheKey = "product_detail_" + request.id; // Đặt khóa cho cache
 //        //    if (!_cache.TryGetValue(cacheKey, out var cached_view)) // Kiểm tra xem có trong cache không
 //        //    {
-//        //        cached_view = await productsService.GetProductDetail(request);
+        //        cached_view = await productsService.GetProductDetail(request);
 //        //        if (cached_view != null)
 //        //        {
 //        //            // Lưu vào cache với thời gian hết hạn 

@@ -8,12 +8,12 @@
 //})
 var global_service = {
     Initialization: function () {
-        if (window.history && window.history.pushState) {
-            $(window).on('popstate', function () {
-                window.location.reload()
-            });
+        //if (window.history && window.history.pushState) {
+        //    $(window).on('popstate', function () {
+        //        window.location.reload()
+        //    });
 
-        }
+        //}
         $('#thanhcong').removeClass('overlay-active')
         $('#thatbai').removeClass('overlay-active')
         $('#dangnhap').removeClass('overlay-active')

@@ -45,12 +45,12 @@ namespace EnglishForKids.Utilities.Lib
         //public async Task<string> POST(string endpoint, object request)
         //{
         //    try
-        //    {   
-        //        if(TOKEN==null || TOKEN.Trim()=="" ) TOKEN = await GetToken();
+        //    {
+        //        if (TOKEN == null || TOKEN.Trim() == "") TOKEN = await GetToken();
         //        string token = EncodeHelpers.Encode(JsonConvert.SerializeObject(request), _ApiSecretKey);
         //        var request_message = new HttpRequestMessage(HttpMethod.Post, endpoint);
         //        request_message.Headers.Add("Authorization", "Bearer " + TOKEN);
-        //        var content = new StringContent("{\"token\":\""+token+"\"}", Encoding.UTF8, "application/json");
+        //        var content = new StringContent("{\"token\":\"" + token + "\"}", Encoding.UTF8, "application/json");
         //        request_message.Content = content;
         //        var response = await _HttpClient.SendAsync(request_message);
         //        return await response.Content.ReadAsStringAsync();
@@ -64,11 +64,12 @@ namespace EnglishForKids.Utilities.Lib
         {
             try
             {
+                if (TOKEN == null || TOKEN.Trim() == "") TOKEN = await GetToken();
                 string jsonRequest = JsonConvert.SerializeObject(request);
                 var requestMessage = new HttpRequestMessage(HttpMethod.Post, endpoint);
                 var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
                 requestMessage.Content = content;
-
+                requestMessage.Headers.Add("Authorization", "Bearer " + TOKEN);
                 Console.WriteLine($"🚀 Gửi API {endpoint} với dữ liệu: {jsonRequest}");
 
                 var response = await _HttpClient.SendAsync(requestMessage);

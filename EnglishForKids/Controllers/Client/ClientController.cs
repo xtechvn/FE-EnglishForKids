@@ -1,5 +1,6 @@
 ﻿using EnglishForKids.Controllers.Client.Business;
 using EnglishForKids.Models.Client;
+using EnglishForKids.Utilities;
 using EnglishForKids.Utilities.Lib;
 using EnglishForKids_Service.Models.Address;
 using EnglishForKids_Service.Models.Client;
@@ -7,9 +8,11 @@ using EnglishForKids_Service.Models.Location;
 using LIB.Models.APIRequest;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Security.Cryptography;
 
 namespace EnglishForKids.Controllers.Client
 {
@@ -18,13 +21,15 @@ namespace EnglishForKids.Controllers.Client
         private readonly IConfiguration _configuration;
         private readonly ClientServices _clientServices; 
         private readonly AddressClientServices _addressClientServices; 
-        private readonly LocationServices _locationServices; 
-        public ClientController(IConfiguration configuration) {
+        private readonly LocationServices _locationServices;
+        private readonly IMemoryCache _cache;
+        public ClientController(IConfiguration configuration, IMemoryCache cache) {
 
             _configuration=configuration;
             _clientServices = new ClientServices(configuration);
             _addressClientServices = new AddressClientServices(configuration);
             _locationServices = new LocationServices(configuration);
+            _cache = cache;
         }
         [HttpGet]
         [Route("token")]
@@ -39,9 +44,12 @@ namespace EnglishForKids.Controllers.Client
         public async Task<IActionResult> Login(ClientLoginRequestModel request)
         {
             var result = await _clientServices.Login(request);
-            if (result != null)
+            if (result != null && result.account_client_id>0)
             {
-                result.ip = HttpContext.Connection.RemoteIpAddress == null ? "Unknown" : HttpContext.Connection.RemoteIpAddress.ToString();
+                result.time_expire = DateTime.Now.AddDays(1);
+                result.validate_token = CommonHelper.Encode(JsonConvert.SerializeObject(result), _configuration["API:SecretKey"].ToString());
+                result.account_client_id =0;
+                result.client_id = 0;
             }
             return Ok(new
             {
@@ -53,14 +61,51 @@ namespace EnglishForKids.Controllers.Client
         public async Task<IActionResult> Register(ClientRegisterRequestModel request)
         {
             var result = await _clientServices.Register(request);
+            if (result != null && result.data!=null &&  result.data.account_client_id > 0)
+            {
+                result.data.time_expire = DateTime.Now.AddDays(1);
+                result.data.validate_token = CommonHelper.Encode(JsonConvert.SerializeObject(result), _configuration["API:SecretKey"].ToString());
+                result.data.account_client_id = 0;
+                result.data.client_id = 0;
 
+            }
             return Ok(new
             {
                 is_success = (result != null && result.data!=null),
                 data = result
             });
-        } 
-       
+        }
+        [HttpPost]
+
+        public async Task<IActionResult> GetAuthenticationId(string validate_token)
+        {
+            try
+            {
+                var json= CommonHelper.Decode(validate_token, _configuration["API:SecretKey"].ToString());
+                if(json!=null && json.Trim() != "")
+                {
+                    var model=JsonConvert.DeserializeObject<ClientLoginResponseModel>(json);
+                    if(model!=null && model.account_client_id>0 && model.time_expire >= DateTime.Now)
+                    {
+                        return Ok(new
+                        {
+                            is_success = true,
+                            data = model.account_client_id,
+                            data_client_id=model.client_id
+                        });
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            return Ok(new
+            {
+                is_success = false,
+                data = -1
+            });
+        }
         public ActionResult Address()
         {
             return View();

@@ -109,7 +109,8 @@ var account = {
         $("body").on('click', "#logout-action", function () {
             $('#dangxuat').addClass('overlay-active')
         });
-        $("body").on('click', "#btn-client-register", function () {
+        $("body").on('click', "#btn-client-register", function (e) {
+            e.preventDefault()
             account.Register()
         });
         $("body").on('click', ".ghinho", function () {
@@ -311,7 +312,7 @@ var account = {
             element.closest('.form-group').find('.err').show()
             success = false
         }
-        else if (element.val() != $('#dangky .password input').val()) {
+        else if (element.val() != $('#dangky .register-password input').val()) {
             element.closest('.form-group').find('.err').html(NOTIFICATION_MESSAGE.PasswordConfirmNotEqual)
             element.closest('.form-group').find('.err').show()
             success = false

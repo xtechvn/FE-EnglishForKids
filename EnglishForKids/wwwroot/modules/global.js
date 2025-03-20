@@ -1,15 +1,17 @@
 ﻿$(document).ready(function () {
     global_service.Initialization();
     global_service.DynamicBind();
+    window.alert = function () { return null; };
+
 })
 var global_service = {
     Initialization: function () {
-        if (window.history && window.history.pushState) {
-            $(window).on('popstate', function () {
-                window.location.reload()
-            });
+        //if (window.history && window.history.pushState) {
+        //    $(window).on('popstate', function () {
+        //        window.location.reload()
+        //    });
 
-        }
+        //}
         $('#thanhcong').removeClass('overlay-active')
         $('#thatbai').removeClass('overlay-active')
         $('#dangnhap').removeClass('overlay-active')
@@ -62,6 +64,30 @@ var global_service = {
             return JSON.parse(str)
         }
         return undefined
+    },
+    GetAccountClientId: function () {
+        str = sessionStorage.getItem(STORAGE_NAME.Login)
+        if (str != undefined && str.trim() != '') {
+            var model = JSON.parse(str)
+            var res = global_service.POSTSynchorus('/Client/GetAuthenticationId', { validate_token: model.validate_token })
+            return (res == undefined || res.data == undefined) ? -1 : res.data
+
+        } else {
+            return -1
+        }
+       
+    },
+    GetClientId: function () {
+        str = sessionStorage.getItem(STORAGE_NAME.Login)
+        if (str != undefined && str.trim() != '') {
+            var model = JSON.parse(str)
+            var res = global_service.POSTSynchorus('/Client/GetAuthenticationId', { validate_token: model.validate_token })
+            return (res == undefined || res.data_client_id == undefined) ? -1 : res.data_client_id
+
+        } else {
+            return -1
+        }
+
     },
     POST: function (url, data) {
         return new Promise(function (resolve, reject) {

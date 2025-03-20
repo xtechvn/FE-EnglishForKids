@@ -23,7 +23,11 @@ namespace EnglishForKids.Controllers.Client.Business
             try
             {
                 request.password=EncodeHelpers.MD5Hash(request.password);
-                var result = await POST(_configuration["API:Login"], request);
+                string token = EncodeHelpers.Encode(JsonConvert.SerializeObject(request), _configuration["API:SecretKey"].ToString());
+                var result = await POST(_configuration["API:Login"], new
+                {
+                    token
+                });
                 var jsonData = JObject.Parse(result);
                 var status = int.Parse(jsonData["status"].ToString());
 
@@ -32,7 +36,7 @@ namespace EnglishForKids.Controllers.Client.Business
                     return JsonConvert.DeserializeObject<ClientLoginResponseModel>(jsonData["data"].ToString());
                 }
             }
-            catch
+            catch (Exception ex)
             {
             }
             return null;
@@ -44,7 +48,11 @@ namespace EnglishForKids.Controllers.Client.Business
             {
                 request.password = EncodeHelpers.MD5Hash(request.password);
                 request.confirm_password = EncodeHelpers.MD5Hash(request.confirm_password);
-                var result = await POST(_configuration["API:Register"], request);
+                string token = EncodeHelpers.Encode(JsonConvert.SerializeObject(request), _configuration["API:SecretKey"].ToString());
+                var result = await POST(_configuration["API:Register"], new
+                {
+                    token
+                });
                 var jsonData = JObject.Parse(result);
                 var status = int.Parse(jsonData["status"].ToString());
                 return JsonConvert.DeserializeObject<ClientRegisterResponseModel>(result); ;
