@@ -180,21 +180,21 @@
                                 <span>@Model.Source.PriceInfo.Price.ToString("N0") đ</span>
 
                             </div>
-                            <a href="" class="btn btn-line" style="
-                                justify-content: center;
-                                align-items: center;
-                                display: flex;
-                            ">Thêm vào giỏ hàng</a>
-                            <a href="" class="btn btn-base" style="
-                                justify-content: center;
-                                align-items: center;
-                                display: flex;
-                            ">Mua ngay</a>
+                            <a href="javascript:void(0)" class="btn btn-line add-to-cart"
+                               style="justify-content: center; align-items: center; display: flex;">
+                                Thêm vào giỏ hàng
+                            </a>
+
+                            <a href="javascript:void(0)" class="btn btn-base buy-now"
+                               style="justify-content: center; align-items: center; display: flex;">
+                                Mua ngay
+                            </a>
+
                             <ul>
-                                <li><i class="icon icon-time"></i>2 giờ 40 phút</li>
+                                <li><i class="icon icon-time"></i>@TimeHelper.FormatDuration(Model.Chapters.Sum(ch => ch.Items.Sum(i => i.Files.Where(f => f.Type == 40).Sum(f => f.Duration))))</li>
                                 <li>
                                     <i class="icon icon-video"></i>
-                                    24 video
+                                    @Model.Chapters.Sum(ch => ch.Items.Count(i => i.Type == "Lesson")) bài giảng
                                 </li>
                             </ul>
                         </div>
@@ -289,4 +289,5 @@
  
 @section Scripts {
     <script src="~/js/courses/courses_detail.js"></script>
+    <script src="~/js/courses/main.js"></script>
 }

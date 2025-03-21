@@ -38,6 +38,8 @@ var news = {
         });
 
     },   
+
+
     //bin_news_top: function (category_id, position_name, page) {
         
     //    $.ajax({
@@ -72,3 +74,60 @@ var news = {
 
     //}
 }
+
+$(document).on('click', '.course-link', function (e) {
+    debugger
+    e.preventDefault();
+    let userId = global_service.GetAccountClientId();
+
+    var isFree = $(this).data('is-free');
+    var link = $(this).data('link');
+    var courseId = $(this).data('id');
+
+    if (isFree === true || isFree === 'true') {
+        var usr = global_service.CheckLogin();
+
+        if (!usr) {
+            $('.mainheader .client-login').click();
+
+            sessionStorage.setItem('RedirectAfterLoginCourseFree', JSON.stringify({
+                courseId: courseId,
+                link: link
+            }));
+
+            return false;
+        }
+    }
+
+    window.location.href = link;
+    return false;
+});
+
+// Xử lý click nút "Thêm vào giỏ hàng"
+$("body").on("click", ".add-to-cart", function () {
+    var user = global_service.CheckLogin();
+
+    if (!user) {
+        // Chưa login => Hiện popup đăng nhập
+        $('.mainheader .client-login').click();
+        return false;
+    }
+
+    // Đã login => Thêm vào giỏ hàng
+    handleAddToCart();
+});
+
+// Xử lý click nút "Mua ngay"
+$("body").on("click", ".buy-now", function () {
+    var user = global_service.CheckLogin();
+
+    if (!user) {
+        // Chưa login => Hiện popup đăng nhập
+        $('.mainheader .client-login').click();
+        return false;
+    }
+
+    // Đã login => Mua ngay
+    handleBuyNow();
+});
+

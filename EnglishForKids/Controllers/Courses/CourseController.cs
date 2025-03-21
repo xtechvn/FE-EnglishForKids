@@ -76,7 +76,7 @@ namespace EnglishForKids.Controllers.Course
             {
                 // Nếu Free → Vào trang QuizDetail và truyền Model
                 return View("~/Views/Course/QuizDetail.cshtml", courseModel);
-               
+
             }
         }
 

@@ -394,12 +394,13 @@ function handleLessonClick(element) {
 }
 
 function checkQuizProgress(quizId2) {
+    let userId = global_service.GetAccountClientId();  // ✅ Lấy động từ hàm này
     debugger;
     $.ajax({
         url: "/Course/GetQuizResults",
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify({ QuizId: quizId2, UserId: 1 }),
+        data: JSON.stringify({ QuizId: quizId2, UserId: userId }),
         success: function (response) {
             debugger;
 
@@ -515,13 +516,14 @@ function renderQuizQuestion() {
 
 function fetchQuizResultsAndShow() {
     debugger;
+    let userId = global_service.GetAccountClientId(); // ✅ Lấy động từ đây
     $.ajax({
         url: "/Course/GetQuizResults",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
             QuizId: quizId2,
-            UserId: 1
+            UserId: userId
         }),
         success: function (response) {
             debugger;
@@ -539,6 +541,7 @@ function fetchQuizResultsAndShow() {
 
 function checkAnswer() {
     debugger
+    let userId = global_service.GetAccountClientId(); // ✅ Lấy động từ đây
     let selectedOption = document.querySelector("input[name='quiz-answer']:checked");
     if (!selectedOption) {
         alert("Vui lòng chọn một câu trả lời!");
@@ -569,7 +572,7 @@ function checkAnswer() {
             QuizId: question.questionId,
             QuizAnswerId: selectedAnswerId,
             SourceId: courseId1,
-            UserId: 1
+            UserId: userId
         }),
         success: function (response) {
             debugger
@@ -706,6 +709,7 @@ function showSkippedResult() {
 }
 function resetQuiz() {
     debugger;
+    let userId = global_service.GetAccountClientId(); // ✅ Lấy động từ đây
     console.log("🔄 Reset quiz...");
 
     $.ajax({
@@ -714,7 +718,7 @@ function resetQuiz() {
         contentType: "application/json",
         data: JSON.stringify({
             QuizId: quizId2,
-            UserId: 1
+            UserId: userId
         }),
         success: function (response) {
             debugger;
