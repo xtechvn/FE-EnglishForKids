@@ -15,5 +15,10 @@
         public int? pageview { get; set; }
         public string list_category_id { get; set; }
         public string list_category_name { get; set; }
+        // ✅ Thêm tổng số bài giảng
+        public int? TotalLessons { get; set; }
+
+        // ✅ Thêm tổng thời lượng khóa học (phút)
+        public int TotalDuration { get; set; }
     }
 }

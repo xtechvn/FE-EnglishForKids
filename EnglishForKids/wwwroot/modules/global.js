@@ -66,6 +66,7 @@ var global_service = {
         return undefined
     },
     GetAccountClientId: function () {
+        debugger
         str = sessionStorage.getItem(STORAGE_NAME.Login)
         if (str != undefined && str.trim() != '') {
             var model = JSON.parse(str)

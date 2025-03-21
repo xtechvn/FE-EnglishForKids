@@ -164,7 +164,7 @@ $(document).ready(function () {
     $(document).on("click", ".open-popup-link", function (e) {
         e.preventDefault();
         var targetPopup = $(this).attr("href") || $(this).data("id");
-        console.log("Mở Pop-up:", targetPopup);
+        //console.log("Mở Pop-up:", targetPopup);
 
         if ($(targetPopup).length === 0) {
             console.error("Không tìm thấy phần tử Pop-up:", targetPopup);
@@ -200,7 +200,7 @@ $(document).ready(function () {
     // 🛠 Gọi lại sự kiện Pop-up sau khi header AJAX load xong
     $(document).ajaxComplete(function (event, xhr, settings) {
         if (settings.url.includes("/home/loadHeaderComponent")) {
-            console.log("Header đã load xong từ AJAX.");
+            //console.log("Header đã load xong từ AJAX.");
             header.reinitializePopup();
             header.RenderHeaderLogin();
         }

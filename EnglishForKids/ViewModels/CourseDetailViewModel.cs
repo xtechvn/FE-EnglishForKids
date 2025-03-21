@@ -19,7 +19,7 @@
         //public decimal OriginalPrice { get; set; }
         public int Status { get; set; }
         // ✅ Thêm thông tin giá
-        public PriceInfoViewModel PriceInfo { get; set; } = new PriceInfoViewModel();
+        public PriceInfoViewModel? PriceInfo { get; set; } = new PriceInfoViewModel();
     }
 
     public class PriceInfoViewModel
